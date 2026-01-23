@@ -18,9 +18,9 @@
 ---
 ## Sommaire
 
-- A. Vérification physique
-- B. Accès passerelle
-- C. Accès service internet
+- A. Configuration du serveur TFTP (Poste Admin)
+- B. Sauvegarde des équipements vers TFTP
+- C. Stockage et Versionning (Git)
 - D. Vérification de la translation sur le routeur
 
 ---
