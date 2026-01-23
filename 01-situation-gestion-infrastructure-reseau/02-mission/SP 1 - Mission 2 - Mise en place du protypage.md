@@ -16,12 +16,14 @@ __Auteur :__ BISERAY Louis
 ____
 ## Sommaire
 
-__A.__ Adressage des postes et serveurs
-__B.__
-__C.__
+A. Adressage des postes et serveurs.
+B. Configuration des commutateurs d'accès.
+C. Configuration du commutateur cœur de réseau.
+D. Configuration du commutateur MILLENUITS.
+E. Configuration du routeur Modem ADSL.
 
 ____
-## __A.__ Adressage des postes, serveurs et table de routage
+## A. Adressage des postes, serveurs et table de routage.
 
 ### 1. Adressage
 
@@ -74,7 +76,7 @@ MN07 Serveur de fichiers : 172.16.51.7  Masque : 255.255.255.0
 | S                                                         | 0.0.0.0                | 0.0.0.0         | 172.16.31.254  | 0.0.0.0                         |
 
 ---
-## B. Configuration des commutateurs d'accès
+## B. Configuration des commutateurs d'accès.
 
 **Switch ADM**
 *Ceci doit être reproduis sur les autres commutateurs en tenant compte du plan d'adressage et du plan de nommage défini ci-dessus.*
@@ -125,7 +127,7 @@ Résultat attendu :
 ```
 
 ---
-## C. Configuration du commutateur cœur de réseau
+## C. Configuration du commutateur cœur de réseau.
 
 **1. Mise en place du plan de nommage.**
 ```CISCO
@@ -269,7 +271,7 @@ Routeur(config)# ip nat inside source list 1 interface GigabitEthernet0/1 overlo
 ```
 
 ---
-### E. Configuration du routeur Modem ADSL
+### E. Configuration du routeur Modem ADSL.
 
 **1. Mise en place du plan de nommage.**
 ```CISCO
