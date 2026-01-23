@@ -27,16 +27,16 @@ Le dépôt est organisé de manière chronologique et modulaire, chaque dossier 
 
 L'ensemble des projets aborde des compétences transversales et techniques variées :
 
-* **Infrastructure Réseau :**
+**Infrastructure Réseau :**
 * Conception de plans d'adressage (VLSM).
 * Segmentation et sécurisation par VLANs (Isolation des flux Production/Admin/Visiteurs).
 * Routage et translation d'adresses (NAT/PAT).
 
-* **Administration Système :**
+**Administration Système :**
 * Gestion des environnements Windows Server et Linux.
 * Services réseaux (DNS, DHCP, AD).
 
-* **Méthodologie de projet :**
+**Méthodologie de projet :**
 * Gestion des tâches et planification (Notion/Kanban).
 * Rédaction de documentation technique et fonctionnelle.
 * Travail collaboratif et gestion de version (Git).
