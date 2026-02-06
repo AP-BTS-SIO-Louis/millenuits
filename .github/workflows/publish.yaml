@@ -19,4 +19,4 @@ jobs:
             
             - run: pip install mkdocs-material
 
-            - run: mkdocs gh-deploy --config-file docs_millenuits/mkdocs.yaml --force
+            - run: mkdocs gh-deploy --config-file docs_millenuits/mkdocs.yml --force
