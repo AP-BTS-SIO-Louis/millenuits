@@ -1,1 +1,7 @@
-site_name: My Docs
+site_name: Documentation - Millenuits
+theme:
+  name: material            # Thème
+  language: fr
+
+plugins:
+  - search                  # Active la barre de recherche

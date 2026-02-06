@@ -1,17 +1,53 @@
-# Welcome to MkDocs
+# Ateliers de Professionnalisation - BTS SIO (Mille Nuits)
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Présentation du contexte et de l'objectif d'apprentissage
 
-## Commands
+Ce dépôt regroupe l'ensemble des productions réalisées dans le cadre des **Ateliers de Professionnalisation (AP)** du BTS SIO.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Le fil conducteur de ces ateliers est l'entreprise **Mille Nuits**, leader sur le marché français de la production de couettes et d'oreillers. L'objectif pédagogique est de placer les étudiants dans une **situation professionnelle simulée**, reproduisant les exigences d'une DSI d'entreprise en pleine croissance.
 
-## Project layout
+En tant que techniciens supérieurs, nous intervenons sur l'évolution du Système d'Information (SI) de l'entreprise, qui dispose de deux sites géographiques (Baugé et Joué-lès-Tours). Les missions évoluent au fil du temps pour couvrir différents domaines :
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* **Administration Système & Réseau** (Refonte d'infrastructure, Virtualisation, Sécurisation).
+* **Cybersécurité** (Cloisonnement, gestion des accès, pare-feu).
+* **Services** (Mise en place de nouveaux services applicatifs).
+
+## Organisation de la documentation
+
+La documentation est organisé de manière chronologique et modulaire, chaque dossier correspondant à une **Situation Professionnelle (SP)** spécifique rencontrée par l'entreprise.
+
+```
+├───01-situation-gestion-infrastructure-reseau # Situation professionnelle
+│   ├───01-mission                             # Nos documentations pour chaque mission
+│   └───02-mission                             # Nos documentations pour chaque mission
+└───02-situation-gestion-parc-informatique     # Situation professionnelle
+    ├───01-mission                             # Nos documentations pour chaque mission
+    └───02-mission                             # Nos documentations pour chaque mission
+```
+
+## Les notions clés mises en place
+
+L'ensemble des projets aborde des compétences transversales et techniques variées :
+
+**Infrastructure Réseau :**
+
+- Conception de plans d'adressage (VLSM).
+- Segmentation et sécurisation par VLANs (Isolation des flux Production/Admin/Visiteurs).
+- Routage et translation d'adresses (NAT/PAT).
+
+**Administration Système :**
+
+* Gestion des environnements Windows Server et Linux.
+* Services réseaux (DNS, DHCP, AD).
+
+**Méthodologie de projet :**
+
+* Gestion des tâches et planification (Notion/Kanban).
+* Rédaction de documentation technique et fonctionnelle.
+* Travail collaboratif et gestion de version (Git).
+
+## Auteurs
+
+**Louis Biseray** | [Linkedin](#) | [Portfolio](#) | [GitHub](#)
+
+**Louis MEDO** | [Linkedin](https://www.linkedin.com/in/louismedo/) | [Portfolio](https://louis.loutik.fr/) | [GitHub](https://github.com/FireToak)
