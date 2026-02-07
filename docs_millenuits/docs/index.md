@@ -1,5 +1,7 @@
 # 📚 Documentation Technique - MilleNuits
 
+![Logo MilleNuits](https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png)
+
 Bienvenue sur le site de documentation technique du projet **MilleNuits**. Ce site centralise l'ensemble des procédures, architectures et configurations mises en place dans le cadre de la refonte de l'infrastructure réseau et de la gestion du parc informatique de l'entreprise.
 
 ---
@@ -70,7 +72,7 @@ Nous utilisons **Obsidian** comme éditeur principal pour garantir une rédactio
 Ce contexte est réalisé par des étudiants en BTS SIO au lycée Paul-Courier (Tours).
 
 * **Louis MEDO** - [LinkedIn](https://www.linkedin.com/in/louismedo/) [Portfolio](https://louis.loutik.fr/) [GitHub](https://github.com/FireToak)
-* **Louis BISERAY** - [Lien LinkedIn](#) [Portfolio](#) [GitHub](#)
+* **Louis BISERAY** - [LinkedIn](#) [Portfolio](#) [GitHub](#)
 
 ---
 *Dernière mise à jour : Février 2026*
