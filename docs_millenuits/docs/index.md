@@ -3,24 +3,23 @@
 Bienvenue sur le site de documentation technique du projet **Mille Nuits**. Ce site centralise l'ensemble des procédures, architectures et configurations mises en place dans le cadre de la refonte de l'infrastructure réseau et de la gestion du parc informatique de l'entreprise.
 
 ---
-
 ## 🏢 Contexte du Projet
 
-**Mille Nuits** est une entreprise leader sur le marché français de la fabrication de couettes et oreillers. [cite_start]Basée sur deux sites (Baugé-en-Anjou pour la production/administratif et Joué-lès-Tours pour la logistique), l'entreprise connait une forte croissance [cite: 392, 400-401].
+**Mille Nuits** est une entreprise leader sur le marché français de la fabrication de couettes et oreillers. Basée sur deux sites (Baugé-en-Anjou pour la production/administratif et Joué-lès-Tours pour la logistique), l'entreprise connait une forte croissance.
 
 Suite à des incidents de sécurité récents (propagation de virus) et pour accompagner l'arrivée de nouveaux collaborateurs, la DSI a lancé un plan de modernisation s'articulant autour de deux situations professionnelles (SP) majeures :
 
 ### 1. Gestion de l'infrastructure réseau (SP1)
-[cite_start]L'objectif est de sécuriser les flux et de segmenter le réseau [cite: 165-166].
-* [cite_start]**Séparation des flux** : Mise en place de VLANs (Administratif, Production, Logistique, etc.)[cite: 223].
-* [cite_start]**Adressage** : Refonte du plan d'adressage IP (VLSM)[cite: 190].
-* [cite_start]**Mobilité** : Déploiement d'une infrastructure Wi-Fi sécurisée pour les visiteurs et les commerciaux [cite: 276-280, 331-333].
+L'objectif est de sécuriser les flux et de segmenter le réseau.
+* **Séparation des flux** : Mise en place de VLANs (Administratif, Production, Logistique, etc.).
+* **Adressage** : Refonte du plan d'adressage IP (VLSM).
+* **Mobilité** : Déploiement d'une infrastructure Wi-Fi sécurisée pour les visiteurs et les commerciaux.
 
 ### 2. Gestion du parc informatique (SP2)
-[cite_start]Le service administratif nécessite un renouvellement matériel et logiciel[cite: 18].
-* [cite_start]**Migration** : Passage de Windows 8 à Windows 11 avec suite logicielle standardisée [cite: 77-78].
-* [cite_start]**Industrialisation** : Mise en place d'une solution de déploiement (FOG) pour l'installation massive des postes [cite: 91-95].
-* [cite_start]**Support** : Implémentation d'un outil de gestion d'incidents (GLPI) pour structurer le support utilisateur [cite: 122-128].
+Le service administratif nécessite un renouvellement matériel et logiciel.
+* **Migration** : Passage de Windows 8 à Windows 11 avec suite logicielle standardisée.
+* **Industrialisation** : Mise en place d'une solution de déploiement (FOG) pour l'installation massive des postes.
+* **Support** : Implémentation d'un outil de gestion d'incidents (GLPI) pour structurer le support utilisateur.
 
 ---
 
