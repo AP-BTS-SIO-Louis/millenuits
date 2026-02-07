@@ -47,10 +47,12 @@ Ce site de documentation est généré automatiquement à partir de fichiers Mar
 
 ### Structure du dépôt
 L'arborescence est organisée par mission pour faciliter la navigation :
-* 📂 `config/` : Contient les fichiers de configuration brute des équipements (Switchs, Routeurs).
-* 📂 `docs_millenuits/docs/` : Racine de la documentation.
-    * `01-situation-gestion-infrastructure-reseau` : Documents relatifs à la SP1.
-    * `02-situation-gestion-parc-informatique` : Documents relatifs à la SP2.
+```Bash
+ 📂 `config/` # Contient les fichiers de configuration brute des équipements (Switchs, Routeurs).
+ 📂 `docs_millenuits/docs/` # Racine de la documentation.
+     `01-situation-gestion-infrastructure-reseau` # Documents relatifs à la SP1.
+     `02-situation-gestion-parc-informatique` # Documents relatifs à la SP2.
+```
 
 ### Workflow de rédaction (Obsidian & Git)
 Nous utilisons **Obsidian** comme éditeur principal pour garantir une rédaction fluide en Markdown.
@@ -63,7 +65,7 @@ Nous utilisons **Obsidian** comme éditeur principal pour garantir une rédactio
 
 ## 👥 Auteurs
 
-Ce projet est réalisé par des étudiants en BTS SIO au lycée Paul-Courier (Tours).
+Ce contexte est réalisé par des étudiants en BTS SIO au lycée Paul-Courier (Tours).
 
 * **Louis MEDO** - [LinkedIn](https://www.linkedin.com/in/louismedo/) [Portfolio](https://louis.loutik.fr/) [GitHub](https://github.com/FireToak)
 * **Louis BISERAY** - [Lien LinkedIn](#) [Portfolio](#) [GitHub](#)
