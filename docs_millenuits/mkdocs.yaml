@@ -9,14 +9,14 @@ theme:
 
   palette: 
     - scheme: default
-      primary: indigo
+      primary: white
       accent: blue
       toggle:
         icon: material/brightness-7
         name: Passer au mode sombre
     - scheme: slate
       primary: indigo
-      accent: blue
+      accent: grey
       toggle:
         icon: material/brightness-4
         name: Passer au mode clair
