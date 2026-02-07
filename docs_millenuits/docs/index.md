@@ -1,9 +1,9 @@
-# 📚 Documentation Technique - Projet Mille Nuits
+# 📚 Documentation Technique - MilleNuits
 
-Bienvenue sur le site de documentation technique du projet **Mille Nuits**. Ce site centralise l'ensemble des procédures, architectures et configurations mises en place dans le cadre de la refonte de l'infrastructure réseau et de la gestion du parc informatique de l'entreprise.
+Bienvenue sur le site de documentation technique du projet **MilleNuits**. Ce site centralise l'ensemble des procédures, architectures et configurations mises en place dans le cadre de la refonte de l'infrastructure réseau et de la gestion du parc informatique de l'entreprise.
 
 ---
-## 🏢 Contexte du Projet
+## 🏢 Contexte
 
 **Mille Nuits** est une entreprise leader sur le marché français de la fabrication de couettes et oreillers. Basée sur deux sites (Baugé-en-Anjou pour la production/administratif et Joué-lès-Tours pour la logistique), l'entreprise connait une forte croissance.
 
