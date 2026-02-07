@@ -4,7 +4,7 @@ copyright: AP - Contexte Millenuits - 2025 - Lycée Paul-Louis Courier
 theme:
   name: material            # Thème
   language: fr
-  logo: assets/logo_millenuits.png
+  logo: assets/icon_millenuits.png
   favicon: assets/icon_millenuits.png
 
   palette: 
