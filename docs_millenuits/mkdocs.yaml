@@ -15,8 +15,8 @@ theme:
         icon: material/brightness-7
         name: Passer au mode sombre
     - scheme: slate
-      primary: indigo
-      accent: grey
+      primary: white
+      accent: blue
       toggle:
         icon: material/brightness-4
         name: Passer au mode clair
