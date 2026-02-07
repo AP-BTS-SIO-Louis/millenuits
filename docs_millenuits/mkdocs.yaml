@@ -1,7 +1,38 @@
 site_name: Documentation - Millenuits
+copyright: AP - Contexte Millenuits - 2025 - Lycée Paul-Louis Courier
+
 theme:
   name: material            # Thème
   language: fr
+  logo: /images/logo_millenuits.png
+
+  palette: 
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Passer au mode sombre
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Passer au mode clair
+
+  features:
+    - navigation.tabs           # Menu principal en haut (onglets)
+    - navigation.top            # Bouton "Retour en haut"
+    - content.code.copy         # Bouton pour copier les blocs de code
+
+  markdown_extensions:          # Activation des annotations en Markdown
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
 
 plugins:
   - search                  # Active la barre de recherche
