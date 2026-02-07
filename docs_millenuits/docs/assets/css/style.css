@@ -1,0 +1,5 @@
+/* Agrandit le logo */
+.md-header__button.md-logo img {
+  height: 40px;   /* taille du logo */
+  width: auto;
+}

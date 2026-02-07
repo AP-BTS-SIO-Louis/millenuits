@@ -5,7 +5,7 @@ theme:
   name: material            # Thème
   language: fr
   logo: assets/logo_millenuits.png
-  favicon: assets/logo_millenuits.png
+  favicon: assets/icon_millenuits.png
 
   palette: 
     - scheme: default
@@ -24,6 +24,9 @@ theme:
   features:
     - navigation.top            # Bouton "Retour en haut"
     - content.code.copy         # Bouton pour copier les blocs de code
+
+  extra_css:
+  - assets/css/style.css
 
   markdown_extensions:          # Activation des annotations en Markdown
   - admonition
