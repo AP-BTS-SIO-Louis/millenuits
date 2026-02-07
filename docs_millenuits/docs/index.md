@@ -1,53 +1,73 @@
-# Ateliers de Professionnalisation - BTS SIO (Mille Nuits)
+# 📚 Documentation Technique - Projet Mille Nuits
 
-## Présentation du contexte et de l'objectif d'apprentissage
+Bienvenue sur le site de documentation technique du projet **Mille Nuits**. Ce site centralise l'ensemble des procédures, architectures et configurations mises en place dans le cadre de la refonte de l'infrastructure réseau et de la gestion du parc informatique de l'entreprise.
 
-Ce dépôt regroupe l'ensemble des productions réalisées dans le cadre des **Ateliers de Professionnalisation (AP)** du BTS SIO.
+---
 
-Le fil conducteur de ces ateliers est l'entreprise **Mille Nuits**, leader sur le marché français de la production de couettes et d'oreillers. L'objectif pédagogique est de placer les étudiants dans une **situation professionnelle simulée**, reproduisant les exigences d'une DSI d'entreprise en pleine croissance.
+## 🏢 Contexte du Projet
 
-En tant que techniciens supérieurs, nous intervenons sur l'évolution du Système d'Information (SI) de l'entreprise, qui dispose de deux sites géographiques (Baugé et Joué-lès-Tours). Les missions évoluent au fil du temps pour couvrir différents domaines :
+**Mille Nuits** est une entreprise leader sur le marché français de la fabrication de couettes et oreillers. [cite_start]Basée sur deux sites (Baugé-en-Anjou pour la production/administratif et Joué-lès-Tours pour la logistique), l'entreprise connait une forte croissance [cite: 392, 400-401].
 
-* **Administration Système & Réseau** (Refonte d'infrastructure, Virtualisation, Sécurisation).
-* **Cybersécurité** (Cloisonnement, gestion des accès, pare-feu).
-* **Services** (Mise en place de nouveaux services applicatifs).
+Suite à des incidents de sécurité récents (propagation de virus) et pour accompagner l'arrivée de nouveaux collaborateurs, la DSI a lancé un plan de modernisation s'articulant autour de deux situations professionnelles (SP) majeures :
 
-## Organisation de la documentation
+### 1. Gestion de l'infrastructure réseau (SP1)
+[cite_start]L'objectif est de sécuriser les flux et de segmenter le réseau [cite: 165-166].
+* [cite_start]**Séparation des flux** : Mise en place de VLANs (Administratif, Production, Logistique, etc.)[cite: 223].
+* [cite_start]**Adressage** : Refonte du plan d'adressage IP (VLSM)[cite: 190].
+* [cite_start]**Mobilité** : Déploiement d'une infrastructure Wi-Fi sécurisée pour les visiteurs et les commerciaux [cite: 276-280, 331-333].
 
-La documentation est organisé de manière chronologique et modulaire, chaque dossier correspondant à une **Situation Professionnelle (SP)** spécifique rencontrée par l'entreprise.
+### 2. Gestion du parc informatique (SP2)
+[cite_start]Le service administratif nécessite un renouvellement matériel et logiciel[cite: 18].
+* [cite_start]**Migration** : Passage de Windows 8 à Windows 11 avec suite logicielle standardisée [cite: 77-78].
+* [cite_start]**Industrialisation** : Mise en place d'une solution de déploiement (FOG) pour l'installation massive des postes [cite: 91-95].
+* [cite_start]**Support** : Implémentation d'un outil de gestion d'incidents (GLPI) pour structurer le support utilisateur [cite: 122-128].
 
-```
-├───01-situation-gestion-infrastructure-reseau # Situation professionnelle
-│   ├───01-mission                             # Nos documentations pour chaque mission
-│   └───02-mission                             # Nos documentations pour chaque mission
-└───02-situation-gestion-parc-informatique     # Situation professionnelle
-    ├───01-mission                             # Nos documentations pour chaque mission
-    └───02-mission                             # Nos documentations pour chaque mission
-```
+---
 
-## Les notions clés mises en place
+## 🎯 Compétences Mises en Œuvre
 
-L'ensemble des projets aborde des compétences transversales et techniques variées :
+Ce projet mobilise les compétences du référentiel **BTS SIO (Option SISR)** suivantes :
 
-**Infrastructure Réseau :**
+* **Gérer le patrimoine informatique** :
+    * Recensement et gestion des incidents.
+    * Déploiement centralisé de postes clients.
+* **Répondre aux incidents et aux demandes d’assistance et d’évolution** :
+    * Mise en place d'outils de ticketing.
+    * Rédaction de fiches procédures et conseils utilisateurs.
+* **Administrer les systèmes et les réseaux** :
+    * Configuration des éléments actifs (Routeurs, Switchs Cisco).
+    * Administration des VLANs et du routage inter-VLAN.
+* **Protéger les données à caractère personnel et la vie privée** :
+    * Segmentation du réseau et sécurisation des accès Wi-Fi.
 
-- Conception de plans d'adressage (VLSM).
-- Segmentation et sécurisation par VLANs (Isolation des flux Production/Admin/Visiteurs).
-- Routage et translation d'adresses (NAT/PAT).
+---
 
-**Administration Système :**
+## 🛠️ Utilisation du Dépôt et Workflow
 
-* Gestion des environnements Windows Server et Linux.
-* Services réseaux (DNS, DHCP, AD).
+Ce site de documentation est généré automatiquement à partir de fichiers Markdown hébergés sur notre dépôt Git.
 
-**Méthodologie de projet :**
+### Structure du dépôt
+L'arborescence est organisée par mission pour faciliter la navigation :
+* 📂 `config/` : Contient les fichiers de configuration brute des équipements (Switchs, Routeurs).
+* 📂 `docs_millenuits/docs/` : Racine de la documentation.
+    * `01-situation-gestion-infrastructure-reseau` : Documents relatifs à la SP1.
+    * `02-situation-gestion-parc-informatique` : Documents relatifs à la SP2.
 
-* Gestion des tâches et planification (Notion/Kanban).
-* Rédaction de documentation technique et fonctionnelle.
-* Travail collaboratif et gestion de version (Git).
+### Workflow de rédaction (Obsidian & Git)
+Nous utilisons **Obsidian** comme éditeur principal pour garantir une rédaction fluide en Markdown.
 
-## Auteurs
+1.  **Rédaction** : Les fiches sont rédigées localement dans le coffre Obsidian lié au dossier `docs_millenuits/docs`.
+2.  **Commit & Push** : Une fois la documentation validée, les modifications sont poussées sur le dépôt central.
+3.  **Déploiement** : Un workflow GitHub Actions (`publish.yaml`) détecte les changements et régénère automatiquement le site statique via **MkDocs** sur GitHub Pages.
 
-**Louis Biseray** | [Linkedin](#) | [Portfolio](#) | [GitHub](#)
+---
 
-**Louis MEDO** | [Linkedin](https://www.linkedin.com/in/louismedo/) | [Portfolio](https://louis.loutik.fr/) | [GitHub](https://github.com/FireToak)
+## 👥 Auteurs
+
+Ce projet est réalisé par des étudiants en BTS SIO au lycée Paul-Courier (Tours).
+
+* **Louis MEDO** - [LinkedIn](https://www.linkedin.com/in/louismedo/) [Portfolio](https://louis.loutik.fr/) [GitHub](https://github.com/FireToak)
+* **Louis BISERAY** - [Lien LinkedIn](#) [Portfolio](#) [GitHub](#)
+
+---
+*Dernière mise à jour : Février 2026*
