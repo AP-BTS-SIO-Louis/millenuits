@@ -74,6 +74,7 @@ sudo mariadb-secure-installation
 * `mariadb-secure-installation` : Script binaire lançant l'assistant de sécurité.
 
   **Exemple de configuration :**
+  
   - Switch to unix_socket authentification : `n`
   - Change the root password : `y`
   - Remove anonymous users : `y`
@@ -83,7 +84,7 @@ sudo mariadb-secure-installation
 
 2. **Création de la base et de l'utilisateur.** Création d'une base dédiée et d'un utilisateur spécifique avec des droits restreints à cette seule base, par mesure de sécurité.
    
- ```bash
+```bash
 sudo mysql -u root -p
 
 # Une fois dans la console SQL, saisir les lignes suivantes :
@@ -92,7 +93,7 @@ CREATE DATABASE imdeo_glpi;
 GRANT ALL PRIVILEGES ON imdeo_glpi.* TO poppy@localhost IDENTIFIED BY "VoirBitwarden";
 FLUSH PRIVILEGES;
 EXIT;
- ```
+```
 
 * `mysql -u root -p` : Connexion à la console SQL en tant que root.
 * `CREATE DATABASE` : Crée le conteneur de données.
@@ -144,22 +145,22 @@ sudo mv /var/www/glpi/config /etc/glpi
 sudo mv /var/www/glpi/files /var/lib/glpi
 
 # Création du fichier de lien 1
+sudoedit /var/www/glpi/inc/downstream.php
 
-sudo bash -c 'cat << EOF > /var/www/glpi/inc/downstream.php
+# Ajouter le contenu suivant dans le fichier :
 <?php
-define("GLPI_CONFIG_DIR", "/etc/glpi/");
-if (file_exists(GLPI_CONFIG_DIR . "/local_define.php")) {
-require_once GLPI_CONFIG_DIR . "/local_define.php";
+define('GLPI_CONFIG_DIR', '/etc/glpi/');
+if (file_exists(GLPI_CONFIG_DIR . '/local_define.php')) {
+    require_once GLPI_CONFIG_DIR . '/local_define.php';
 }
-EOF'
 
 # Création du fichier de lien 2
+sudoedit /etc/glpi/local_define.php
 
-sudo bash -c 'cat << EOF > /etc/glpi/local_define.php
+# Ajouter le contenu suivant dans le fichier :
 <?php
-define("GLPI_VAR_DIR", "/var/lib/glpi/files");
-define("GLPI_LOG_DIR", "/var/log/glpi");
-EOF'
+define('GLPI_VAR_DIR', '/var/lib/glpi/files');
+define('GLPI_LOG_DIR', '/var/log/glpi');
 ```
 
 * `mkdir` : Création de répertoires (`/etc/glpi`, `/var/lib/glpi`, `/var/log/glpi`).
@@ -235,9 +236,9 @@ sudo systemctl restart php8.4-fpm.service
 ---
 ## Annexe de configuration
 
-1. [Configuration de GLP](https://www.google.com/search?q=)
-2. [Ouvrir un ticket sur GLPI](https://www.google.com/search?q=)
-3. [Utiliser GLPI en tant qu'helpdesk](https://www.google.com/search?q=)
+1. [Configuration de GLP](#)
+2. [Ouvrir un ticket sur GLPI](#)
+3. [Utiliser GLPI en tant qu'helpdesk](#)
 
 ---
 ## Ressources
