@@ -176,7 +176,7 @@ EOF'
  #  Insérer la configuration VirtualHost standard (voir dans le dépôt git de la mission 4)
 ```
 
-- Configuration du VirtualHost Apache2 : [⚠️ A faire]()
+- Configuration du VirtualHost Apache2 : [Millenuits Virtualhost GLPI](https://github.com/AP-BTS-SIO-Louis/millenuits/blob/main/docs_millenuits/docs/02-situation-gestion-parc-informatique/04-mission/configuration-virtualhost-apache2-glpi.conf)
 
    2. **Activation du site.** Activation de la nouvelle configuration, désactivation du site par défaut et activation du module de réécriture. 
 
