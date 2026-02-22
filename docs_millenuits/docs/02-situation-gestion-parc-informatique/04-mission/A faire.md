@@ -1,0 +1,3 @@
+- [ ] Procédure sur l'installation basique d'une VM chez Millenuits (MOTD, Configuration de clé)
+- [ ] Installation clé SSH dans Terminus
+- [ ] Configuration SSH

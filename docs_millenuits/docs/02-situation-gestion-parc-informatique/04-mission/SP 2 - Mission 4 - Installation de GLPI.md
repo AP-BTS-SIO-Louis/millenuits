@@ -89,15 +89,15 @@ sudo mysql -u root -p
 
 # Une fois dans la console SQL, saisir les lignes suivantes :
 
-CREATE DATABASE imdeo_glpi;
-GRANT ALL PRIVILEGES ON imdeo_glpi.* TO poppy@localhost IDENTIFIED BY "VoirBitwarden";
+CREATE DATABASE millenuits_glpi;
+GRANT ALL PRIVILEGES ON millenuits_glpi.* TO poppy@localhost IDENTIFIED BY "VoirBitwarden";
 FLUSH PRIVILEGES;
 EXIT;
 ```
 
 * `mysql -u root -p` : Connexion à la console SQL en tant que root.
 * `CREATE DATABASE` : Crée le conteneur de données.
-* `GRANT ALL PRIVILEGES` : Donne tous les droits (lecture/écriture) sur la base `imdeo_glpi` à l'utilisateur `poppy`.
+* `GRANT ALL PRIVILEGES` : Donne tous les droits (lecture/écriture) sur la base `millenuits_glpi` à l'utilisateur `poppy`.
 * `FLUSH PRIVILEGES` : Recharge les tables de droits pour appliquer les changements immédiatement.
 
 ### 3. Téléchargement de GLPI
@@ -106,7 +106,8 @@ EXIT;
    > 💡 Pensez à vérifier que vous télécharger la dernière version de GLPI présente dans le dépôt GitHub : https://github.com/glpi-project/glpi/releases
 
 ```BASH
-cd /tmp wget https://github.com/glpi-project/glpi/releases/download/11.0.5/glpi-11.0.5.tgz
+cd /tmp 
+wget https://github.com/glpi-project/glpi/releases/download/11.0.5/glpi-11.0.5.tgz
 ```
 
 * `cd /tmp` : Change le répertoire courant vers le dossier temporaire.
@@ -115,7 +116,7 @@ cd /tmp wget https://github.com/glpi-project/glpi/releases/download/11.0.5/glpi-
 2. **Extraction et installation.** Décompression de l'archive directement dans le répertoire racine du serveur web.
    
 ```BASH
-sudo tar -xzvf glpi-11.0.4.tgz -C /var/www/
+sudo tar -xzvf glpi-11.0.5.tgz -C /var/www/
 ```
 
 * `tar` : Utilitaire d'archivage.
@@ -172,7 +173,7 @@ define('GLPI_LOG_DIR', '/var/log/glpi');
 1. **Création du VirtualHost.** Configuration d'un fichier hôte virtuel Apache pour indiquer le dossier racine (`DocumentRoot`) et les règles de réécriture d'URL.
 
 ```bash
- sudo nano /etc/apache2/sites-available/glpi.conf
+ sudo nano /etc/apache2/sites-available/glpi.millenuits.lab.conf
  
  #  Insérer la configuration VirtualHost standard (voir dans le dépôt git de la mission 4)
 ```
@@ -182,7 +183,7 @@ define('GLPI_LOG_DIR', '/var/log/glpi');
    2. **Activation du site.** Activation de la nouvelle configuration, désactivation du site par défaut et activation du module de réécriture. 
 
 ```bash
-sudo a2ensite glpi.conf
+sudo a2ensite glpi.millenuits.lab.conf
 sudo a2dissite 000-default.conf
 sudo a2enmod rewrite
 sudo systemctl restart apache2
@@ -230,7 +231,7 @@ sudo systemctl restart php8.4-fpm.service
 * Serveur SQL : `localhost`
 * Utilisateur SQL : `poppy`
 * Mot de passe SQL : `VoirBitwarden`
-* Sélectionner la base existante : `imdeo_glpi`
+* Sélectionner la base existante : `millenuits_glpi`
 * Terminer l'installation et supprimer le fichier d'installation pour la sécurité : `sudo rm /var/www/glpi/install/install.php`.
 
 ---
