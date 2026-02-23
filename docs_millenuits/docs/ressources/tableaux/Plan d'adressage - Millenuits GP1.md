@@ -2,7 +2,7 @@
 
 <div style="display: flex; gap: 10px;">
   <img src="https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png" width="120" height="100">
-  <img src="image2.png" width="100" height="100">
+  <img src="https://raw.githubusercontent.com/AP-BTS-SIO-Louis/millenuits/main/docs_millenuits/docs/assets/qr-code/qr-code_plan-adressage.svg" width="100" height="100">
 </div>
 
 ---
