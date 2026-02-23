@@ -1,4 +1,4 @@
-# Plan d'adressage - Millenuits GP1
+# Table de routage - Millenuits GP1
 
 <div style="display: flex; gap: 10px;">
   <img src="https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png" width="120" height="100">
@@ -7,8 +7,8 @@
 
 ---
 
-**Mainteneur** : Louis MEDO
-**Dernière édition** : 23/02/2026
+- **Mainteneur** : Louis MEDO
+- **Dernière édition** : 23/02/2026
 
 ---
 

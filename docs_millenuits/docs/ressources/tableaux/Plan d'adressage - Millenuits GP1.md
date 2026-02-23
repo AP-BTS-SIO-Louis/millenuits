@@ -7,8 +7,8 @@
 
 ---
 
-**Mainteneur** : Louis MEDO
-**Dernière édition** : 23/02/2026
+- **Mainteneur** : Louis MEDO
+- **Dernière édition** : 23/02/2026
 
 ---
 

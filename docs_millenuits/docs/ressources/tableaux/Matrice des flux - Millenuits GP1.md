@@ -1,14 +1,14 @@
-# Matrice de flux - Millenuits GP1
+# Matrice des flux - Millenuits GP1
 
 <div style="display: flex; gap: 10px;">
   <img src="https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png" width="120" height="100">
-  <img src="image2.png" width="100" height="100">
+  <img src="qr-code.svg" width="100" height="100">
 </div>
 
 ---
 
-**Mainteneur** : Louis MEDO
-**Dernière édition** : 23/02/2026
+- **Mainteneur** : Louis MEDO
+- **Dernière édition** : 23/02/2026
 
 ---
 
