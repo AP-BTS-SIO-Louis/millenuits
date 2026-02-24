@@ -1,0 +1,2328 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../SP%202%20-%20Mission%201%20-%20Fiche%20recette%20-%20D%C3%A9ploiement%20de%20la%20Documentation%20sur%20GitHub%20Pages/">
+      
+      
+        <link rel="next" href="../../02-mission/SP%201%20-%20Mission%202%20Installations%20de%20nouveaux%20clients/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/icon_millenuits.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>SP 2 - Mission 1 - Mise en place MkDocs - Documentation - Millenuits</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sp-2-mission-1-mise-en-place-mkdocs" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Documentation - Millenuits" class="md-header__button md-logo" aria-label="Documentation - Millenuits" data-md-component="logo">
+      
+  <img src="../../../assets/icon_millenuits.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation - Millenuits
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SP 2 - Mission 1 - Mise en place MkDocs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation - Millenuits" class="md-nav__button md-logo" aria-label="Documentation - Millenuits" data-md-component="logo">
+      
+  <img src="../../../assets/icon_millenuits.png" alt="logo">
+
+    </a>
+    Documentation - Millenuits
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Documentation Technique - MilleNuits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 situation gestion infrastructure reseau
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 situation gestion infrastructure reseau
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/01-mission/SP%201%20-%20Mission%201%20-%20Plan%20d%27adressage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 1 - Plan d'adressage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Mise%20en%20place%20du%20protypage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 2 - Mise en place du protypage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Recette%20infrastructure%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 1 - Recette infrastructure réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Sauvegarde%20via%20TFTP%20des%20%C3%A9quipements%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 2 - Sauvegarde via TFTP des équipements réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/03-mission/SP%201%20-%20Mission%203%20-%20Configuration%20de%20la%20borne%20WIFI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 3 - Configuration de la borne WIFI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/03-mission/SP%201%20-%20Mission%203%20-%20Mise%20en%20place%20du%20r%C3%A9seau%20pour%20AP%20WIFI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 3 - Mise en place du réseau pour AP WIFI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 situation gestion parc informatique
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 situation gestion parc informatique
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%202%20-%20Mission%201%20-%20Fiche%20recette%20-%20D%C3%A9ploiement%20de%20la%20Documentation%20sur%20GitHub%20Pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiche recette - Déploiement de la Documentation sur GitHub Pages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 1 - Mise en place MkDocs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 1 - Mise en place MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sommaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sommaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-installation-et-utilisation-locale-de-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Installation et utilisation locale de MkDocs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. Installation et utilisation locale de MkDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-installation-des-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Installation des dépendances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initialisation-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initialisation du projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-utilisation-courante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Utilisation courante
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-automatisation-du-deploiement-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Automatisation du déploiement (CI/CD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Automatisation du déploiement (CI/CD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuration-du-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Configuration du Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mise-en-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Mise en production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-activation-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Activation GitHub Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-verification-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Vérification finale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-fonctionnement-du-depot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Fonctionnement du dépôt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. Fonctionnement du dépôt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organisation-de-larborescence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organisation de l'arborescence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes importantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliographie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliographie
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-mission/SP%201%20-%20Mission%202%20Installations%20de%20nouveaux%20clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1   Mission 2 Installations de nouveaux clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/A%20faire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A faire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/SP%202%20-%20Mission%204%20-%20Choix%20de%20l%27outil%20de%20ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Choix de l'outil de ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/SP%202%20-%20Mission%204%20-%20Configuration%20post%20installation%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Configuration post installation GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/SP%202%20-%20Mission%204%20-%20Fiche%20de%20recette%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Fiche de recette GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Administrateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Administrateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Helpdesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Helpdesk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Utilisateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Utilisateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-mission/SP%202%20-%20Mission%204%20-%20Installation%20de%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Installation de GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ressources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schémas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schémas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/sch%C3%A9mas/R%C3%A9pertoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Répertoire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Situations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Situations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/situations/R%C3%A9pertoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Répertoire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tableaux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tableaux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Matrice%20des%20flux%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrice des flux - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Plan%20d%27adressage%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan d'adressage - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Table%20de%20routage%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table de routage - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sommaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sommaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-installation-et-utilisation-locale-de-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Installation et utilisation locale de MkDocs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. Installation et utilisation locale de MkDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-installation-des-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Installation des dépendances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initialisation-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initialisation du projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-utilisation-courante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Utilisation courante
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-automatisation-du-deploiement-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Automatisation du déploiement (CI/CD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Automatisation du déploiement (CI/CD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuration-du-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Configuration du Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mise-en-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Mise en production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-activation-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Activation GitHub Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-verification-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Vérification finale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-fonctionnement-du-depot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Fonctionnement du dépôt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. Fonctionnement du dépôt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organisation-de-larborescence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organisation de l'arborescence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes importantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliographie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliographie
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sp-2-mission-1-mise-en-place-mkdocs">SP 2 - Mission 1 - Mise en place MkDocs</h1>
+<p><strong>SP 2 : Gestion parc informatique</strong></p>
+<p><strong>Mission 1 : Création d'une documentation avec MkDocs et GitHub Pages</strong></p>
+<p><strong>Contexte : MILLENUITS</strong></p>
+<p><img alt="Logo MilleNuits" src="https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png" /></p>
+<hr />
+<h2 id="informations-generales">Informations générales</h2>
+<ul>
+<li><strong>Date de création</strong> : 05/02/2026</li>
+<li><strong>Dernière modification</strong> : 05/02/2026</li>
+<li><strong>Auteur</strong> : MEDO Louis</li>
+</ul>
+<hr />
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li>A. Installation et utilisation locale de MkDocs</li>
+<li>B. Automatisation du déploiement (CI/CD)</li>
+<li>C. Fonctionnement du dépôt</li>
+</ul>
+<hr />
+<h2 id="objectif">Objectif</h2>
+<p>Cette procédure permet d'installer le générateur de site statique MkDocs sur un environnement Windows, de le configurer avec le thème "Material", et d'automatiser son déploiement sur GitHub Pages via les GitHub Actions.</p>
+<hr />
+<h2 id="prerequis">Prérequis</h2>
+<ul>
+<li>Python 3.x installé sur la machine.</li>
+<li>Git installé et configuré.</li>
+<li>Un compte GitHub et un dépôt créé.</li>
+<li>VS Code (ou autre éditeur de texte).</li>
+</ul>
+<hr />
+<h2 id="a-installation-et-utilisation-locale-de-mkdocs">A. Installation et utilisation locale de MkDocs</h2>
+<h3 id="1-installation-des-dependances">1. Installation des dépendances</h3>
+<ol>
+<li><strong>Mise à jour de pip.</strong> Mise à jour du gestionnaire de paquets Python.</li>
+</ol>
+<pre><code class="language-bash">python.exe -m pip install --upgrade pip
+</code></pre>
+<ul>
+<li><code>python.exe -m pip</code> : Exécute le module pip via l'interpréteur Python (évite les soucis de PATH).</li>
+<li><code>install</code> : Commande pour installer un paquet.</li>
+<li>
+<p><code>--upgrade</code> : Option forçant la mise à jour si le paquet existe déjà.</p>
+</li>
+<li>
+<p><strong>Installation de MkDocs Material.</strong> Installation du framework MkDocs avec le thème visuel Material.</p>
+</li>
+</ul>
+<pre><code class="language-bash">pip install mkdocs-material
+</code></pre>
+<ol>
+<li><strong>Vérification.</strong> Contrôle de la bonne installation.</li>
+</ol>
+<pre><code class="language-bash">python -m mkdocs --version
+</code></pre>
+<ul>
+<li><code>--version</code> : Affiche le numéro de version installé.</li>
+</ul>
+<h3 id="2-initialisation-du-projet">2. Initialisation du projet</h3>
+<ol>
+<li><strong>Création de la structure.</strong> Création du dossier qui contiendra la documentation (selon l'arborescence du projet <code>docs_millenuits</code>).</li>
+</ol>
+<pre><code class="language-bash">python -m mkdocs new docs_millenuits
+</code></pre>
+<ul>
+<li><code>new</code> : Commande pour générer l'échafaudage de base (fichier yaml et dossier docs).</li>
+<li>
+<p><code>docs_millenuits</code> : Nom du dossier racine de la documentation.</p>
+</li>
+<li>
+<p><strong>Configuration.</strong> Modification du fichier <code>docs_millenuits/mkdocs.yaml</code>.</p>
+</li>
+</ul>
+<pre><code class="language-yaml">site_name: Documentation - Millenuits
+theme:
+  name: material            # Définition du thème visuel
+  language: fr              # Langue de l'interface
+
+plugins:
+  - search                  # Active la barre de recherche interne
+</code></pre>
+<h3 id="3-utilisation-courante">3. Utilisation courante</h3>
+<ol>
+<li><strong>Prévisualisation locale.</strong> Lancement d'un serveur web local pour voir le rendu en direct.</li>
+</ol>
+<pre><code class="language-bash">python -m mkdocs serve
+</code></pre>
+<ul>
+<li>
+<p><code>serve</code> : Démarre un serveur de développement (généralement sur localhost:8000) avec rechargement automatique à chaque modification de fichier.</p>
+</li>
+<li>
+<p><strong>Compilation manuelle (Optionnel).</strong> Génération des fichiers HTML statiques.</p>
+</li>
+</ul>
+<pre><code class="language-bash">python -m mkdocs build
+</code></pre>
+<ul>
+<li><code>build</code> : Convertit les fichiers Markdown en HTML dans le dossier <code>site/</code>.</li>
+</ul>
+<hr />
+<h2 id="b-automatisation-du-deploiement-cicd">B. Automatisation du déploiement (CI/CD)</h2>
+<h3 id="1-configuration-du-workflow">1. Configuration du Workflow</h3>
+<ol>
+<li><strong>Création du dossier.</strong> Créer l'arborescence <code>.github/workflows</code> à la racine du dépôt.</li>
+<li><strong>Création du fichier de pipeline.</strong> Créer le fichier <code>publish.yaml</code> avec le contenu suivant :</li>
+</ol>
+<pre><code class="language-yaml">name: Deploy MkDocs
+on:
+  push:
+    branches:
+      - main                # Déclencheur : push sur la branche main
+
+permissions:
+  contents: write           # Nécessaire pour que le bot puisse écrire sur la branche gh-pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Environnement virtuel Linux
+    steps:
+      - uses: actions/checkout@v4
+        # Récupère le code source du dépôt
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+        # Installe Python dans l'environnement virtuel
+
+      - run: pip install mkdocs-material
+        # Installe les dépendances nécessaires à la compilation
+
+      - run: mkdocs gh-deploy --config-file docs_millenuits/mkdocs.yaml --force
+        # Compile et déploie le site
+</code></pre>
+<ul>
+<li><code>on: push</code>: Définit l'événement qui lance l'action.</li>
+<li><code>runs-on</code>: Spécifie le système d'exploitation du conteneur (runner).</li>
+<li><code>actions/checkout</code>: Action officielle permettant au script d'accéder aux fichiers du dépôt.</li>
+<li><code>mkdocs gh-deploy</code>: Commande spécifique à MkDocs pour compiler et pousser le résultat sur la branche <code>gh-pages</code>.</li>
+<li><code>--config-file</code>: Indique le chemin spécifique du fichier de configuration (car il n'est pas à la racine).</li>
+<li><code>--force</code>: Force l'écrasement de l'historique de la branche de déploiement si nécessaire.</li>
+</ul>
+<h3 id="2-mise-en-production">2. Mise en production</h3>
+<ol>
+<li><strong>Envoi sur GitHub.</strong> Pousser les fichiers de configuration et le workflow.</li>
+</ol>
+<pre><code class="language-bash">git add .
+git commit -m &quot;Ajout pipeline CI/CD MkDocs&quot;
+git push -u origin main
+</code></pre>
+<ul>
+<li><code>add .</code> : Ajoute tous les fichiers modifiés à l'index (staging area).</li>
+<li><code>commit -m</code> : Enregistre les modifications avec un message descriptif.</li>
+<li><code>push</code> : Envoie les commits locaux vers le serveur distant (GitHub).</li>
+</ul>
+<h3 id="3-activation-github-pages">3. Activation GitHub Pages</h3>
+<ol>
+<li>Aller dans l'onglet <strong>Settings</strong> du dépôt GitHub.</li>
+<li>Menu <strong>Pages</strong> (barre latérale gauche).</li>
+<li>Dans <strong>Build and deployment</strong> &gt; <strong>Branch</strong>, sélectionner <code>gh-pages</code> et <code>/ (root)</code>.</li>
+<li>Cliquer sur <strong>Save</strong>.</li>
+</ol>
+<h3 id="4-verification-finale">4. Vérification finale</h3>
+<p>Accéder à l'URL fournie par GitHub (ex: <code>https://ap-bts-sio-louis.github.io/millenuits/</code>).</p>
+<hr />
+<h2 id="c-fonctionnement-du-depot">C. Fonctionnement du dépôt</h2>
+<p><a href="https://ap-bts-sio-louis.github.io/millenuits/" title="https://ap-bts-sio-louis.github.io/millenuits/">ap-bts-sio-louis.github.io/millenuits/</a></p>
+<h3 id="organisation-de-larborescence">Organisation de l'arborescence</h3>
+<p>Le dépôt est structuré pour séparer la configuration technique, l'automatisation et la documentation métier.</p>
+<table>
+<thead>
+<tr>
+<th>Dossier / Fichier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.github/workflows/</strong></td>
+<td>Contient les scripts d'automatisation (CI/CD). Ici, <code>publish.yaml</code> gère la compilation et la publication automatique du site lors d'une modification.</td>
+</tr>
+<tr>
+<td><strong>config/</strong></td>
+<td>Contient les fichiers de configuration technique des équipements réseau (Switchs, Routeurs) et les données VLAN (<code>vlan.dat</code>). Ce dossier est séparé de la documentation pour être exploitable directement par des scripts ou des techniciens.</td>
+</tr>
+<tr>
+<td><strong>docs_millenuits/</strong></td>
+<td>Dossier racine du projet MkDocs. Il isole l'environnement de documentation du reste du dépôt.</td>
+</tr>
+<tr>
+<td>↳ <strong>mkdocs.yaml</strong></td>
+<td>Fichier de configuration principal du site (nom, thème, plugins, structure de navigation).</td>
+</tr>
+<tr>
+<td>↳ <strong>docs/</strong></td>
+<td>Contient les fichiers sources en Markdown (<code>.md</code>). C'est le contenu brut qui sera transformé en page HTML.</td>
+</tr>
+<tr>
+<td>    ↳ <strong>index.md</strong></td>
+<td>Page d'accueil du site de documentation.</td>
+</tr>
+<tr>
+<td>    ↳ <strong>01-situation...</strong></td>
+<td>Dossier regroupant les missions liées à l'infrastructure réseau.</td>
+</tr>
+<tr>
+<td>    ↳ <strong>02-situation...</strong></td>
+<td>Dossier regroupant les missions liées à la gestion du parc informatique (dont cette procédure).</td>
+</tr>
+<tr>
+<td><strong>images/</strong></td>
+<td>Stockage des ressources statiques globales (logos, schémas d'architecture) utilisées à la fois dans le <code>readme.md</code> racine et dans les pages de documentation.</td>
+</tr>
+<tr>
+<td><strong>readme.md</strong></td>
+<td>Fichier d'accueil du dépôt GitHub, présentant le projet globalement (avant même d'aller sur le site de documentation).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="notes-importantes">Notes importantes</h2>
+<ul>
+<li><strong>Chemins d'images</strong> : Dans les fichiers Markdown situés dans <code>docs_millenuits/docs/</code>, pour utiliser une image du dossier racine <code>images</code>, il faut utiliser le chemin relatif <code>../../images/nom_image.png</code> ou l'URL absolue GitHub (moins recommandé pour le hors-ligne).</li>
+<li><strong>Indentation YAML</strong> : Le fichier <code>publish.yaml</code> est très sensible à l'indentation (espaces). Ne pas utiliser de tabulations.</li>
+</ul>
+<hr />
+<h2 id="bibliographie">Bibliographie</h2>
+<ul>
+<li><a href="https://www.mkdocs.org/">Documentation officielle MkDocs</a></li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/">Documentation Thème Material</a></li>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions Documentation</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      AP - Contexte Millenuits - 2025 - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

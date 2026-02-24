@@ -1,0 +1,2250 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Utilisateur/">
+      
+      
+        <link rel="next" href="../../../ressources/sch%C3%A9mas/R%C3%A9pertoire/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/icon_millenuits.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>SP 2 - Mission 4 - Installation de GLPI - Documentation - Millenuits</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sp-2-mission-4-installation-de-glpi" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Documentation - Millenuits" class="md-header__button md-logo" aria-label="Documentation - Millenuits" data-md-component="logo">
+      
+  <img src="../../../assets/icon_millenuits.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation - Millenuits
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SP 2 - Mission 4 - Installation de GLPI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation - Millenuits" class="md-nav__button md-logo" aria-label="Documentation - Millenuits" data-md-component="logo">
+      
+  <img src="../../../assets/icon_millenuits.png" alt="logo">
+
+    </a>
+    Documentation - Millenuits
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Documentation Technique - MilleNuits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 situation gestion infrastructure reseau
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 situation gestion infrastructure reseau
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/01-mission/SP%201%20-%20Mission%201%20-%20Plan%20d%27adressage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 1 - Plan d'adressage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Mise%20en%20place%20du%20protypage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 2 - Mise en place du protypage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Recette%20infrastructure%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 1 - Recette infrastructure réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Sauvegarde%20via%20TFTP%20des%20%C3%A9quipements%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 2 - Sauvegarde via TFTP des équipements réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/03-mission/SP%201%20-%20Mission%203%20-%20Configuration%20de%20la%20borne%20WIFI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 3 - Configuration de la borne WIFI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/03-mission/SP%201%20-%20Mission%203%20-%20Mise%20en%20place%20du%20r%C3%A9seau%20pour%20AP%20WIFI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 3 - Mise en place du réseau pour AP WIFI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 situation gestion parc informatique
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 situation gestion parc informatique
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-mission/SP%202%20-%20Mission%201%20-%20Fiche%20recette%20-%20D%C3%A9ploiement%20de%20la%20Documentation%20sur%20GitHub%20Pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiche recette - Déploiement de la Documentation sur GitHub Pages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-mission/SP%202%20-%20Mission%201%20-%20Mise%20en%20place%20MkDocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 1 - Mise en place MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-mission/SP%201%20-%20Mission%202%20Installations%20de%20nouveaux%20clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1   Mission 2 Installations de nouveaux clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20faire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A faire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%202%20-%20Mission%204%20-%20Choix%20de%20l%27outil%20de%20ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Choix de l'outil de ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%202%20-%20Mission%204%20-%20Configuration%20post%20installation%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Configuration post installation GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%202%20-%20Mission%204%20-%20Fiche%20de%20recette%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Fiche de recette GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Administrateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Administrateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Helpdesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Helpdesk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Utilisateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Utilisateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Installation de GLPI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Installation de GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sommaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sommaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-preparation-du-serveur-pour-linstallation-de-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Préparation du serveur pour l'installation de GLPI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. Préparation du serveur pour l&#39;installation de GLPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-installation-du-socle-lamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Installation du socle LAMP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-preparation-dune-base-de-donnees-pour-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Préparation d'une base de données pour GLPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-telechargement-de-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Téléchargement de GLPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-preparation-de-linstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Préparation de l'installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-configuration-de-apache2-pour-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configuration de Apache2 pour GLPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-utilisation-de-php84-fpm-avec-apache2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Utilisation de PHP8.4-FPM avec Apache2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-installation-de-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Installation de GLPI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annexe-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annexe de configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ressources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schémas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schémas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/sch%C3%A9mas/R%C3%A9pertoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Répertoire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Situations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Situations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/situations/R%C3%A9pertoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Répertoire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tableaux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tableaux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Matrice%20des%20flux%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrice des flux - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Plan%20d%27adressage%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan d'adressage - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Table%20de%20routage%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table de routage - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sommaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sommaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-preparation-du-serveur-pour-linstallation-de-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Préparation du serveur pour l'installation de GLPI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. Préparation du serveur pour l&#39;installation de GLPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-installation-du-socle-lamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Installation du socle LAMP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-preparation-dune-base-de-donnees-pour-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Préparation d'une base de données pour GLPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-telechargement-de-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Téléchargement de GLPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-preparation-de-linstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Préparation de l'installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-configuration-de-apache2-pour-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configuration de Apache2 pour GLPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-utilisation-de-php84-fpm-avec-apache2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Utilisation de PHP8.4-FPM avec Apache2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-installation-de-glpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Installation de GLPI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annexe-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annexe de configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sp-2-mission-4-installation-de-glpi">SP 2 - Mission 4 - Installation de GLPI</h1>
+<p><strong>SP 2 : Gestion parc informatique</strong></p>
+<p><strong>Mission 4 : Installation de GLPI</strong></p>
+<p><strong>Contexte : MILLENUITS</strong></p>
+<p><img alt="Logo MilleNuits" src="https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png" /></p>
+<hr />
+<h2 id="informations-generales">Informations générales</h2>
+<ul>
+<li>Date de création : 12/02/2025</li>
+<li>Dernière modification : 12/02/2025</li>
+<li>Auteur(s) : Louis MEDO</li>
+</ul>
+<hr />
+<h2 id="objectif">Objectif</h2>
+<p>Dans cette procédure nous allons mettre en place GLPI, un outil de gestion de tickets et de parc, sur une VM Debian. L'installation s'appuie sur la version GLPI 11 et PHP 8.4.</p>
+<hr />
+<h2 id="prerequis">Prérequis</h2>
+<ul>
+<li>Serveur Debian opérationnel avec accès Internet.</li>
+<li>Accès administrateur (root ou via sudo).</li>
+<li>Un sous-domaine ou une adresse IP configuré (ex: <code>support.millenuits.com</code>).</li>
+</ul>
+<hr />
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li>A. Préparation du serveur pour l'installation de GLPI</li>
+<li>B. Installation de GLPI</li>
+<li>Annexe de configuration</li>
+<li>Ressources</li>
+</ul>
+<hr />
+<h2 id="a-preparation-du-serveur-pour-linstallation-de-glpi">A. Préparation du serveur pour l'installation de GLPI</h2>
+<h3 id="1-installation-du-socle-lamp">1. Installation du socle LAMP</h3>
+<ol>
+<li><strong>Mise à jour du système.</strong>  Avant toute installation, il est nécessaire de mettre à jour la liste des paquets et le système pour garantir la sécurité et la stabilité.</li>
+</ol>
+<pre><code class="language-BASH">apt update &amp;&amp; apt upgrade
+</code></pre>
+<ul>
+<li><code>apt-get update</code> : Met à jour la liste des paquets disponibles depuis les dépôts.</li>
+<li>
+<p><code>apt-get upgrade</code> : Installe les mises à jour des paquets déjà installés.</p>
+</li>
+<li>
+<p><strong>Installation des composants LAMP et extensions.</strong> Installation du serveur Web (Apache2), du langage de script (PHP 8.4 via FPM pour la performance) et de la base de données (MariaDB). Nous installons également les extensions PHP requises par GLPI 11 (ex: <code>intl</code> pour la langue, <code>gd</code> pour les images, <code>mbstring</code> pour l'UTF-8).</p>
+</li>
+</ul>
+<pre><code class="language-BASH">sudo apt-get install apache2 php8.4-fpm mariadb-server 
+sudo apt install php8.4-{curl,gd,intl,mysql,zip,bcmath,mbstring,xml,bz2,ldap}
+</code></pre>
+<ul>
+<li><code>install</code> : Commande pour installer de nouveaux paquets.</li>
+<li><code>apache2</code> : Le serveur HTTP.</li>
+<li><code>php8.4-fpm</code> : FastCGI Process Manager, gère l'exécution du code PHP indépendamment d'Apache.</li>
+<li><code>mariadb-server</code> : Le système de gestion de base de données.</li>
+<li><code>{curl,gd...}</code> : Liste des bibliothèques additionnelles nécessaires au cœur de GLPI.</li>
+</ul>
+<h3 id="2-preparation-dune-base-de-donnees-pour-glpi">2. Préparation d'une base de données pour GLPI</h3>
+<ol>
+<li><strong>Sécurisation de MariaDB.</strong> Exécution du script interactif pour sécuriser l'instance de base de données (définition du mot de passe root, suppression des accès anonymes et de la base de test).</li>
+</ol>
+<pre><code class="language-BASH">sudo mariadb-secure-installation 
+</code></pre>
+<ul>
+<li><code>mariadb-secure-installation</code> : Script binaire lançant l'assistant de sécurité.</li>
+</ul>
+<p><strong>Exemple de configuration :</strong></p>
+<ul>
+<li>Switch to unix_socket authentification : <code>n</code></li>
+<li>Change the root password : <code>y</code></li>
+<li>Remove anonymous users : <code>y</code></li>
+<li>Dissallow root login remotely : <code>y</code></li>
+<li>Remove test database : <code>y</code></li>
+<li>
+<p>Reload privilege tables : <code>y</code></p>
+</li>
+<li>
+<p><strong>Création de la base et de l'utilisateur.</strong> Création d'une base dédiée et d'un utilisateur spécifique avec des droits restreints à cette seule base, par mesure de sécurité.</p>
+</li>
+</ul>
+<pre><code class="language-bash">sudo mysql -u root -p
+
+# Une fois dans la console SQL, saisir les lignes suivantes :
+
+CREATE DATABASE millenuits_glpi;
+GRANT ALL PRIVILEGES ON millenuits_glpi.* TO poppy@localhost IDENTIFIED BY &quot;VoirBitwarden&quot;;
+FLUSH PRIVILEGES;
+EXIT;
+</code></pre>
+<ul>
+<li><code>mysql -u root -p</code> : Connexion à la console SQL en tant que root.</li>
+<li><code>CREATE DATABASE</code> : Crée le conteneur de données.</li>
+<li><code>GRANT ALL PRIVILEGES</code> : Donne tous les droits (lecture/écriture) sur la base <code>millenuits_glpi</code> à l'utilisateur <code>poppy</code>.</li>
+<li><code>FLUSH PRIVILEGES</code> : Recharge les tables de droits pour appliquer les changements immédiatement.</li>
+</ul>
+<h3 id="3-telechargement-de-glpi">3. Téléchargement de GLPI</h3>
+<ol>
+<li><strong>Récupération des sources.</strong> Téléchargement de l'archive officielle de GLPI 11 depuis le dépôt GitHub dans le dossier temporaire <code>/tmp</code>.<blockquote>
+<p>💡 Pensez à vérifier que vous télécharger la dernière version de GLPI présente dans le dépôt GitHub : https://github.com/glpi-project/glpi/releases</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="language-BASH">cd /tmp 
+wget https://github.com/glpi-project/glpi/releases/download/11.0.5/glpi-11.0.5.tgz
+</code></pre>
+<ul>
+<li><code>cd /tmp</code> : Change le répertoire courant vers le dossier temporaire.</li>
+<li>
+<p><code>wget</code> : Utilitaire de téléchargement de fichiers en ligne de commande.</p>
+</li>
+<li>
+<p><strong>Extraction et installation.</strong> Décompression de l'archive directement dans le répertoire racine du serveur web.</p>
+</li>
+</ul>
+<pre><code class="language-BASH">sudo tar -xzvf glpi-11.0.5.tgz -C /var/www/
+</code></pre>
+<ul>
+<li><code>tar</code> : Utilitaire d'archivage.</li>
+<li><code>-xzvf</code> : <strong>x</strong> (extraire), <strong>z</strong> (décompresser gzip), <strong>v</strong> (verbeux/afficher les détails), <strong>f</strong> (fichier cible).</li>
+<li><code>-C</code> : Indique le répertoire de destination (<code>/var/www/</code>).</li>
+</ul>
+<h3 id="4-preparation-de-linstallation">4. Préparation de l'installation</h3>
+<ol>
+<li><strong>Attribution des droits.</strong> Transfert de la propriété des fichiers GLPI à l'utilisateur système d'Apache (<code>www-data</code>) pour qu'il puisse lire et écrire dans les dossiers nécessaires.</li>
+</ol>
+<pre><code class="language-BASH">sudo chown www-data:www-data /var/www/glpi/ -R
+</code></pre>
+<ul>
+<li><code>chown</code> : Change Owner (changer le propriétaire).</li>
+<li><code>-R</code> : Récursif (s'applique à tous les sous-dossiers et fichiers).</li>
+<li><code>www-data:www-data</code> : Utilisateur et groupe par défaut d'Apache sur Debian.
+ </li>
+<li><strong>Sécurisation des dossiers.</strong> Déplacement des dossiers sensibles (<code>config</code>, <code>files</code>, <code>log</code>) hors de la racine web accessible publiquement, conformément aux bonnes pratiques de l'éditeur. Création des fichiers de redirection pour que GLPI retrouve ces dossiers.</li>
+</ul>
+<pre><code class="language-bash"># Création et déplacement
+
+sudo mkdir /etc/glpi /var/lib/glpi /var/log/glpi
+sudo chown www-data /etc/glpi /var/lib/glpi /var/log/glpi
+sudo mv /var/www/glpi/config /etc/glpi
+sudo mv /var/www/glpi/files /var/lib/glpi
+
+# Création du fichier de lien 1
+sudoedit /var/www/glpi/inc/downstream.php
+
+# Ajouter le contenu suivant dans le fichier :
+&lt;?php
+define('GLPI_CONFIG_DIR', '/etc/glpi/');
+if (file_exists(GLPI_CONFIG_DIR . '/local_define.php')) {
+    require_once GLPI_CONFIG_DIR . '/local_define.php';
+}
+
+# Création du fichier de lien 2
+sudoedit /etc/glpi/local_define.php
+
+# Ajouter le contenu suivant dans le fichier :
+&lt;?php
+define('GLPI_VAR_DIR', '/var/lib/glpi/files');
+define('GLPI_LOG_DIR', '/var/log/glpi');
+</code></pre>
+<ul>
+<li><code>mkdir</code> : Création de répertoires (<code>/etc/glpi</code>, <code>/var/lib/glpi</code>, <code>/var/log/glpi</code>).</li>
+<li><code>mv</code> : Déplacement des dossiers originaux vers les nouveaux emplacements sécurisés.</li>
+<li><code>nano</code> : Éditeur de texte pour créer les fichiers <code>downstream.php</code> et <code>local_define.php</code>.</li>
+</ul>
+<h3 id="5-configuration-de-apache2-pour-glpi">5. Configuration de Apache2 pour GLPI</h3>
+<ol>
+<li><strong>Création du VirtualHost.</strong> Configuration d'un fichier hôte virtuel Apache pour indiquer le dossier racine (<code>DocumentRoot</code>) et les règles de réécriture d'URL.</li>
+</ol>
+<pre><code class="language-bash"> sudo nano /etc/apache2/sites-available/glpi.millenuits.lab.conf
+ 
+ #  Insérer la configuration VirtualHost standard (voir dans le dépôt git de la mission 4)
+</code></pre>
+<ul>
+<li>Configuration du VirtualHost Apache2 : <a href="https://github.com/AP-BTS-SIO-Louis/millenuits/blob/main/docs_millenuits/docs/02-situation-gestion-parc-informatique/04-mission/configuration-virtualhost-apache2-glpi.conf">Millenuits Virtualhost GLPI</a></li>
+</ul>
+<p>2. <strong>Activation du site.</strong> Activation de la nouvelle configuration, désactivation du site par défaut et activation du module de réécriture. </p>
+<pre><code class="language-bash">sudo a2ensite glpi.millenuits.lab.conf
+sudo a2dissite 000-default.conf
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+</code></pre>
+<ul>
+<li><code>a2ensite</code> : Active le fichier de configuration du site spécifié. </li>
+<li><code>a2dissite</code> : Désactive le site par défaut (000-default). </li>
+<li><code>a2enmod rewrite</code> : Active le module <code>mod_rewrite</code> d'Apache. </li>
+<li><code>systemctl restart</code> : Redémarre le service pour appliquer tout changement.  </li>
+</ul>
+<h3 id="6-utilisation-de-php84-fpm-avec-apache2">6. Utilisation de PHP8.4-FPM avec Apache2</h3>
+<ol>
+<li><strong>Liaison Apache et PHP-FPM.</strong> Activation des modules nécessaires pour qu'Apache puisse communiquer avec le service FPM.</li>
+</ol>
+<pre><code class="language-BASH">sudo a2enmod proxy_fcgi setenvif 
+sudo a2enconf php8.4-fpm 
+sudo systemctl reload apache2
+</code></pre>
+<ul>
+<li><code>proxy_fcgi</code> : Module permettant à Apache de transmettre les requêtes au serveur FastCGI (PHP-FPM).</li>
+<li><code>setenvif</code> : Permet de définir des variables d'environnement basées sur la requête.</li>
+<li>
+<p><code>a2enconf</code> : Active la configuration globale spécifiée (php8.4-fpm).</p>
+</li>
+<li>
+<p><strong>Durcissement de la configuration PHP.</strong> Modification du fichier <code>php.ini</code> de FPM pour sécuriser les cookies de session.</p>
+</li>
+</ul>
+<pre><code class="language-bash"># Éditer /etc/php/8.4/fpm/php.ini pour modifier cookie_httponly et cookie_samesite
+
+sudo nano /etc/php/8.4/fpm/php.ini
+sudo systemctl restart php8.4-fpm.service
+</code></pre>
+<ul>
+<li><code>session.cookie_httponly = on</code> : Empêche le JavaScript d'accéder au cookie de session (protection XSS).</li>
+<li><code>session.cookie_samesite = Lax</code> : Protège contre les attaques CSRF.</li>
+<li><code>systemctl restart php8.4-fpm</code> : Applique les modifications de configuration PHP.</li>
+</ul>
+<hr />
+<h2 id="b-installation-de-glpi">B. Installation de GLPI</h2>
+<ol>
+<li>
+<p><strong>Initialisation Web.</strong> Accéder à l'URL du serveur (ex: <code>http://ip-serveur</code> ou nom de domaine). Suivre l'assistant : sélectionner la langue "Français", accepter la licence, et cliquer sur "Installer".</p>
+</li>
+<li>
+<p><strong>Connexion Base de données.</strong> À l'étape de configuration SQL:</p>
+</li>
+<li>
+<p>Serveur SQL : <code>localhost</code></p>
+</li>
+<li>Utilisateur SQL : <code>poppy</code></li>
+<li>Mot de passe SQL : <code>VoirBitwarden</code></li>
+<li>Sélectionner la base existante : <code>millenuits_glpi</code></li>
+<li>Terminer l'installation et supprimer le fichier d'installation pour la sécurité : <code>sudo rm /var/www/glpi/install/install.php</code>.</li>
+</ol>
+<hr />
+<h2 id="annexe-de-configuration">Annexe de configuration</h2>
+<ol>
+<li><a href="#">Configuration de GLP</a></li>
+<li><a href="#">Ouvrir un ticket sur GLPI</a></li>
+<li><a href="#">Utiliser GLPI en tant qu'helpdesk</a></li>
+</ol>
+<hr />
+<h2 id="ressources">Ressources</h2>
+<ul>
+<li><a href="https://www.it-connect.fr/installation-pas-a-pas-de-glpi-10-sur-debian-12/">Installation pas-à-pas de GLPI 11 sur Debian 13</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      AP - Contexte Millenuits - 2025 - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
