@@ -40,6 +40,8 @@ En tant qu'administrateur (ou Super-Admin) comme le DSI, votre rôle est de pilo
 
 - **URL de GLPI :** http://172.16.51.6
 
+--
+
 1. **Ouverture du navigateur.** Lancez votre navigateur web et saisissez l'URL indiquée.
    
 2. **Authentification.** Connectez-vous avec votre compte administrateur nominatif. Assurez-vous que le profil sélectionné en haut à droite est bien **Super-Admin** ou **Admin** sur l'entité racine "Mille Nuits".

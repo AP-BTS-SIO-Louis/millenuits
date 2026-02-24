@@ -37,6 +37,8 @@ En tant que membre du support informatique (Helpdesk), votre interface offre des
 
 - **URL de GLPI :** [http://172.16.51.6](http://172.16.51.6)
 
+--
+
 1. **Ouverture du navigateur.** Lancez votre navigateur web (ex: Firefox) et saisissez l'URL indiquée.
    
 2. **Authentification.** Entrez votre identifiant nominatif et votre mot de passe administrateur/technicien. Une fois connecté, assurez-vous que votre profil actif en haut à droite de l'écran est bien positionné sur **Technician** ou **Admin**.
@@ -45,18 +47,18 @@ En tant que membre du support informatique (Helpdesk), votre interface offre des
 ## C. Traiter et gérer un ticket
 
 1. **S'attribuer un ticket (Prise en charge).**
-   - Allez dans le menu *Assistance > Tickets*.
-   - Cliquez sur un ticket dont le statut est "Nouveau".
-   - Dans le panneau principal ou latéral, cherchez le champ **Technicien** (ou le bloc d'attribution), cliquez sur l'icône d'ajout et sélectionnez "Moi" pour vous l'attribuer. Le statut du ticket passera automatiquement à "En cours (attribué)".
+	- Allez dans le menu *Assistance > Tickets*.
+	- Cliquez sur un ticket dont le statut est "Nouveau".
+	- Dans le panneau principal ou latéral, cherchez le champ **Technicien** (ou le bloc d'attribution), cliquez sur l'icône d'ajout et sélectionnez "Moi" pour vous l'attribuer. Le statut du ticket passera automatiquement à "En cours (attribué)".
 
 2. **Ajouter un suivi ou une tâche.**
-   - Pour communiquer avec l'utilisateur (ex: demander un complément d'information), utilisez l'onglet **Suivis** depuis le ticket et rédigez votre message.
-   - Pour tracer vos actions techniques invisibles par l'utilisateur (ex: "Redémarrage du port sur le commutateur Cisco"), utilisez l'onglet **Tâches**, indiquez le temps passé et décrivez l'action menée.
+    - Pour communiquer avec l'utilisateur (ex: demander un complément d'information), utilisez l'onglet **Suivis** depuis le ticket et rédigez votre message.
+    - Pour tracer vos actions techniques invisibles par l'utilisateur (ex: "Redémarrage du port sur le commutateur Cisco"), utilisez l'onglet **Tâches**, indiquez le temps passé et décrivez l'action menée.
 
 3. **Résoudre l'incident.**
-   - Une fois la panne identifiée et réparée, rendez-vous dans l'onglet **Solution** du ticket.
-   - Sélectionnez le type de solution et détaillez clairement la méthode de résolution appliquée. 
-   - Cliquez sur "Ajouter". Le ticket bascule au statut "Résolu", et le demandeur est notifié pour validation.
+     - Une fois la panne identifiée et réparée, rendez-vous dans l'onglet **Solution** du ticket.
+     - Sélectionnez le type de solution et détaillez clairement la méthode de résolution appliquée. 
+     - Cliquez sur "Ajouter". Le ticket bascule au statut "Résolu", et le demandeur est notifié pour validation.
 
 ---
 ## D. Alimenter la base de connaissances
