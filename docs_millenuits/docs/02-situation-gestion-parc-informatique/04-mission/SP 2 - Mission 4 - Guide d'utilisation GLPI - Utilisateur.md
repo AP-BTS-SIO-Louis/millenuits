@@ -53,7 +53,11 @@ En tant qu'utilisateur standard, GLPI vous offre trois fonctionnalités majeures
    
 2. **Saisie des détails de l'incident.** 
    - **Type :** Choisissez s'il s'agit d'un "Incident" (panne) ou d'une "Demande" (besoin).
+   - **Catégorie :** Sélectionnez le domaine concerné (ex: Matériel, Logiciel, Réseau) pour bien orienter le ticket vers le bon technicien.
    - **Urgence :** Indiquez l'impact du problème sur votre travail (ex: Très haute si vous ne pouvez plus travailler du tout).
+   - **Observateurs :** Ajoutez les adresses mails des collègues ou de votre responsable s'ils doivent être tenus informés de la résolution.
+   - **Lieu :** Spécifiez où vous vous trouvez (ex: Site historique Baugé ou Site logistique Joué-Les-Tours) pour faciliter une éventuelle intervention physique.
+   - **Matériel :** Sélectionnez l'équipement défectueux dans la liste déroulante (votre ordinateur, votre imprimante) pour donner un contexte immédiat à l'informaticien.
    - **Titre :** Résumez brièvement le problème (ex: "Connexion Internet impossible").
    - **Description :** Détaillez au maximum le problème rencontré pour aider les informaticiens (message d'erreur, actions effectuées avant la panne).
 
