@@ -125,44 +125,95 @@ Nous utilisons l'outil de gestion des comptes avancés pour plus de précision.
 ___
 ## 5. Installation des applications
 
-Afin que le poste maître soit opérationnel dès son déploiement, nous installons un socle logiciel standard. Il est recommandé de télécharger les versions de ces applications sur le site des concepteurs
+Afin que le poste maître soit opérationnel dès son déploiement, nous installons un socle logiciel standard directement depuis les sites officiels des concepteurs.
 
-- **Navigateur Web Firefox (dernière version) :** Alternative sécurisée et performante au navigateur par défaut, permettant une gestion centralisée des préférences.
+### Navigateur Web Firefox (Dernière version)
 
-Etapes : 
+- Aller sur le site officiel de **Firefox**.
 
-- Aller sur le site de ``Firefox``
-- Télécharger l'installeur
-- Autoriser ``Firefox``
-- Ajouter ``Firefox`` à la taskbar et en moteur principal
-- Définir ``Firefox`` par défaut
-- Transférer les données entre ``Edge`` et `Firefox`
-- Cliquer sur `Commencer la navigation`
+- Télécharger et lancer l'installeur (autoriser l'exécution).
 
+- Ajouter Firefox à la barre des tâches (**Taskbar**).
 
-- **LibreOffice :** Suite bureautique complète et gratuite (Traitement de texte, Tableur, Présentation), compatible avec les formats Microsoft Office.
+- Définir Firefox comme **navigateur par défaut**.
 
-Etapes : 
-
-- Aller sur le site de ``LibreOffice``
-- Télécharger l'installeur pour ``Windows x64``
-- Sélectionner le mode d'installation normale
-- Créer un raccourci sur le bureau
-- Autoriser `LibreOffice`
+- Transférer les données depuis Edge si nécessaire et cliquer sur **Commencer la navigation**.
 
 
-- **Lecteur PDF (Adobe Acrobat Reader) :** Logiciel indispensable pour la consultation de documents administratifs et techniques avec une gestion précise de l'impression.
+### LibreOffice
 
-Etapes :
+- Aller sur le site de **LibreOffice**.
 
-- Aller sur le site de ``Adobe`` 
-- Télécharger l'installeur de ``Adobe Acrobate Reader``
-- Autoriser l'installeur
-- 
+- Télécharger l'installeur pour **Windows x64**.
+
+- Sélectionner le mode d'installation **normale**.
+
+- Cocher l'option pour **créer un raccourci sur le bureau**.
+
+- Autoriser l'installation jusqu'à la fin.
 
 
-- **VLC Media Player :** Lecteur multimédia universel capable de lire presque tous les formats audio et vidéo sans ajout de codecs tiers.
+### Lecteur PDF (Adobe Acrobat Reader)
 
-Etapes :
+- Aller sur le site de **Adobe**.
 
--
+- Télécharger l'installeur d'Acrobat Reader.
+
+- Lancer et autoriser l'installeur.
+
+- Une fois l'installation terminée, définir le logiciel comme **lecteur PDF par défaut** du système.
+
+
+### VLC Media Player
+
+- Aller sur le site **VideoLAN**.
+
+- Télécharger le fichier d'installation de VLC.
+
+- Installer le logiciel sur le disque local **`C:\`**.
+
+- Cocher les options de configuration par défaut et valider.
+
+___
+### 6. Préparation du système avec Sysprep
+
+L'objectif de cette étape est de supprimer les informations spécifiques au matériel (identifiants de sécurité SID) pour que l'image puisse être déployée sur n'importe quel autre ordinateur sans conflit.
+
+**Étapes :**
+
+1. Désactivation de BitLocker :
+
+	- Aller dans paramètres
+
+	 - Confidentialité et sécurité
+
+	- Chiffrement de l'appareil
+
+	- Désactiver le chiffrement
+
+	- Attendre jusqu'à la fin du déchiffrement
+
+2. **Ouverture de l'outil :**
+
+    - Faites `Windows + R`.
+
+    - Tapez `C:\Windows\System32\Sysprep\sysprep.exe` et validez.
+
+3. **Configuration de l'action :**
+
+    - Dans **Action de nettoyage du système**, choisissez : `Passer au mode OOBE (Out-of-Box Experience)`. Cela forcera les futurs PC à redémarrer sur l'écran de bienvenue (choix de langue, région).
+
+    - **IMPORTANT :** Cochez la case **Généraliser**. C'est ce qui permet de réinitialiser les identifiants uniques (SID).
+
+4. **Option d'arrêt :**
+
+    - Sélectionnez **Arrêter le système** (Shutdown).
+
+    - Cliquez sur **OK**.
+
+
+### 7. Capture de l'image (Capture Windows)
+
+Une fois la machine éteinte après le Sysprep, **ne la rallumez pas normalement**. Vous devez démarrer sur un outil de capture :
+
+ **(VirtualBox) :** Exporter votre machine virtuelle au format **OVA** (Fichier > Exporter l'appareil virtuel). Cela crée un fichier unique que vous pouvez réimporter sur d'autres postes équipés de VirtualBox.

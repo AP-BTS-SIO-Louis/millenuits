@@ -36,12 +36,12 @@
 
 Réception : 
 
-- [ ] Reçu
+- [x] Reçu
 - [ ] Reçu avec réserve
 - [ ] Refusé :
 
 Commentaire :
-|
+| 
 |
 |
 
@@ -61,7 +61,7 @@ Résultats Attendus :
 
 Réception : 
 
-- [ ] Reçu
+- [x] Reçu
 - [ ] Reçu avec réserve
 - [ ] Refusé :
 
@@ -92,7 +92,7 @@ Commentaire :
 
 Réception : 
 
-- [ ] Reçu
+- [x] Reçu
 - [ ] Reçu avec réserve
 - [ ] Refusé :
 
@@ -124,7 +124,7 @@ icmp 172.16.10.10:10   192.168.1.100:10  10.20.30.40:10     10.20.30.40:10
 
 **Réception :** 
 
-- [ ] Reçu
+- [x] Reçu
 - [ ] Reçu avec réserve
 - [ ] Refusé :
 
