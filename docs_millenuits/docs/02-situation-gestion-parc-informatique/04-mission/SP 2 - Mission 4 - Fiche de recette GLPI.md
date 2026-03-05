@@ -40,7 +40,7 @@
 ## B. Tests du profil Utilisateur (Self-Service)
 
 1. **Création d'un ticket.**
-	- ***Action :*** *Se connecter avec un compte utilisateur standard. Aller dans *Assistance > Créer un ticket*. Remplir un ticket d'incident matériel pour le site de "Joué-lès-Tours" et valider.
+	- ***Action :*** Se connecter avec un compte utilisateur standard. *Aller dans Assistance > Créer un ticket*. Remplir un ticket d'incident matériel pour le site de "Joué-lès-Tours" et valider.
 	- ***Résultat attendu :*** Le ticket est créé avec succès et apparaît dans l'accueil de l'utilisateur avec le statut "Nouveau".
 	- ***Statut :*** [ ] OK / [ ] KO
 
