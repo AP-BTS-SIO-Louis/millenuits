@@ -1,8 +1,8 @@
-
+Current configuration : 2874 bytes
 !
-! Last configuration change at 11:02:57 UTC Thu Jan 29 2026
-! NVRAM config last updated at 09:27:59 UTC Thu Jan 29 2026
-! NVRAM config last updated at 09:27:59 UTC Thu Jan 29 2026
+! Last configuration change at 11:41:40 UTC Thu Mar 5 2026
+! NVRAM config last updated at 11:41:34 UTC Thu Mar 5 2026
+! NVRAM config last updated at 11:41:34 UTC Thu Mar 5 2026
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -21,10 +21,11 @@ no ipv6 cef
 ip source-route
 ip cef
 !
+!         
 !
 !
 !
-!
+ip domain name millenuits.lab
 multilink bundle-name authenticated
 !
 crypto pki token default removal timeout 0
@@ -33,6 +34,7 @@ crypto pki token default removal timeout 0
 license udi pid CISCO1921/K9 sn FGL163021WM
 !
 !
+username louismedo privilege 15 secret 4 FJrsRLziFOoMfbebrXvGOcu8imlm42s6rp5u6P0gmsk
 !
 !
 !
@@ -42,56 +44,70 @@ license udi pid CISCO1921/K9 sn FGL163021WM
 interface Embedded-Service-Engine0/0
  no ip address
  shutdown
-!
+!         
 interface GigabitEthernet0/0
  no ip address
+ shutdown
  duplex auto
  speed auto
 !
 interface GigabitEthernet0/0.10
+ description VLAN Production
  encapsulation dot1Q 10
  ip address 172.40.0.254 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/0.11
+ description VLAN Autres
  encapsulation dot1Q 11
  ip address 172.40.1.126 255.255.255.128
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/0.12
+ description VLAN Administratif
  encapsulation dot1Q 12
  ip address 172.40.1.254 255.255.255.128
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/0.13
+ description VLAN VentesEtudes
  encapsulation dot1Q 13
  ip address 172.40.2.62 255.255.255.192
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/0.14
+ description VLAN Logistique
  encapsulation dot1Q 14
  ip address 172.40.2.126 255.255.255.192
 !
 interface GigabitEthernet0/0.15
+ description VLAN Invite
  encapsulation dot1Q 15
  ip address 172.40.2.142 255.255.255.240
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/0.51
+ description VLAN Serveurs
  encapsulation dot1Q 51
  ip address 172.16.51.253 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
+interface GigabitEthernet0/0.99
+ description VLAN Management
+ encapsulation dot1Q 99
+ ip address 172.40.2.158 255.255.255.240
+!
 interface GigabitEthernet0/1
  ip address 172.16.29.11 255.255.252.0
  ip nat outside
  ip virtual-reassembly in
+ shutdown
  duplex auto
  speed auto
 !
@@ -127,8 +143,8 @@ line 2
  transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
  stopbits 1
 line vty 0 4
- login
- transport input all
+ login local
+ transport input ssh
 !
 scheduler allocate 20000 1000
 end
