@@ -94,7 +94,7 @@ interface GigabitEthernet0/0.15
 interface GigabitEthernet0/0.51
  description VLAN Serveurs
  encapsulation dot1Q 51
- ip address 172.16.51.253 255.255.255.0
+ ip address 172.16.51.252 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
