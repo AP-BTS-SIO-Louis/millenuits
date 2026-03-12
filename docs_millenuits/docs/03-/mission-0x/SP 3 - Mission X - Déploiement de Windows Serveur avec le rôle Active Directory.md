@@ -126,7 +126,7 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
    
    **Commande PowerShell :**
    ```powershell
-   Rename-Computer -NewName "SRV-AD-MN01" -Restart
+   Rename-Computer -NewName "MN01" -Restart
    ```
    - `Rename-Computer` : Modifie l'identité NetBIOS et DNS de la machine.
    - `-NewName` : Attribue la nouvelle valeur d'hôte.
