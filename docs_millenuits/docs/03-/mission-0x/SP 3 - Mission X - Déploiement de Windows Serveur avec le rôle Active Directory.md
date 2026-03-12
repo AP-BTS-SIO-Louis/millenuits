@@ -32,6 +32,7 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
 
 **Configuration :**
 1. **Création de la machine virtuelle.** Aller dans l'interface de Nutanix, puis cliquer sur *Create VM*. Saisir les informations suivantes :
+
    - **Name :** `SIO1 - AP - GPI1 - MN01`
    - **Description :** `Millenuits - Active directory`
    - **Project :** `SIO1-Etudiant 2`
@@ -51,7 +52,8 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
    ![Capture d'écran](./assets/03_nutanix_windows-server_configuration-timezone.png)
 
 !!! note
-	 Veillez à provisionner un disque de taille suffisante (minimum 60 Go pour une version avec interface graphique) afin d'anticiper la croissance de la base de données NTDS et les futures mises à jour Windows.
+
+    Veillez à provisionner un disque de taille suffisante (minimum 60 Go pour une version avec interface graphique) afin d'anticiper la croissance de la base de données NTDS et les futures mises à jour Windows.
 
 ---
 ## 2. Installation des pilotes sur Windows Server
@@ -81,11 +83,13 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
    ![Capture d'écran](./assets/10_windows-serveur_configuration-ip.png)
 
 !!! tip
+
 	Un contrôleur de domaine nécessite obligatoirement une IP statique. Pour le serveur DNS primaire de cette carte réseau, renseignez l'adresse IP de bouclage (`127.0.0.1`) ou l'IP statique du serveur lui-même.
 
 6. **Vérification.** Pour s'assurer que les paramètres réseau sont valides, vérifiez l'accès à la passerelle, à Internet et à la résolution DNS via l'invite de commandes.
    
    **Les commandes à tester et leur explication :**
+
    - [ ] `ping 172.16.51.252` : Envoie des paquets ICMP pour valider la connectivité au niveau local entre le serveur et sa passerelle.
    - [ ] `ping 9.9.9.9` : Teste le routage vers l'extérieur (Internet) en interrogeant le serveur DNS public de Quad9.
    - [ ] `ping loutik.fr` : Vérifie que le service de résolution de noms (DNS) fonctionne correctement en traduisant le nom de domaine en adresse IP.
@@ -96,9 +100,11 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
 1. **Changement du mot de passe Administrateur local.** Il est impératif de sécuriser le compte par défaut en appliquant un mot de passe fort (minimum 16 caractères, généré de manière aléatoire et stocké de manière sécurisée via le gestionnaire de mots de passe Bitwarden). Ouvrir une invite de commandes ou PowerShell en tant qu'administrateur.
    
    **Commande à exécuter :**
-   ```powershell
+
+```powershell
    net user Administrateur "VotreMotDePasseBitwarden!"
-   ```
+```
+
    - `net user` : Utilitaire en ligne de commande permettant de gérer les comptes d'utilisateurs locaux.
    - `Administrateur` : Cible le compte système par défaut.
    - `"VotreMotDePasse..."` : Remplace l'ancien mot de passe par la nouvelle chaîne de caractères spécifiée.
@@ -106,28 +112,34 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
 2. **Activation du Bureau à distance (RDP).** Cette action permet l'administration à distance du serveur, évitant ainsi de passer systématiquement par la console virtuelle Nutanix. Dans le *Gestionnaire de serveur*, aller dans *Serveur local*, cliquer sur le lien `Désactivé` à côté de *Bureau à distance*, puis cocher `Autoriser les connexions à distance à cet ordinateur`.
 
    **Alternative en commande PowerShell :**
-   ```powershell
+
+```powershell
    Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
    Enable-NetFirewallRule -DisplayGroup "Bureau à distance"
-   ```
+```
+
    - `Set-ItemProperty` : Modifie une clé de registre. Ici, la valeur `0` autorise la fonctionnalité de connexions Terminal Server (RDP).
    - `Enable-NetFirewallRule` : Active la règle du pare-feu Windows, ouvrant ainsi le port TCP 3389 nécessaire au flux RDP.
 
 !!! tip
+
 	Une fois l'Active Directory déployé, évitez d'utiliser le compte Administrateur intégré pour les tâches quotidiennes. Créez des comptes nominatifs avec des privilèges de délégation stricts (principe de moindre privilège).
 
 ---
 ## 5. Installation conjointe des rôles Active Directory et DNS
 
 !!! info
+
 	Dans les règles de l'art, le rôle DNS ne s'installe pas isolément au préalable. Il est déployé et configuré automatiquement lors de la promotion du serveur en contrôleur de domaine. Cela permet d'obtenir une "Zone DNS intégrée à Active Directory", offrant une meilleure sécurité et une réplication optimisée de l'annuaire.
 
 1. **Prérequis : Renommer le serveur.** Avant le déploiement des rôles, le serveur doit posséder un nom d'hôte conforme à la nomenclature du système d'information.
    
    **Commande PowerShell :**
-   ```powershell
+
+```powershell
    Rename-Computer -NewName "MN01" -Restart
-   ```
+```
+
    - `Rename-Computer` : Modifie l'identité NetBIOS et DNS de la machine.
    - `-NewName` : Attribue la nouvelle valeur d'hôte.
    - `-Restart` : Force un redémarrage immédiat de la machine, étape obligatoire pour valider le nom.
@@ -135,14 +147,17 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
 2. **Installation des binaires AD DS.** L'ajout s'effectue via le *Gestionnaire de serveur* (*Gérer* > *Ajouter des rôles et fonctionnalités*), en sélectionnant uniquement `Services AD DS`.
    
    **Alternative en commande PowerShell :**
-   ```powershell
+
+```powershell
    Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
-   ```
+```
+
    - `Install-WindowsFeature` : Télécharge et installe le rôle ciblé sur le serveur.
    - `-Name AD-Domain-Services` : Spécifie les services d'annuaire Active Directory.
    - `-IncludeManagementTools` : Installe simultanément les consoles de gestion (Outils RSAT) nécessaires pour administrer l'AD.
 
 3. **Promotion en contrôleur de domaine et configuration DNS.** Une fois les binaires installés, cliquer sur l'icône de notification (drapeau jaune) dans le *Gestionnaire de serveur* pour `Promouvoir ce serveur en contrôleur de domaine`. 
+
    - Sélectionner `Ajouter une nouvelle forêt` et définir le domaine racine (ex: `millenuits.local`).
    - À l'étape des options du contrôleur de domaine, **laisser la case "Serveur DNS" cochée**. L'assistant se chargera de l'installer et de le lier à l'AD de façon transparente.
    - Saisir un mot de passe de restauration des services d'annuaire (DSRM) généré via Bitwarden.
