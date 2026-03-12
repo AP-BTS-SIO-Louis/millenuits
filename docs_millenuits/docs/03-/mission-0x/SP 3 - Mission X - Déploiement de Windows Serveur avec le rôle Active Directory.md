@@ -52,38 +52,43 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
    ![Capture d'écran](./assets/03_nutanix_windows-server_configuration-timezone.png)
 
 !!! note
-
-    Veillez à provisionner un disque de taille suffisante (minimum 60 Go pour une version avec interface graphique) afin d'anticiper la croissance de la base de données NTDS et les futures mises à jour Windows.
+	Veillez à provisionner un disque de taille suffisante (minimum 60 Go pour une version avec interface graphique) afin d'anticiper la croissance de la base de données NTDS et les futures mises à jour Windows.
 
 ---
 ## 2. Installation des pilotes sur Windows Server
 
 1. **Trouver le pilote.** Dans l'explorateur de fichiers (Ce PC), ouvrir le `Lecteur de CD : Nutanix VirtIO 1.1.7`.
+   
    ![Capture d'écran](./assets/04_windows-server_explorateur-fichier-pilote.png)
  
-2. **Installer le pilote.** Exécuter l'installateur `Nutanix-VirtIO-1.1.7-amd64` pour déployer les pilotes sur Windows Server.
+1. **Installer le pilote.** Exécuter l'installateur `Nutanix-VirtIO-1.1.7-amd64` pour déployer les pilotes sur Windows Server.
+   
    ![Capture d'écran](./assets/05_windows-server_installation-pilote.png)
    
 ---
 ## 3. Configuration réseau de Windows Server
 
 1. **Ouvrir les paramètres réseau.** Effectuer un clic droit sur l'icône réseau dans la barre des tâches, puis cliquer sur `Ouvrir les paramètres réseau et Internet`.
+   
    ![Capture d'écran](./assets/06_windows-server_icone-reseau.png)
    
-2. **Ouvrir le panneau de configuration.** Cliquer sur l'option `Modifier les options d'adaptateur`.
+1. **Ouvrir le panneau de configuration.** Cliquer sur l'option `Modifier les options d'adaptateur`.
+   
    ![Capture d'écran](./assets/07_windows-server_configuration-reseau01.png)
 
-3. **Ouvrir les propriétés de la carte réseau.** Effectuer un clic droit sur la carte réseau concernée et sélectionner `Propriétés`.
+2. **Ouvrir les propriétés de la carte réseau.** Effectuer un clic droit sur la carte réseau concernée et sélectionner `Propriétés`.
+   
    ![Capture d'écran](./assets/08_windows-server_configuration-reseau02.png)
 
-4. **Configurer les paramètres IPv4.** Désactiver l'IPv6 en décochant la case correspondante. Sélectionner `Protocole Internet version 4 (TCP/IPv4)` puis cliquer sur `Propriétés`. 
+2. **Configurer les paramètres IPv4.** Désactiver l'IPv6 en décochant la case correspondante. Sélectionner `Protocole Internet version 4 (TCP/IPv4)` puis cliquer sur `Propriétés`. 
+   
    ![Capture d'écran](./assets/09_windows-server_configuration-reseau03.png)
 
-5. **Saisir les informations réseau.** Cocher la case `Utiliser l'adresse IP suivante`, puis renseigner les paramètres IP statiques souhaités en suivant le plan d'adressage du projet.
+2. **Saisir les informations réseau.** Cocher la case `Utiliser l'adresse IP suivante`, puis renseigner les paramètres IP statiques souhaités en suivant le plan d'adressage du projet.
+   
    ![Capture d'écran](./assets/10_windows-serveur_configuration-ip.png)
 
 !!! tip
-
 	Un contrôleur de domaine nécessite obligatoirement une IP statique. Pour le serveur DNS primaire de cette carte réseau, renseignez l'adresse IP de bouclage (`127.0.0.1`) ou l'IP statique du serveur lui-même.
 
 6. **Vérification.** Pour s'assurer que les paramètres réseau sont valides, vérifiez l'accès à la passerelle, à Internet et à la résolution DNS via l'invite de commandes.
@@ -122,14 +127,12 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
    - `Enable-NetFirewallRule` : Active la règle du pare-feu Windows, ouvrant ainsi le port TCP 3389 nécessaire au flux RDP.
 
 !!! tip
-
 	Une fois l'Active Directory déployé, évitez d'utiliser le compte Administrateur intégré pour les tâches quotidiennes. Créez des comptes nominatifs avec des privilèges de délégation stricts (principe de moindre privilège).
 
 ---
 ## 5. Installation conjointe des rôles Active Directory et DNS
 
 !!! info
-
 	Dans les règles de l'art, le rôle DNS ne s'installe pas isolément au préalable. Il est déployé et configuré automatiquement lors de la promotion du serveur en contrôleur de domaine. Cela permet d'obtenir une "Zone DNS intégrée à Active Directory", offrant une meilleure sécurité et une réplication optimisée de l'annuaire.
 
 1. **Prérequis : Renommer le serveur.** Avant le déploiement des rôles, le serveur doit posséder un nom d'hôte conforme à la nomenclature du système d'information.
@@ -140,9 +143,9 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
    Rename-Computer -NewName "MN01" -Restart
 ```
 
-   - `Rename-Computer` : Modifie l'identité NetBIOS et DNS de la machine.
-   - `-NewName` : Attribue la nouvelle valeur d'hôte.
-   - `-Restart` : Force un redémarrage immédiat de la machine, étape obligatoire pour valider le nom.
+  - `Rename-Computer` : Modifie l'identité NetBIOS et DNS de la machine.
+  - `-NewName` : Attribue la nouvelle valeur d'hôte.
+  - `-Restart` : Force un redémarrage immédiat de la machine, étape obligatoire pour valider le nom.
 
 2. **Installation des binaires AD DS.** L'ajout s'effectue via le *Gestionnaire de serveur* (*Gérer* > *Ajouter des rôles et fonctionnalités*), en sélectionnant uniquement `Services AD DS`.
    
@@ -152,13 +155,13 @@ Déployer une machine virtuelle Windows Server 2019 sur l'infrastructure Nutanix
    Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 ```
 
-   - `Install-WindowsFeature` : Télécharge et installe le rôle ciblé sur le serveur.
-   - `-Name AD-Domain-Services` : Spécifie les services d'annuaire Active Directory.
-   - `-IncludeManagementTools` : Installe simultanément les consoles de gestion (Outils RSAT) nécessaires pour administrer l'AD.
+  - `Install-WindowsFeature` : Télécharge et installe le rôle ciblé sur le serveur.
+  - `-Name AD-Domain-Services` : Spécifie les services d'annuaire Active Directory.
+  - `-IncludeManagementTools` : Installe simultanément les consoles de gestion (Outils RSAT) nécessaires pour administrer l'AD.
 
 3. **Promotion en contrôleur de domaine et configuration DNS.** Une fois les binaires installés, cliquer sur l'icône de notification (drapeau jaune) dans le *Gestionnaire de serveur* pour `Promouvoir ce serveur en contrôleur de domaine`. 
 
-   - Sélectionner `Ajouter une nouvelle forêt` et définir le domaine racine (ex: `millenuits.local`).
-   - À l'étape des options du contrôleur de domaine, **laisser la case "Serveur DNS" cochée**. L'assistant se chargera de l'installer et de le lier à l'AD de façon transparente.
-   - Saisir un mot de passe de restauration des services d'annuaire (DSRM) généré via Bitwarden.
-   - Suivre les étapes par défaut de l'assistant jusqu'au bouton `Installer`. Le serveur redémarrera automatiquement.
+    - Sélectionner `Ajouter une nouvelle forêt` et définir le domaine racine (ex: `millenuits.local`).
+    - À l'étape des options du contrôleur de domaine, **laisser la case "Serveur DNS" cochée**. L'assistant se chargera de l'installer et de le lier à l'AD de façon transparente.
+    - Saisir un mot de passe de restauration des services d'annuaire (DSRM) généré via Bitwarden.
+    - Suivre les étapes par défaut de l'assistant jusqu'au bouton `Installer`. Le serveur redémarrera automatiquement.
