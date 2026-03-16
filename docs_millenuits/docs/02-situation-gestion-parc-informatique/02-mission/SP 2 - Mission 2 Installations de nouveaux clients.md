@@ -1,10 +1,11 @@
-**SP 1 : Gestion du Parc Informatique**
+**SP 2 : Gestion du Parc Informatique**
 
 **Mission 2 : Installation du PC maître**
 
 **Contexte : MILLENUITS**
-
 ![Logo MilleNuits](https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png)
+
+___
 ## Informations générales
 
 - __Auteur__ : Biseray Louis
@@ -201,7 +202,7 @@ L'objectif de cette étape est de supprimer les informations spécifiques au mat
 
 3. **Configuration de l'action :**
 
-    - Dans **Action de nettoyage du système**, choisissez : `Passer au mode OOBE (Out-of-Box Experience)`. Cela forcera les futurs PC à redémarrer sur l'écran de bienvenue (choix de langue, région).
+    - Dans **Action de nettoyage du système**, choisissez : `Passer au mode Audit sytéme`. Cela forcera les futurs PC à redémarrer sur l'écran de bienvenue (choix de langue, région).
 
     - **IMPORTANT :** Cochez la case **Généraliser**. C'est ce qui permet de réinitialiser les identifiants uniques (SID).
 
@@ -214,6 +215,6 @@ L'objectif de cette étape est de supprimer les informations spécifiques au mat
 
 ### 7. Capture de l'image (Capture Windows)
 
-Une fois la machine éteinte après le Sysprep, **ne la rallumez pas normalement**. Vous devez démarrer sur un outil de capture :
+Une fois la machine éteinte après le Sysprep, **ne pas la rallumez normalement**. il faut la redémarrer sur un outil de capture :
 
  **(VirtualBox) :** Exporter votre machine virtuelle au format **OVA** (Fichier > Exporter l'appareil virtuel). Cela crée un fichier unique que vous pouvez réimporter sur d'autres postes équipés de VirtualBox.

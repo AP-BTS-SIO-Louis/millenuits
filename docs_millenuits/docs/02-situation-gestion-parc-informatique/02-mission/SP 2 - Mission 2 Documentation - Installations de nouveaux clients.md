@@ -1,10 +1,12 @@
-**SP 1 : Gestion du Parc Informatique**
+**SP 2 : Gestion du Parc Informatique**
 
 **Mission 2 : Installation du PC maître**
 
 **Contexte : MILLENUITS**
 
 ![Logo MilleNuits](https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png)
+
+___
 ## Informations générales
 
 - __Auteur__ : Biseray Louis
@@ -105,3 +107,12 @@ L'outil est exécuté en ligne de commande ou via l'interface graphique : `C:\Wi
 ## 6. Exportation et Archivage
 
 Le master est figé. La machine virtuelle est exportée au format **Open Virtualization Format (.OVA)**. Ce fichier est le "master" pour les futurs déploiements sur le réseau MilleNuits.
+
+___
+## 7. Fiche test
+
+| Validation | Test à réaliser                                                                         | Résultat attendu                                                                   | Commentaires |
+| ---------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------ |
+|            | **Lancer Windows**<br><br>Démarrer Windows pour vérifier l'état du client               | Windows doit booter sur le compte de base et être utilisable immédiatement         |              |
+|            | **Vérification des installation**<br><br>Essayer de lancer les 4 application installer  | Les 4 applications doivent s'exécuter sans erreur                                  |              |
+|            | **Droits d'administration**<br><br>Essayer d'exécuter une application en administrateur | Une fenêtre demandant le login et mot de passe de l'administrateur doit apparaitre |              |

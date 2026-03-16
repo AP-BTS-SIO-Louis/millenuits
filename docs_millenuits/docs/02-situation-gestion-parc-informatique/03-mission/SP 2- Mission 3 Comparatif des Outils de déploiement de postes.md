@@ -1,10 +1,12 @@
-**SP 1 : Gestion du Parc Informatique**
+**SP 2 : Gestion du Parc Informatique**
 
 **Mission 3 : Outil de déploiement des postes**
 
 **Contexte : MILLENUITS**
 
 ![Logo MilleNuits](https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png)
+
+___
 ## Informations générales
 
 - __Auteur__ : Biseray Louis
@@ -46,5 +48,3 @@ Comparaison des Points faible / Points fort, du cout et de la pertinence des 3 s
 | **Points faibles**               | Complexité, coût, temps de mise en place                              | Coût récurrent, moins flexible pour l'imagerie sectorielle                                       | Sécurité périmétrique, pas d'outils de gestion de parc intégrés  |
 | **Coût**                         | Très élevé (Licences Core + CALs)                                     | Élevé (Abonnement par utilisateur)                                                               | **Gratuit** (Open Source)                                        |
 | **Analyse : 19 postes (Master)** | **Surdimensionné.** Coût et temps d'installation disproportionnés.    | **Moyen.** Mieux pour configurer des PC neufs via le cloud que pour cloner une image spécifique. | **Parfait.** C'est l'outil conçu pour cet usage précis.          |
-
-La meilleur solution pour déployer les postes 
