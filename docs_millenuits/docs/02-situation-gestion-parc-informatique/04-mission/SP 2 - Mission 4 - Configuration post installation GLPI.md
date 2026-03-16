@@ -64,7 +64,7 @@ rm -r /var/www/glpi/install
 ---
 ## D. Configuration des éléments de tickets
 
-1. **Catégories de tickets.** Allez dans *Configuration > Intitulés > Tickets > Catégories de tickets*. Créez des catégories (ex : Matériel, Logiciel, Réseau, Demande d'accès) pour classer les incidents et faciliter les statistiques.
+1. **Catégories de tickets.** Allez dans *Configuration > Intitulés > Assistance > Catégorie ITIL*. Créez des catégories (ex : Matériel, Logiciel, Réseau, Demande d'accès) pour classer les incidents et faciliter les statistiques.
 
 2. **Matériels de l'utilisateur.** Pour qu'un utilisateur puisse lier son ordinateur ou son imprimante au ticket, allez dans *Administration > Profils* et modifiez le profil *Self-Service*. Dans l'onglet *Assistance*, vérifiez que l'option "Associer des éléments à un ticket" est active.
 

@@ -1,8 +1,8 @@
-Current configuration : 2874 bytes
+Current configuration : 2955 bytes
 !
-! Last configuration change at 11:41:40 UTC Thu Mar 5 2026
-! NVRAM config last updated at 11:41:34 UTC Thu Mar 5 2026
-! NVRAM config last updated at 11:41:34 UTC Thu Mar 5 2026
+! Last configuration change at 08:18:15 UTC Thu Mar 12 2026 by louismedo
+! NVRAM config last updated at 08:18:17 UTC Thu Mar 12 2026 by louismedo
+! NVRAM config last updated at 08:18:17 UTC Thu Mar 12 2026 by louismedo
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -21,10 +21,11 @@ no ipv6 cef
 ip source-route
 ip cef
 !
-!         
 !
 !
 !
+!
+no ip domain lookup
 ip domain name millenuits.lab
 multilink bundle-name authenticated
 !
@@ -44,13 +45,12 @@ username louismedo privilege 15 secret 4 FJrsRLziFOoMfbebrXvGOcu8imlm42s6rp5u6P0
 interface Embedded-Service-Engine0/0
  no ip address
  shutdown
-!         
+!
 interface GigabitEthernet0/0
  no ip address
- shutdown
  duplex auto
  speed auto
-!
+!         
 interface GigabitEthernet0/0.10
  description VLAN Production
  encapsulation dot1Q 10
@@ -94,7 +94,7 @@ interface GigabitEthernet0/0.15
 interface GigabitEthernet0/0.51
  description VLAN Serveurs
  encapsulation dot1Q 51
- ip address 172.16.51.253 255.255.255.0
+ ip address 172.16.51.252 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
@@ -107,7 +107,6 @@ interface GigabitEthernet0/1
  ip address 172.16.29.11 255.255.252.0
  ip nat outside
  ip virtual-reassembly in
- shutdown
  duplex auto
  speed auto
 !
@@ -145,6 +144,9 @@ line 2
 line vty 0 4
  login local
  transport input ssh
+line vty 5
+ login
+ transport input all
 !
 scheduler allocate 20000 1000
 end

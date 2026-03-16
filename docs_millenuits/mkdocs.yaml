@@ -28,10 +28,14 @@ theme:
   extra_css:
   - assets/css/style.css
 
-  markdown_extensions:          # Activation des annotations en Markdown
+markdown_extensions: # Activation des annotations en Markdown
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences: # activation des diagrammes mermaid
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
