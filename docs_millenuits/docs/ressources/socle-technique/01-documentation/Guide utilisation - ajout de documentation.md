@@ -102,6 +102,10 @@ git status
 
 2. **Comprendre et corriger le conflit.** Ouvrez le fichier en conflit dans votre éditeur. Vous y verrez des balises insérées par Git :
 
+ **⚠️ Règle de sécurité** : Ne supprimez jamais le code de l'autre sans concertation.
+
+*Éditez le fichier manuellement pour conserver la version finale souhaitée, puis supprimez les balises `<<<<<<<`, `=======` et `>>>>>>>`.*
+
 ```Plaintext
 <<<<<<< HEAD
 Votre texte actuel sur la branche.
@@ -109,9 +113,6 @@ Votre texte actuel sur la branche.
 Le texte de votre collaborateur provenant de la branche fusionnée.
 >>>>>>> nom-de-la-branche-distante
 ```
-
-- **Règle de sécurité** : Ne supprimez jamais le code de l'autre sans concertation.
-- Action : Éditez le fichier manuellement pour conserver la version finale souhaitée, puis supprimez les balises `<<<<<<<`, `=======` et `>>>>>>>`.
 
 3. **Valider la résolution.** Une fois les fichiers corrigés, indiquez à Git que le conflit est résolu.
 
