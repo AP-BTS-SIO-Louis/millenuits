@@ -30,7 +30,7 @@ Cette procédure définit la configuration standard d'une machine virtuelle Debi
 
 ```bash
 apt update && apt upgrade -y
-````
+```
 
 > - `apt update` : Met à jour l'index local des paquets disponibles.
 > - `&&` : Permet d'enchaîner une seconde commande uniquement si la première a réussi.

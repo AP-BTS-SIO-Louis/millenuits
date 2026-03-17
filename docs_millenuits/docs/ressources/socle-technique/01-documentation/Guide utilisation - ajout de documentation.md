@@ -30,7 +30,7 @@ Cette procédure explique comment ajouter ou modifier des documentations sur le 
 
 ```bash
 git checkout main
-````
+```
 
 > `git checkout` : Commande permettant de naviguer entre les différentes branches. `main` est le nom de la branche cible.
 
