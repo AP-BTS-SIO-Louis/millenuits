@@ -90,26 +90,26 @@ ___
 
 L'installeur va poser plusieurs question pour installer FOG sur la machine : 
 
-![[./assets/img1.png]]
+![](./assets/img1.png)
 
 La machine dans la situation fonctionne sous Debian il faut par conséquent choisir le 2.
 
-![[./assets/img2.png]]
+![](./assets/img2.png)
 
 Quel type d'installation choisir ? Pour cette situation il faut une installation Normal.
 
-![[./assets/img3.png]]
+![](./assets/img3.png)
 
 Ensuite les réglages réseau il ne faut pas les changer si la machine ne possède qu'une seul carte réseau.
- ![[./assets/img4.png]]
+ ![](./assets/img4.png)
 
 Egalement régler le DHCP, on peut préciser l'adresse IP voulu pour le DHCP par défaut ce sera la passerelle de la machine.
 
-![[./assets/img5.png]]
+![](./assets/img5.png)
 
 Pour pouvoir passer l'installateur en français il faut répondre ``yes`` .
 
-![[./assets/img6.png]]
+![](./assets/img6.png)
 
 Ensuite le hostname a utiliser. Et valider l'installation FOG va vérifié la connexion internet et installer les paquets nécessaires.
 
