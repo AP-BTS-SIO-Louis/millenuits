@@ -27,6 +27,7 @@ Cette procédure définit la configuration standard d'une machine virtuelle Debi
 ## A. Installation des paquets utilitaires
 
 1. **Mise à jour du système.** Actualise la liste des paquets et installe les dernières mises à jour de sécurité.
+
 ```bash
 apt update && apt upgrade -y
 ````
