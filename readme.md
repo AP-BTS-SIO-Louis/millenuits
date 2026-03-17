@@ -58,8 +58,8 @@ L'ensemble des projets aborde des comp√©tences transversales et techniques vari√
 ---
 ## D. Mainteneurs
 
-**Louis Biseray** | [Linkedin](#) | [Portfolio](#) | [GitHub](#)
-**Louis MEDO** | [Linkedin](https://www.linkedin.com/in/louismedo/) | [Portfolio](https://louis.loutik.fr/) | [GitHub](https://github.com/FireToak)
+- **Louis Biseray** | [Linkedin](#) | [Portfolio](#) | [GitHub](#)
+- **Louis MEDO** | [Linkedin](https://www.linkedin.com/in/louismedo/) | [Portfolio](https://louis.loutik.fr/) | [GitHub](https://github.com/FireToak)
 
 ---
 <div align="center">
