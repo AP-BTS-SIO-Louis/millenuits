@@ -1,4 +1,4 @@
-# Guide utilisation - ajout de documentation
+# Guide utilisation - Ajout de documentation
 
 ![Logo MilleNuits](https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png)
 
