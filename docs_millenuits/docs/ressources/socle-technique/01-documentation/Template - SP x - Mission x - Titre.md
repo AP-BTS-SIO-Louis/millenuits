@@ -16,15 +16,17 @@
 ---
 ## Sommaire
 
-A. [Génération du sommaire]
+- A. [Génération du sommaire]
 
 ---
 ## A. [Titre de la partie A]
 
 1. **[Titre de l'action].** [Description de l'action].
+
 ```bash
 Exemple de code
 ```
 
 2. **[Titre de l'action].** [Description de l'action].
+
 ![Exemple d'image](./assets/exemple.png)

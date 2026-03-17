@@ -17,11 +17,11 @@ Cette procédure définit la configuration standard d'une machine virtuelle Debi
 ---
 ## Sommaire
 
-A. Installation des paquets utilitaires
-B. Création des comptes nominatifs
-C. Configuration de SUDO
-D. Configuration SSH
-E. Configuration du MOTD
+- A. Installation des paquets utilitaires
+- B. Création des comptes nominatifs
+- C. Configuration de SUDO
+- D. Configuration SSH
+- E. Configuration du MOTD
 
 ---
 ## A. Installation des paquets utilitaires

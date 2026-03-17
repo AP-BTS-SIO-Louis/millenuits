@@ -17,11 +17,11 @@ Cette procédure explique comment ajouter ou modifier des documentations sur le 
 ---
 ## Sommaire
 
-A. Préparation de l'environnement local
-B. Création de la branche de travail
-C. Validation et enregistrement des modifications
-D. Publication et fusion (Merge)
-E. Debug : Résolution des conflits
+- A. Préparation de l'environnement local
+- B. Création de la branche de travail
+- C. Validation et enregistrement des modifications
+- D. Publication et fusion (Merge)
+- E. Debug : Résolution des conflits
 
 ---
 ## A. Préparation de l'environnement local
