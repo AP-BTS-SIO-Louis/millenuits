@@ -1,4 +1,4 @@
-# SP 3 - Mission 2 - Installation du service KEA DHCP
+# SP 3 - Mission 2 - Installation et configuration de KEA DHCP
 
 **SP 3 : Gestion des services principaux AD (Active Directory) et DHCP**
 
@@ -12,105 +12,113 @@
 ## Informations générales
 
 - **Date de création** : 05/02/2026
-- **Dernière modification** : 12/03/2026
-- **Auteur** : MEDO Louis
+- **Dernière modification** : 19/03/2026
+- **Mainteneur** : MEDO Louis
 
 ---
 ## Sommaire
 
-1. Prérequis et Installation
-2. Configuration multi-réseaux
-3. Démarrage et Vérification
+- A. Installation du service KEA DHCP
+- B. Sauvegarde et préparation de la configuration
+- C. Configuration globale, DNS et Passerelle
+- D. Vérification et activation du service
 
 ---
-## 1. Prérequis et Installation
+## A. Installation du service KEA DHCP
 
-1. **Mise à jour du système.** Ouvrez le terminal et tapez :
+1. **Mise à jour des paquets et installation.** Cette étape garantit l'installation de la dernière version stable du service DHCPv4.
 
-  ```bash
-  sudo apt update && sudo apt upgrade -y
-  ``` 
-
-   > *Explication : `apt update` met à jour la liste des paquets disponibles. `apt upgrade -y` installe les dernières versions de ces paquets sans demander de confirmation.*
-
-3. **Installation de Kea.** Installez le paquet spécifique à l'IPv4 :
-
-```bash
-sudo apt install kea-dhcp4-server -y
+```Bash
+sudo apt update
+sudo apt install kea-dhcp4-server
 ```
 
-   > *Explication : `apt install` télécharge et installe le logiciel Kea DHCP. Le module `dhcp4` indique qu'il s'agit du serveur de distribution d'adresses IPv4.*
+- `apt update` : Met à jour la liste des paquets disponibles dans les dépôts configurés.
+- `apt install kea-dhcp4-server` : Télécharge et installe spécifiquement le module IPv4 du serveur Kea.
 
 ---
-## 2. Configuration multi-réseaux
+## B. Sauvegarde et préparation de la configuration
 
-> Le fichier de configuration de Kea utilise le format JSON.
+> **Bonne pratique :** Il est impératif de toujours sauvegarder le fichier de configuration par défaut avant d'y apporter des modifications. Cela permet un retour en arrière rapide en cas d'erreur bloquante.
 
-1. **Édition du fichier.** Ouvrez le fichier de configuration principal :
+1. **Création d'une copie de sauvegarde.**
 
-```
-sudoedit /etc/kea/kea-dhcp4.conf
-```
-
-   > *Explication : `nano` est un éditeur de texte en ligne de commande. `/etc/kea/` est le répertoire standard des configurations Kea.*
-
-3. **Déclaration des sous-réseaux.** Repérez le bloc `"subnet4": []` et ajoutez vos réseaux (exemple pour deux services distincts) :
-
-```json
-   "subnet4": [
-       {
-           "subnet": "192.168.10.0/24",
-           "pools": [ { "pool": "192.168.10.100 - 192.168.10.200" } ],
-           "option-data": [
-               { "name": "routers", "data": "192.168.10.254" }
-           ]
-       },
-       {
-           "subnet": "192.168.20.0/24",
-           "pools": [ { "pool": "192.168.20.100 - 192.168.20.200" } ],
-           "option-data": [
-               { "name": "routers", "data": "192.168.20.254" }
-           ]
-       }
-   ]
+```Bash
+sudo cp /etc/kea/kea-dhcp4.conf /etc/kea/kea-dhcp4.conf.bak
 ```
 
-> _Explication : `subnet` définit l'adresse réseau. `pools` définit la plage d'adresses distribuables. `option-data` permet d'envoyer des paramètres supplémentaires aux clients, ici l'adresse de la passerelle par défaut (`routers`)._
+- `cp` : Commande de copie de fichiers.
+- `/etc/kea/kea-dhcp4.conf` : Fichier de configuration source (format JSON).
+- `/etc/kea/kea-dhcp4.conf.bak` : Fichier de destination servant d'archive de sécurité.
 
 ---
-## 3. Démarrage et Vérification
+## C. Configuration globale, DNS et Passerelle
 
-1. **Application des paramètres.** Redémarrez le service pour prendre en compte le nouveau fichier JSON :
+1. **Édition du fichier de configuration.** Définition de l'interface d'écoute, des options globales (DNS, routeur) et de la plage d'adresses.
 
-```bash
+```Bash
+sudo nano /etc/kea/kea-dhcp4.conf
+```
+
+- `nano` : Éditeur de texte en ligne de commande.
+
+2. **Structure JSON de la configuration.** Remplacez le contenu par les paramètres adaptés à votre réseau.
+
+```JSON
+{
+  "Dhcp4": {
+    "interfaces-config": {
+      "interfaces": [ "eth0" ]
+    },
+    "valid-lifetime": 4000,
+    "subnet4": [
+      {
+        "subnet": "172.16.51.0/24",
+        "pools": [ { "pool": "172.16.51.100 - 172.16.51.200" } ],
+        "option-data": [
+          {
+            "name": "routers",
+            "data": "172.16.51.254"
+          },
+          {
+            "name": "domain-name-servers",
+            "data": "172.16.51.10, 8.8.8.8"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+- `"interfaces": [ "eth0" ]` : Spécifie l'interface réseau sur laquelle Kea écoutera les requêtes DHCP (à adapter selon votre système, ex: `ens33`).
+- `"valid-lifetime": 4000` : Temps (en secondes) pendant lequel un client peut utiliser l'adresse IP attribuée (le bail).
+- `"subnet"` : Déclare l'adresse réseau et son masque (notation CIDR).
+- `"pools"` : Définit la plage d'adresses IP distribuables aux clients.
+- `"routers"` : Paramètre la passerelle par défaut envoyée aux clients.
+- `"domain-name-servers"` : Paramètre les serveurs DNS primaire et secondaire envoyés aux clients.
+
+---
+## D. Vérification et activation du service
+
+> **Bonne pratique :** Toujours valider la syntaxe JSON avant de relancer le service pour éviter une interruption en production.
+
+1. **Validation de la syntaxe.**
+
+```Bash
+sudo kea-dhcp4 -t /etc/kea/kea-dhcp4.conf
+```
+
+- `kea-dhcp4 -t` : Analyse le fichier de configuration sans démarrer le serveur pour détecter les erreurs de syntaxe JSON.
+
+2. **Démarrage et activation.**
+
+```Bash
 sudo systemctl restart kea-dhcp4-server
-```
-
-> _Explication : `systemctl restart` arrête puis relance le service (daemon) pour qu'il lise la nouvelle configuration._
-
-2. **Activation au démarrage.** Assurez-vous que le service démarre automatiquement avec la machine :
-
-```bash
 sudo systemctl enable kea-dhcp4-server
-```
-
-> _Explication : `systemctl enable` crée un lien symbolique pour que le système d'exploitation lance ce service à chaque démarrage du serveur._
-
-3. **Vérification du statut.** Contrôlez qu'aucune erreur de syntaxe n'entrave le fonctionnement :
-
-```bash
 sudo systemctl status kea-dhcp4-server
 ```
 
-> _Explication : `systemctl status` affiche l'état actuel du service (actif, en échec) et les derniers journaux (logs), idéal pour le débogage._
-
-| **Nom**       | **Passerelle** | **IP de début (Machine)** | **Nb machines (sans passerelle)** | **Masque décimal** |
-| ------------- | -------------- | ------------------------- | --------------------------------- | ------------------ |
-| Production    | 172.40.0.254   | 172.40.0.1                | 253                               | 255.255.255.0      |
-| Autres        | 172.40.1.126   | 172.40.1.1                | 125                               | 255.255.255.128    |
-| Administratif | 172.40.1.254   | 172.40.1.129              | 125                               | 255.255.255.128    |
-| VentesEtudes  | 172.40.2.62    | 172.40.2.1                | 61                                | 255.255.255.192    |
-| Logistique    | 172.40.2.126   | 172.40.2.65               | 61                                | 255.255.255.192    |
-| Invité        | 172.40.2.142   | 172.40.2.129              | 13                                | 255.255.255.240    |
-| Management    | 172.40.2.158   | 172.40.2.145              | 13                                | 255.255.255.240    |
-| Serveurs      | 172.16.51.252  | 172.16.51.1               | 253                               | 255.255.255.0      |
+- `systemctl restart` : Redémarre le service pour appliquer la nouvelle configuration.
+- `systemctl enable` : Configure le service pour qu'il se lance automatiquement au démarrage du système.
+- `systemctl status` : Affiche l'état actuel du service (vérifier qu'il est "active (running)").
