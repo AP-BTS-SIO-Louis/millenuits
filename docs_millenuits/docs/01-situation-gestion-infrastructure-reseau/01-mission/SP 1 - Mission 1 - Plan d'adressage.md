@@ -36,7 +36,7 @@
 | Serveurs               | Zone Serveurs (DMZ/LAN)                       | -                  | -                           |
 
 > Règle de nommage : La passerelle est la dernière adresse disponible du sous-réseau.
-> Exception : Le sous-réseau Serveurs utilise la passerelle 172.16.51.253/24.
+> Exception : Le sous-réseau Serveurs utilise la passerelle 172.16.51.252/24.
 
 ---
 ## B. Plan d'adressage
