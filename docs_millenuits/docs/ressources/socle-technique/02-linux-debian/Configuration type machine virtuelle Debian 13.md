@@ -116,16 +116,22 @@ vim /etc/motd
 2. **Insérez le texte suivant dans le fichier :**
 
 ```Plaintext
-====================================================================
-  █████████  MILLENUITS - LINUX DEBIAN  █████████
-====================================================================
-  ATTENTION : Toute connexion et action sur ce serveur sont
-  journalisées et surveillées.
+**********************************************************************
+*                                                                    *
+*       "Un grand pouvoir implique de grandes responsabilités"       *
+*                                                                    *
+**********************************************************************
 
-  Règles de bonne conduite :
-  - N'utilisez pas le compte root directement (utilisez sudo).
-  - Référencez-vous au dépôt de documentation avant toute modification.
-  - Déconnectez-vous proprement à la fin de votre intervention.
-====================================================================
+RAPPEL DES BONNES PRATIQUES :
+
+1. TOUJOURS mettre à jour avant d'installer (apt update && upgrade).
+2. JAMAIS de root direct, utilisez sudo pour tracer les actions.
+3. SAUVEGARDEZ avant toute modification critique (cp fichier fichier.bak).
+4. SURVEILLEZ les logs en cas d'erreur (/var/log/syslog ou auth.log).
+5. FERMEZ les ports inutilisés (UFW/Firewall).
+6. TESTEZ vos sauvegardes (une sauvegarde non testée n'existe pas).
+7. DOCUMENTEZ vos modifications pour le futur vous.
+
+**********************************************************************
 ```
 
