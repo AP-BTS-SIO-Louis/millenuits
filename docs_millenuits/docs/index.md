@@ -1,4 +1,4 @@
-# 📚 Documentation Technique - MilleNuits
+# 📚 Introduction
 
 ![Logo MilleNuits](https://github.com/AP-BTS-SIO-Louis/millenuits/raw/main/images/logo_millenuits.png)
 
