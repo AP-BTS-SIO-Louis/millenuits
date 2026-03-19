@@ -1,8 +1,8 @@
-Current configuration : 2955 bytes
+Current configuration : 3147 bytes
 !
-! Last configuration change at 08:18:15 UTC Thu Mar 12 2026 by louismedo
-! NVRAM config last updated at 08:18:17 UTC Thu Mar 12 2026 by louismedo
-! NVRAM config last updated at 08:18:17 UTC Thu Mar 12 2026 by louismedo
+! Last configuration change at 14:57:57 UTC Thu Mar 19 2026 by louismedo
+! NVRAM config last updated at 14:57:58 UTC Thu Mar 19 2026 by louismedo
+! NVRAM config last updated at 14:57:58 UTC Thu Mar 19 2026 by louismedo
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -55,6 +55,7 @@ interface GigabitEthernet0/0.10
  description VLAN Production
  encapsulation dot1Q 10
  ip address 172.40.0.254 255.255.255.0
+ ip helper-address 172.16.51.11
  ip nat inside
  ip virtual-reassembly in
 !
@@ -62,6 +63,7 @@ interface GigabitEthernet0/0.11
  description VLAN Autres
  encapsulation dot1Q 11
  ip address 172.40.1.126 255.255.255.128
+ ip helper-address 172.16.51.11
  ip nat inside
  ip virtual-reassembly in
 !
@@ -69,6 +71,7 @@ interface GigabitEthernet0/0.12
  description VLAN Administratif
  encapsulation dot1Q 12
  ip address 172.40.1.254 255.255.255.128
+ ip helper-address 172.16.51.11
  ip nat inside
  ip virtual-reassembly in
 !
@@ -76,6 +79,7 @@ interface GigabitEthernet0/0.13
  description VLAN VentesEtudes
  encapsulation dot1Q 13
  ip address 172.40.2.62 255.255.255.192
+ ip helper-address 172.16.51.11
  ip nat inside
  ip virtual-reassembly in
 !
@@ -83,11 +87,14 @@ interface GigabitEthernet0/0.14
  description VLAN Logistique
  encapsulation dot1Q 14
  ip address 172.40.2.126 255.255.255.192
+ ip helper-address 172.16.51.11
+ ip nat inside
 !
 interface GigabitEthernet0/0.15
  description VLAN Invite
  encapsulation dot1Q 15
  ip address 172.40.2.142 255.255.255.240
+ ip helper-address 172.16.51.11
  ip nat inside
  ip virtual-reassembly in
 !
@@ -97,7 +104,7 @@ interface GigabitEthernet0/0.51
  ip address 172.16.51.252 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
-!
+!         
 interface GigabitEthernet0/0.99
  description VLAN Management
  encapsulation dot1Q 99
