@@ -32,8 +32,8 @@
    **Commande PowerShell :**
 
    ```powershell
-      Rename-Computer -NewName "MN01" -Restart
-   ````
+   Rename-Computer -NewName "MN01" -Restart
+   ```
 
    `Rename-Computer` : Modifie l'identité NetBIOS et DNS de la machine.
 
@@ -43,10 +43,10 @@
 
 2. **Installation des binaires AD DS.** L'ajout s'effectue via le _Gestionnaire de serveur_ (_Gérer_ > _Ajouter des rôles et fonctionnalités_), en sélectionnant uniquement `Services AD DS`.
 
-    **Alternative en commande PowerShell :**
+   **Alternative en commande PowerShell :**
 
    ```PowerShell
-      Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+   Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
    ```
 
    `Install-WindowsFeature` : Télécharge et installe le rôle ciblé sur le serveur.
@@ -69,14 +69,14 @@
 ## 2. Configuration post-installation DNS (Sécurisation)
 
 !!! info
-    Ici nous allons désactiver la récursivité du DNS du serveur Windows afin d'éviter une exposition aux attaques informatiques sur les résolveurs (comme l'amplification DNS ou l'empoisonnement de cache).
+   Ici nous allons désactiver la récursivité du DNS du serveur Windows afin d'éviter une exposition aux attaques informatiques sur les résolveurs (comme l'amplification DNS ou l'empoisonnement de cache).
 
 1. **Désactiver la récursivité.** Cette action empêche le serveur DNS de transférer les requêtes qu'il ne connaît pas vers d'autres serveurs publics.
 
-    **Commande PowerShell :**
+   **Commande PowerShell :**
 
    ```PowerShell
-      Set-DnsServerRecursion -Enable $false
+   Set-DnsServerRecursion -Enable $false
    ```
 
    `Set-DnsServerRecursion` : Modifie les paramètres de récursivité du serveur DNS local.
@@ -87,20 +87,20 @@
 
 2. **Vérifier l'état de la configuration.** S'assurer que le paramètre a bien été pris en compte par le système.
 
-    **Commande PowerShell :**
+   **Commande PowerShell :**
 
    ```PowerShell
-      Get-DnsServerRecursion
+   Get-DnsServerRecursion
    ```
 
    `Get-DnsServerRecursion` : Interroge le serveur et retourne l'état actuel des paramètres de récursivité (la propriété `IsRecursionEnabled` doit afficher `False`).
 
 3. **Tester l'inefficacité de la récursivité.** Tenter de résoudre un nom de domaine externe pour confirmer que le serveur refuse la requête.
 
-    **Commande PowerShell :**
+   **Commande PowerShell :**
 
    ```PowerShell
-      Resolve-DnsName -Name www.google.com -Server 127.0.0.1
+   Resolve-DnsName -Name www.google.com -Server 127.0.0.1
    ```
 
    `Resolve-DnsName` : Effectue une requête de résolution DNS depuis le client.
