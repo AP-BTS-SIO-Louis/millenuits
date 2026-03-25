@@ -29,31 +29,31 @@
 
 1. **Renommer le serveur.** Avant le déploiement des rôles, le serveur doit posséder un nom d'hôte conforme à la nomenclature du système d'information.
   
-   **Commande PowerShell :**
+      **Commande PowerShell :**
 
-   ```powershell
-   Rename-Computer -NewName "MN01" -Restart
-   ```
+      ```powershell
+         Rename-Computer -NewName "MN01" -Restart
+      ```
 
-   `Rename-Computer` : Modifie l'identité NetBIOS et DNS de la machine.
+      `Rename-Computer` : Modifie l'identité NetBIOS et DNS de la machine.
 
-   `-NewName` : Attribue la nouvelle valeur d'hôte.
+      `-NewName` : Attribue la nouvelle valeur d'hôte.
 
-   `-Restart` : Force un redémarrage immédiat de la machine, étape obligatoire pour valider le nom.
+      `-Restart` : Force un redémarrage immédiat de la machine, étape obligatoire pour valider le nom.
 
 2. **Installation des binaires AD DS.** L'ajout s'effectue via le _Gestionnaire de serveur_ (_Gérer_ > _Ajouter des rôles et fonctionnalités_), en sélectionnant uniquement `Services AD DS`.
 
-   **Alternative en commande PowerShell :**
+      **Alternative en commande PowerShell :**
 
-   ```PowerShell
-   Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
-   ```
+      ```PowerShell
+         Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+      ```
 
-   `Install-WindowsFeature` : Télécharge et installe le rôle ciblé sur le serveur.
+      `Install-WindowsFeature` : Télécharge et installe le rôle ciblé sur le serveur.
 
-   `-Name AD-Domain-Services` : Spécifie les services d'annuaire Active Directory.
+      `-Name AD-Domain-Services` : Spécifie les services d'annuaire Active Directory.
 
-   `-IncludeManagementTools` : Installe simultanément les consoles de gestion (Outils RSAT) nécessaires pour administrer l'AD.
+      `-IncludeManagementTools` : Installe simultanément les consoles de gestion (Outils RSAT) nécessaires pour administrer l'AD.
 
 3. **Promotion en contrôleur de domaine et configuration DNS.** Une fois les binaires installés, cliquer sur l'icône de notification (drapeau jaune) dans le _Gestionnaire de serveur_ pour `Promouvoir ce serveur en contrôleur de domaine`.
     
@@ -73,40 +73,40 @@
 
 1. **Désactiver la récursivité.** Cette action empêche le serveur DNS de transférer les requêtes qu'il ne connaît pas vers d'autres serveurs publics.
 
-   **Commande PowerShell :**
+      **Commande PowerShell :**
 
-   ```PowerShell
-   Set-DnsServerRecursion -Enable $false
-   ```
+      ```PowerShell
+         Set-DnsServerRecursion -Enable $false
+      ```
 
-   `Set-DnsServerRecursion` : Modifie les paramètres de récursivité du serveur DNS local.
+      `Set-DnsServerRecursion` : Modifie les paramètres de récursivité du serveur DNS local.
 
-   `-Enable` : Cible l'état d'activation de la fonctionnalité.
+      `-Enable` : Cible l'état d'activation de la fonctionnalité.
 
-   `$false` : Valeur booléenne qui désactive la récursivité.
+      `$false` : Valeur booléenne qui désactive la récursivité.
 
 2. **Vérifier l'état de la configuration.** S'assurer que le paramètre a bien été pris en compte par le système.
 
-   **Commande PowerShell :**
+      **Commande PowerShell :**
 
-   ```PowerShell
-   Get-DnsServerRecursion
-   ```
+      ```PowerShell
+         Get-DnsServerRecursion
+      ```
 
-   `Get-DnsServerRecursion` : Interroge le serveur et retourne l'état actuel des paramètres de récursivité (la propriété `IsRecursionEnabled` doit afficher `False`).
+      `Get-DnsServerRecursion` : Interroge le serveur et retourne l'état actuel des paramètres de récursivité (la propriété `IsRecursionEnabled` doit afficher `False`).
 
 3. **Tester l'inefficacité de la récursivité.** Tenter de résoudre un nom de domaine externe pour confirmer que le serveur refuse la requête.
 
-   **Commande PowerShell :**
+      **Commande PowerShell :**
 
-   ```PowerShell
-   Resolve-DnsName -Name www.google.com -Server 127.0.0.1
-   ```
+      ```PowerShell
+      Resolve-DnsName -Name www.google.com -Server 127.0.0.1
+      ```
 
-   `Resolve-DnsName` : Effectue une requête de résolution DNS depuis le client.
+      `Resolve-DnsName` : Effectue une requête de résolution DNS depuis le client.
 
-   `-Name` : Définit le nom de domaine externe à interroger.
+      `-Name` : Définit le nom de domaine externe à interroger.
 
-   `-Server` : Force la requête à interroger notre serveur DNS local via l'adresse de bouclage (`127.0.0.1`).
+      `-Server` : Force la requête à interroger notre serveur DNS local via l'adresse de bouclage (`127.0.0.1`).
 
-   _Résultat attendu :_ La commande doit retourner une erreur (comme `QueryRefused`), prouvant que le serveur ne résout plus les noms en dehors de sa propre zone d'autorité.
+      _Résultat attendu :_ La commande doit retourner une erreur (comme `QueryRefused`), prouvant que le serveur ne résout plus les noms en dehors de sa propre zone d'autorité.
