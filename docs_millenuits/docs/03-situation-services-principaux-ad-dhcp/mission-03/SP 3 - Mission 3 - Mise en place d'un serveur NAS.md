@@ -76,7 +76,7 @@ Remove the current settings of this interface ? (This causes a momentary dsiconn
 
 Configure interface for DHCP (y/n)  N
 
-Configure IPV4 (y/n)  Y
+Configure IPv4 (y/n)  Y
 
 Interface name : vtnet
 
@@ -84,4 +84,19 @@ IPV4 Address : 172.16.51.230/24
 
 ```
 
-4. Rebooter TrueNas pour que l'interface s'applique correctement
+4. Retourner sur le menu et appuyer sur ``4`` et ``entrer``
+
+```
+Configure IPv4 Default Route ? (y/n) Y
+
+IPv4 Default Route : 172.16.51.252
+
+Configure IPv6 Default Route ? (y/n) N
+```
+
+5. Rebooter TrueNas pour que l'interface s'applique correctement
+
+Maintenant vous devriez pouvoir accéder à l'interface de TrueNas avec l'adresse IP : `172.16.51.252` le mot de passe pour y accéder et celui que nous avons définis plutôt.
+
+___
+
