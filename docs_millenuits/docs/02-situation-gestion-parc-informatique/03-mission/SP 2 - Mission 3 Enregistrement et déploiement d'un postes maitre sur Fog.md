@@ -64,16 +64,63 @@ Windows 11 exige l'EFI.
 
 - Dans **Système** -> **Carte mère**, s'assurer que **Activer l'EFI** est coché.
 
----
+___
 
-### Résumé de la manipulation :
+## Aspiration et sauvegarde du poste maitre
 
-1. Fais ton **Sysprep** dans la VM Windows 11.
+### 1. Préparation du Master 
 
-2. Éteins la VM.
 
-3. Vérifie les réglages **Réseau (Pont)** et **Ordre de Boot (Réseau en premier)**.
+1. **Sysprep :** C'est obligatoire pour réinitialiser les identifiants de sécurité (SID).
 
-4. Sur ton interface FOG, lance la tâche de **Capture**.
+	- Appuyer sur ``Win + R``
 
-5. Démarre la VM. Elle devrait afficher l'écran "iPXE", charger le noyau FOG, et commencer à envoyer les données.
+    - Taper `C:\Windows\System32\Sysprep\sysprep.exe`
+
+    - Choisis **OOBE**, cocher **Généraliser** et sélectionner **Arrêter le système**.
+
+    - Note : Une fois le PC éteint, **ne pas rallumer** sous Windows, sinon le Sysprep est annulé.
+
+
+### 2. Déclarer l'Image dans FOG
+
+Avant de capturer, il faut créer le "contenant" sur le serveur FOG.
+
+1. Sur l'interface Web -> **Image** -> **Créée une nouvelle Image**.
+
+2. Nommer le (ex: `Win11_Master`).
+
+3. **Image Type :** Sélectionne **Single Disk - Resizable.**
+
+4. **Partition :** "Everything" ou "All Partitions".
+
+5. **Operating System :** Windows 10.
+
+6. Clique sur **Ajouter**.
+
+
+### 3. Associer l'Image à  l'Hôte
+
+Maintenant, on dit à FOG que _ce_ PC précis possède _cette_ image.
+
+1. Va dans **Machine** -> Liste des hôtes.
+
+2. Cliquer sur le PC Maitre.
+
+3. Dans le champ **Host Image**, sélectionne l'image créée `Win11_Master`.
+
+4. Cliquer sur **Update**.
+
+### 4. Lancer la Capture (Le "Push")
+
+1. Toujours sur la fiche de ton hôte, clique sur le bouton **Capture** (l'icône avec une flèche qui monte).
+
+2. FOG créer une **Task**.
+
+3. **Rallumer le PC Master** et s'assurer qu'il boot en PXE (réseau).
+
+4. Le PC ne va pas lancer Windows, il va charger l'environnement FOS. il y aura une barre de progression bleue : FOG est en train "d'aspirer" le Windows 11 vers le serveur.
+
+___ 
+
+

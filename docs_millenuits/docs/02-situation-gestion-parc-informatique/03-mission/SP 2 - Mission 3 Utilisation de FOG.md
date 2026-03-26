@@ -38,13 +38,13 @@ Avant de capturer l'image, tu dois "généraliser" Windows pour qu'il puisse s'a
 
 ## 2. Configuration sur l'interface Web de FOG
 
-Connecte-toi à ton serveur FOG via ton navigateur.
+Se Connecter au serveur FOG via le navigateur.
 
 ### Créer l'image
 
-1. Va dans **Image Management** -> **Create New Image**.
+1. Aller dans **Image Management** -> **Create New Image**.
 
-2. Donne-lui un nom (ex: "Win11_Master").
+2. Lui donner un nom (ex: "Win11_Master").
 
 3. **Paramètres importants :**
 
@@ -55,18 +55,18 @@ Connecte-toi à ton serveur FOG via ton navigateur.
 
 ### Enregistrer l'hôte (la VM)
 
-1. Va dans **Host Management** -> **Add New Host**.
+1. Aller dans **Host Management** -> **Add New Host**.
 
-2. Saisis l'adresse MAC de ta VM VirtualBox.
+2. Saisir l'adresse MAC de la VM VirtualBox.
 
-3. Associe cet hôte à l'image que tu viens de créer ("Win11_Master").
+3. Associe cet hôte à l'image ("Win11_Master").
 
 
 ---
 
 ## 3. Capture de l'image
 
-C'est le moment où les données passent de VirtualBox vers ton serveur Debian.
+C'est le moment où les données passent de VirtualBox vers le serveur Debian.
 
 1. Sur l'interface FOG, va sur la fiche de ton hôte (la VM), clique sur l'onglet **Task** puis sur **Capture**.
 
