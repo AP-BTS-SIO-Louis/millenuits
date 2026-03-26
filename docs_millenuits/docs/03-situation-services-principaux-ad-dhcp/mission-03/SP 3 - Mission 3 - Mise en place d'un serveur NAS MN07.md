@@ -1,4 +1,4 @@
-# SP 3 - Mission 3 - Mise en place d'un serveur NAS avec authentification Active Directory et redirection de dossiers MN07
+# SP 3 - Mission 3 - Installation de TrueNAS
 
 **SP 3 : Gestion des services principaux AD (Active Directory) et DHCP**
 
@@ -31,7 +31,7 @@ Les paramètres mis dans la VM sont les suivants :
 	-  Un disque : 20 Go pour l'installation
 	- Un disque : 40 Go pour le stockage
 - Mot de passe : 
-	- `0247249690``
+	- `0247249690`
 
 ### B. Installations :
 
@@ -50,5 +50,38 @@ Il sera demander de choisir le support sur le quel sera installer l'installer de
 
 Il nous est demander de créé un mot de passe qu'il faudra retenir dans notre cas le mot de passe est `0247249690` .
 
+Et enfin si nous voulons booter soit sur sur le BIOS et sur le UEFI
+
 Une fois l'installation effectuer :
 
+- Retourner sur Nutanix éteignez la VM
+- Appuyer sur le bouton ``UPDATE``
+- Changer l'ISO pour un ``empty CD-ROM``
+- Et relancez la VM
+
+___
+
+## Réseau 
+
+Maintenant que le Nas est "Installer" il faut définir sont interface réseau.
+
+1. Appuyer sur ``1`` et sur ``entrer`` pour valider.
+
+2. Choisissez votre interface.
+
+3. Suivez ces étapes : 
+
+```
+Remove the current settings of this interface ? (This causes a momentary dsiconnection of the network.) (y/n)  N
+
+Configure interface for DHCP (y/n)  N
+
+Configure IPV4 (y/n)  Y
+
+Interface name : vtnet
+
+IPV4 Address : 172.16.51.230/24
+
+```
+
+4. Rebooter TrueNas pour que l'interface s'applique correctement

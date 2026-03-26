@@ -1,4 +1,4 @@
-# SP 3 - Mission 3 - Mise en place d'un serveur NAS avec authentification Active Directory et redirection de dossiers MN07
+# SP 3 - Mission 3 - Choix de la solution NAS
 
 **SP 3 : Gestion des services principaux AD (Active Directory) et DHCP**
 
