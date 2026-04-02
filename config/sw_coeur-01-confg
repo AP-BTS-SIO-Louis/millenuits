@@ -4,7 +4,7 @@ version 12.2
 no service pad
 service timestamps debug datetime msec
 service timestamps log datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname sw_coeur-01
 !
