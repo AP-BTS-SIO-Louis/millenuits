@@ -100,11 +100,26 @@ interface GigabitEthernet0/1.15
  ip nat inside
  ip virtual-reassembly in
 !
+interface GigabitEthernet0/1.16
+ description VLAN Developpeur
+ encapsulation dot1Q 16
+ ip address 172.40.2.174 255.255.255.240
+ ip helper-address 172.16.51.11
+ ip nat inside
+ ip virtual-reassembly in
+!
 interface GigabitEthernet0/1.51
  description VLAN Serveurs
  encapsulation dot1Q 51
  ip address 172.16.51.252 255.255.255.0
  ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.53
+ description VLAN DMZ prive
+ encapsulation dot1Q 53
+ ip address 10.10.10.254 255.255.255.0
+ ip access-group DMZ in
  ip virtual-reassembly in
 !         
 interface GigabitEthernet0/1.99
@@ -130,11 +145,38 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 !
-ip nat inside source list 1 interface GigabitEthernet0/0 overload
+ip nat inside source list NAT interface GigabitEthernet0/0 overload
 ip route 0.0.0.0 0.0.0.0 172.16.31.254
 !
-access-list 1 permit 172.40.0.0 0.0.255.255
-access-list 1 permit 172.16.51.0 0.0.0.255
+ip access-list extended DMZ
+ remark Autorisation des reponses
+ permit tcp 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255 established
+ permit tcp 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255 established
+ permit icmp 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255 echo-reply
+ permit icmp 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255 echo-reply
+ remark Interdiction acces autres vlan
+ deny ip 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255
+ deny ip 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255
+ remark Interdiction globale
+ deny ip any any
+ip access-list extended DMZ-PING
+ remark Autorisation des reponses
+ permit tcp 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255 established
+ permit tcp 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255 established
+ permit icmp 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255 echo-reply
+ permit icmp 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255 echo-reply
+ remark Interdiction acces autres vlan
+ deny ip 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255
+ deny ip 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255
+ remark Autorisation ping passerelle
+ permit icmp 10.10.10.0 0.0.0.255 10.10.10.0 0.0.0.255
+ remark Interdiction globale
+ deny ip any any
+ip access-list standard NAT
+ remark Utilisateurs
+ permit 172.40.0.0 0.0.255.255
+ remark Serveurs
+ permit 172.16.51.0 0.0.0.255
 !
 !
 !
