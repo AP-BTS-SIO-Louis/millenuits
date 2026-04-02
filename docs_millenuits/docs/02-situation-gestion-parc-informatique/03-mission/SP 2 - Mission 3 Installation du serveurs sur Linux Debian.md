@@ -113,6 +113,15 @@ Pour pouvoir passer l'installateur en français il faut répondre ``yes`` .
 
 Ensuite le hostname a utiliser. Et valider l'installation FOG va vérifié la connexion internet et installer les paquets nécessaires.
 
+Il faut se connecter au réseau avec un autre ordinateur pour avoir accées au site internet :
+
+- Aller dans ``Réseau et Internet``
+- Modifier les paramètres IP en ``manuel``
+	- Adresse IP : 172.40.0.2
+	- Masque : 255.255.255.0
+	- Passerelle : 172.40.0.254
+	- DNS : 9.9.9.9
+
 Une fois l'installation des paquets fini FOG demande de se connecter au site Internet avec cette adresse ``172.16.51.7/fog/management``.
 
 Pour se connecter : 
