@@ -80,7 +80,7 @@ Configure IPv4 (y/n)  Y
 
 Interface name : vtnet
 
-IPV4 Address : 172.16.51.230/24
+IPV4 Address : 172.16.51.9/24
 
 ```
 
@@ -96,7 +96,7 @@ Configure IPv6 Default Route ? (y/n) N
 
 5. Rebooter TrueNas pour que l'interface s'applique correctement
 
-Maintenant vous devriez pouvoir accéder à l'interface de TrueNas avec l'adresse IP : `172.16.51.252` le mot de passe pour y accéder et celui que nous avons définis plutôt.
+Maintenant vous devriez pouvoir accéder à l'interface de TrueNas avec l'adresse IP : `172.16.51.29` le mot de passe pour y accéder et celui que nous avons définis plutôt.
 
 ___
 

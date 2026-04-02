@@ -17,3 +17,22 @@
 
 ___
 
+## Configuration
+
+Mise en place du NAS avec l'AD (`` 172.16.51.1``) pour la connexion au NAS, ainsi quand un utilisateur est créée sur l'Active Directory il à également le droit en fonction de son habilitation d'accéder plus ou moins au NAS.
+
+### Utilisateurs disponibles :
+
+Pour rajouter des utilisateurs sur TrueNas il suffit d'aller dans `Account` et il suffit d'appuyer sur ``Add`` et rajouter les informations.
+	 
+	Username : root
+	Mot de passe : 0247249690
+	
+	Utilisateur  : Hugo Gangneux
+	Username : Bob
+	Mot de passe : 123456
+	
+	Utilisateur : Crys Boisseau
+	Username : Jean
+	Mot de passe : 456789
+
