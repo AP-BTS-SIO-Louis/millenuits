@@ -1,0 +1,45 @@
+# *****************************************************************************
+# Nom         : Template environnement Web + DB
+# Mainteneur  : MEDO Louis
+# Composants  : Serveur Web (Apache + PHP 8.2) & Base de données (MariaDB 10.11)
+# ******************************************************************************
+
+services:
+  # Service Web
+  web:
+    name: millenuits-dev-web-apache
+    image: php:8.2-apache
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      # Montage de type "bind" (ou volume nommé dans Portainer) pour le code source
+      - web_data:/var/www/html
+    environment:
+      # Variables pour que l'application PHP sache comment se connecter à la DB
+      - DB_HOST=db
+      - DB_USER=user_etudiant
+      - DB_PASSWORD=mdp_etudiant
+      - DB_NAME=db_etudiant
+    depends_on:
+      - db
+
+  # Service Base de données
+  db:
+    name: millenuits-dev-bd-mariadb
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      # Définition des accès lors de l'initialisation du conteneur
+      MYSQL_ROOT_PASSWORD: root_password_fort # À remplacer par un secret ou variable d'env
+      MYSQL_DATABASE: db_etudiant
+      MYSQL_USER: user_etudiant
+      MYSQL_PASSWORD: mdp_etudiant
+    volumes:
+      # Montage d'un volume persistant pour ne pas perdre les données au redémarrage
+      - db_data:/var/lib/mysql
+
+# Déclaration des volumes gérés par Docker
+volumes:
+  web_data:
+  db_data:
