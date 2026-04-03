@@ -28,7 +28,7 @@
 1.  **Création ou modification du fichier de configuration.** Le démon Docker utilise le fichier `daemon.json` pour sa configuration centrale.
 
     ```bash
-    sudo nano /etc/docker/daemon.json
+    sudoedit /etc/docker/daemon.json
     ```
 
     `sudoedit` : Permet de modifier un fichier avec les priviliège sudo.
@@ -39,12 +39,12 @@
 
     ```json
     {
-      "log-driver": "json-file",
-      "log-opts": {
+        "log-driver": "json-file",
+        "log-opts": {
         "max-size": "10m",
         "max-file": "3"
-      },
-      "live-restore": true
+        },
+        "live-restore": true
     }
     ```
 
@@ -82,6 +82,7 @@
 2.  **Application de la configuration.** Redémarrage du service pour prendre en compte les nouveaux paramètres.
 
     ```bash
+    sudo systemctl daemon-reload
     sudo systemctl restart docker
     ```
 

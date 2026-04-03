@@ -40,27 +40,27 @@
 
 ## B. Déploiement du conteneur Portainer
 
-1.  **Exécution du conteneur avec configuration de production.** Lancement du service avec attachement au socket Docker local et mappage des ports nécessaires.
+L'installation s'effectue en téléchargeant et en exécutant l'image officielle. Étant donné que le démon Docker est durci (`userns-remap`), nous devons autoriser ce conteneur d'administration à accéder au socket hôte.
+
+1. **Exécution du conteneur avec privilèges d'administration ciblés.** Lancement du service avec attachement au socket Docker et exception de namespace.
 
     ```bash
-    sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.40.0-alpine
+    sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always --userns=host -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.40.0-alpine
     ```
 
-    `-d` (detach) : Exécute le conteneur en arrière-plan et libère le terminal.
+    `-d` : Détache le conteneur en arrière-plan.
 
-    `-p 8000:8000` : Ouvre le port TCP 8000 pour les connexions des agents Portainer Edge (utile si d'autres nœuds doivent être gérés ultérieurement).
+    `-p 8000:8000` et `-p 9443:9443` : Expose les ports pour l'agent (8000) et l'interface Web HTTPS (9443).
 
-    `-p 9443:9443` : Expose l'interface d'administration Web de Portainer en HTTPS (certificat auto-signé généré par défaut).
+    `--name portainer` : Nomme le conteneur de manière explicite.
 
-    `--name portainer` : Assigne un nom fixe au conteneur, évitant un nom aléatoire et facilitant son pilotage en CLI.
+    `--restart=always` : Garantit la haute disponibilité (redémarrage automatique en cas de crash).
 
-    `--restart=always` : Stratégie de résilience SRE. Le démon Docker redémarrera automatiquement ce conteneur en cas de crash, ou lors du redémarrage du serveur MN21.
+    `--userns=host` : Cette commande désactive le "User Namespace Remapping" *uniquement* pour ce conteneur. C'est indispensable pour qu'un outil d'administration puisse lire le socket Docker (`/var/run/docker.sock`) avec les droits `root` de l'hôte, tout en maintenant les autres conteneurs isolés.
 
-    `-v /var/run/docker.sock:/var/run/docker.sock` : Bind mount critique. Permet à Portainer d'interagir avec l'API du démon Docker local pour le piloter.
+    `-v /var/run/docker.sock:/var/run/docker.sock` : Connecte Portainer au moteur Docker local.
 
-    `-v portainer_data:/data` : Monte le volume persistant créé précédemment dans le répertoire `/data` du conteneur.
-
-    `portainer/portainer-ce:2.40.0-alpine` : Cible l'image officielle sur le Docker Hub, version communautaire.
+    `-v portainer_data:/data` : Attache le volume persistant pour les configurations.
 
 ---
 
