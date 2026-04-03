@@ -23,7 +23,7 @@ Il y a donc 3 étapes :
 
 - **Paramétrage de VirtualBox pour "Aspirer" le poste maitre**
 - **Aspiration et sauvegarde du poste maitre**
-- **Déploiement sur un poste vierge **
+- **Déploiement sur un poste vierge**
 
 ___
 

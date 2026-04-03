@@ -17,22 +17,83 @@
 
 ___
 
-## Configuration
+## Configuration du Stockage et Service d'Annuaire
 
-Mise en place du NAS avec l'AD (`` 172.16.51.1``) pour la connexion au NAS, ainsi quand un utilisateur est créée sur l'Active Directory il à également le droit en fonction de son habilitation d'accéder plus ou moins au NAS.
+### 1. Liaison Active Directory (AD)
 
-### Utilisateurs disponibles :
+Pour permettre la synchronisation des utilisateurs et des groupes, le NAS doit être membre du domaine.
 
-Pour rajouter des utilisateurs sur TrueNas il suffit d'aller dans `Account` et il suffit d'appuyer sur ``Add`` et rajouter les informations.
-	 
-	Username : root
-	Mot de passe : 0247249690
-	
-	Utilisateur  : Hugo Gangneux
-	Username : Bob
-	Mot de passe : 123456
-	
-	Utilisateur : Crys Boisseau
-	Username : Jean
-	Mot de passe : 456789
+- **Serveur AD :** `172.16.51.1`
+    
+- **Flux réseau :** Assurez-vous que les ports DNS (53), Kerberos (88) et LDAP (389) sont ouverts entre le NAS et le contrôleur de domaine.
+    
 
+**Procédure de jonction :**
+
+1. Aller dans **Directory Services** > **Active Directory**.
+    
+2. Saisir le nom du domaine (ex: `mondomaine.local`).
+    
+3. Renseigner les identifiants d'un administrateur du domaine.
+    
+4. Cocher **Enable** et sauvegarder.
+    
+
+> [!TIP]
+> 
+> Une fois la connexion établie, les utilisateurs de l'AD apparaissent automatiquement dans TrueNAS, évitant ainsi la création manuelle pour chaque employé.
+
+---
+
+### 2. Gestion des Utilisateurs et Habilitations
+
+La gestion des accès repose sur le principe du **RBAC** (Role-Based Access Control). Les droits sont définis selon l'appartenance à des groupes spécifiques de l'AD.
+
+#### A. Utilisateurs Locaux (Hors AD)
+
+Pour les comptes de maintenance ou les utilisateurs n'appartenant pas au domaine, la création se fait manuellement :
+
+- **Chemin :** `Accounts` > `Users` > `Add`
+
+|**Nom Complet**|**Identifiant (Username)**|**Usage Type**|
+|---|---|---|
+|Hugo Gangneux|**Bob**|Administrateur Local|
+|Crys Boisseau|**Jean**|Utilisateur Standard|
+
+#### B. Gestion des Permissions (ACL)
+
+Pour restreindre l'accès aux dossiers (Datasets) en fonction des habilitations :
+
+1. Aller dans **Storage** > **Pools**.
+    
+2. Sur le dossier concerné, cliquer sur les trois points (⋮) > **Edit Permissions**.
+    
+3. Utiliser les **ACL Manager** pour ajouter des entrées :
+    
+    - **Groupe "RH" :** Lecture/Écriture sur le dossier `Recrutement`.
+        
+    - **Groupe "Compta" :** Accès interdit (Deny) sur le dossier `Technique`.
+        
+
+---
+
+### 3. Partage des Données (SMB)
+
+Pour que les utilisateurs puissent accéder au NAS depuis leur poste Windows :
+
+1. Aller dans **Sharing** > **Windows Shares (SMB)**.
+    
+2. Créer un partage pointant vers le Dataset configuré.
+    
+3. Les utilisateurs pourront s'y connecter via le chemin : `\\172.16.51.1\NomDuPartage`.
+    
+
+---
+
+### 4. Bonnes Pratiques de Sécurité
+
+- **Complexité des mots de passe :** Éviter les suites simples comme `123456`. Privilégier 12 caractères minimum.
+    
+- **Accès Root :** Ne jamais utiliser le compte `root` pour les partages réseau quotidiens.
+    
+- **Snapshots :** Configurer des instantanés réguliers (Storage > Periodic Snapshot Tasks) pour protéger les données contre les ransomwares ou les suppressions accidentelles.

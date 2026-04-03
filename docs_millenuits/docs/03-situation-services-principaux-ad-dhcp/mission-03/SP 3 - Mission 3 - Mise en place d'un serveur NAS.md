@@ -1,4 +1,4 @@
-# SP 3 - Mission 3 - Installation de TrueNAS
+# SP 3 - Mission 3 - Installation de TrueNas
 
 **SP 3 : Gestion des services principaux AD (Active Directory) et DHCP**
 
