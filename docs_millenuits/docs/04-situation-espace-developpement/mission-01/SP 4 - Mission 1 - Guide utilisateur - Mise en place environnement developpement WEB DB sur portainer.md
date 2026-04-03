@@ -41,7 +41,11 @@
 
 Afin de garantir un environnement stable et identique pour tous, l'équipe SRE a préparé un modèle (Template) contenant un serveur Web Apache/PHP et une base de données MariaDB.
 
-1.  **Sélection du modèle SRE.** Dans le menu de gauche, cliquez sur **App Templates**, puis accédez à l'onglet **Custom Templates**. Cliquez sur le modèle nommé `[STANDARD] Environnement Web/DB`.
+1. **Sélectionner l'environnement `local`**.
+
+    ![Environnement](./assets/portainer51_guide-utilisateur_environnement.png)
+
+1.  **Sélection du modèle SRE.** Dans le menu de gauche, cliquez sur **Templates**, puis accédez à l'onglet **Custom**. Cliquez sur le modèle nommé `Template - Dev - Environnement WEB DB`.
 
     [Capture d'écran à faire : Interface Custom Templates avec le modèle sélectionné]
 
