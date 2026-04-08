@@ -186,6 +186,8 @@ control-plane
 !
 !         
 line con 0
+ password 7 012714017A1F55422C4D5A2A1107181D004117262A14183A3B25
+ login
 line vty 0 4
  login local
  transport input ssh
