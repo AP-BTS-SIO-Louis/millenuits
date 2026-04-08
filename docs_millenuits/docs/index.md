@@ -1,6 +1,6 @@
 # **📚 Introduction**
 
-![Logo MilleNuits](https://ap-bts-sio-louis.github.io/millenuits/assets/banniere_millenuits.png)
+![Bannière Millenuits](https://ap-bts-sio-louis.github.io/millenuits/assets/banniere_millenuits.png)
 
 Bienvenue sur le site de documentation technique du projet **MilleNuits**. Ce site centralise l'ensemble des procédures, architectures et configurations mises en place dans le cadre de la refonte de l'infrastructure réseau et de la gestion du parc informatique de l'entreprise.
 
