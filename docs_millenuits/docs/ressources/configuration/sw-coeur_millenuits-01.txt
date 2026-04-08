@@ -1,4 +1,4 @@
-Current configuration : 4698 bytes
+! Current configuration : 4698 bytes
 !
 version 12.2
 no service pad
@@ -19,7 +19,7 @@ ip subnet-zero
 !
 !
 no ip domain lookup
-ip domain-name millenuits.lab
+ip domain-name millenuits.lan
 !
 !         
 crypto pki trustpoint TP-self-signed-405997952
@@ -28,6 +28,9 @@ crypto pki trustpoint TP-self-signed-405997952
  revocation-check none
  rsakeypair TP-self-signed-405997952
 !
+ip ssh version 2
+!
+crypto key generate rsa general-keys modulus 2048
 !
 crypto pki certificate chain TP-self-signed-405997952
  certificate self-signed 01
@@ -61,7 +64,6 @@ spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
 !
-ip ssh version 2
 !
 interface FastEthernet0/1
  description VLAN 10 Production
