@@ -1,45 +1,58 @@
 # *****************************************************************************
 # Nom         : Template environnement Web + DB
 # Mainteneur  : MEDO Louis
+# Date        : 2026-04-09
 # Composants  : Serveur Web (Apache + PHP 8.2) & Base de données (MariaDB 10.11)
 # ******************************************************************************
 
 services:
-  # Service Web
+  # 1. Conteneur d'initialisation (Récupération du code)
+  init-code:
+    image: alpine:latest
+    command: >
+      sh -c "apk add --no-cache git 
+      && git clone https://github.com/AP-BTS-SIO-Louis/millenuits_test-site-internet.git /tmp/repo 
+      && rm -rf /app/* && cp -r /tmp/repo/src/* /app/ 
+      && chown -R 33:33 /app"
+    volumes:
+      - web_data:/app
+
+  # 2. Serveur Web (Éxecution du code PHP)
   web:
-    name: millenuits-dev-web-apache
     image: php:8.2-apache
     restart: unless-stopped
     ports:
       - "8080:80"
     volumes:
-      # Montage de type "bind" (ou volume nommé dans Portainer) pour le code source
       - web_data:/var/www/html
     environment:
-      # Variables pour que l'application PHP sache comment se connecter à la DB
       - DB_HOST=db
-      - DB_USER=user_etudiant
-      - DB_PASSWORD=mdp_etudiant
-      - DB_NAME=db_etudiant
+      - DB_USER=${DB_USER:-user_etudiant}
+      - DB_PASSWORD=${DB_PASSWORD:-mdp_etudiant}
+      - DB_NAME=${DB_NAME:-db_etudiant}
     depends_on:
-      - db
+      init-code:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
 
-  # Service Base de données
+  # 3. Base de données
   db:
-    name: millenuits-dev-bd-mariadb
     image: mariadb:10.11
     restart: unless-stopped
     environment:
-      # Définition des accès lors de l'initialisation du conteneur
-      MYSQL_ROOT_PASSWORD: root_password_fort # À remplacer par un secret ou variable d'env
-      MYSQL_DATABASE: db_etudiant
-      MYSQL_USER: user_etudiant
-      MYSQL_PASSWORD: mdp_etudiant
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password_fort}
+      MYSQL_DATABASE: ${DB_NAME:-db_etudiant}
+      MYSQL_USER: ${DB_USER:-user_etudiant}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-mdp_etudiant}
     volumes:
-      # Montage d'un volume persistant pour ne pas perdre les données au redémarrage
       - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
-# Déclaration des volumes gérés par Docker
 volumes:
   web_data:
   db_data:
