@@ -57,7 +57,7 @@ La maîtrise de Docker repose sur la compréhension de quelques concepts fondame
 ### Conteneur vs Machine Virtuelle (VM)
 Il est crucial de distinguer un conteneur d'une machine virtuelle. 
 
-![Schéma conteneur VS machine virtuelle](./assets/docker01_schema-container-vm.png)
+![Schéma conteneur VS machine virtuelle](../assets/docker01_schema-container-vm.png)
 
 *Schéma - conteneur VS machine virtuelle*
 

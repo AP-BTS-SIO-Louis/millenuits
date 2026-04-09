@@ -54,4 +54,4 @@ L'objectif est d'isoler les développeurs dans un espace contrôlé en appliquan
     * Cliquez sur **Manage access**, sélectionner l'équipe `Developpeurs` et cliquer sur **Create access**.
     * *Explication* : Les développeurs ont désormais le droit de créer des stacks, conteneurs et volumes, mais uniquement au sein de cet environnement.
 
-    ![Interface de gestion des droits](./assets/portainer03_gestion-des-droits-environnements.png)
+    ![Interface de gestion des droits](../assets/portainer03_gestion-des-droits-environnements.png)

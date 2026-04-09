@@ -32,11 +32,11 @@
 
 2. **Authentification.** Saisir les identifiants de connexion (Nom d'utilisateur et Mot de passe) attribués, puis cliquer sur le bouton **Login**.
 
-    ![Page d'authentification Portainer](./assets/portainer01_page_connexion.png)
+    ![Page d'authentification Portainer](../assets/portainer01_page_connexion.png)
 
 3. **Sélection de l'environnement.** Sur la page d'accueil (Home), cliquer sur l'environnement nommé **local** afin d'accéder aux ressources rattachées à ce nœud Docker.
 
-    ![Sélection de l'environnement local](./assets/portainer02_environnement.png)
+    ![Sélection de l'environnement local](../assets/portainer02_environnement.png)
 
 ---
 
@@ -46,20 +46,20 @@
 
 1. **Accès au gestionnaire de piles (Stacks).** Dans le menu latéral de gauche, sélectionner **Stacks**, puis cliquer sur le bouton **+ Add stack** situé en haut à droite de l'interface.
 
-    ![Liste des Stacks](./assets/portainer04_add-stack.png)
+    ![Liste des Stacks](../assets/portainer04_add-stack.png)
 
 2. **Définition de la méthode de déploiement.** Saisir un nom représentatif pour l'application dans le champ **Name** (ex: `app-millenuits`, sans espaces ni majuscules). Dans la section **Build method**, sélectionner l'option **Repository**.
 
     - Pour gérer les variables d'environnement de votre projet, vous pouvez les saisir individuellement de manière sécurisée via le bouton `Add an environment variable`, ou importer directement un fichier **.env** existant.
 
-    ![Méthode de construction Repository](./assets/portainer05_configuration-stack.png)
+    ![Méthode de construction Repository](../assets/portainer05_configuration-stack.png)
 
 3. **Configuration du dépôt source.** Dans la section **Git repository**, renseigner l'URL complète du dépôt contenant le code source de l'application dans le champ **Repository URL**. La référence par défaut (`refs/heads/main`) cible la branche principale.
 
 4. **Gestion des accès et déploiement.** Descendre jusqu'à la section **Access control**. Il est recommandé de sélectionner **Restricted** et d'assigner l'équipe de développement autorisée (ex: **Developpeurs**). Enfin, cliquer sur le bouton **Deploy the stack**. 
 *Le déploiement peut prendre quelques instants, le temps d'instancier les conteneurs et de télécharger le code.*
 
-    ![Déploiement de la stack](./assets/portainer06_deploy-stack.png)
+    ![Déploiement de la stack](../assets/portainer06_deploy-stack.png)
 
 ---
 

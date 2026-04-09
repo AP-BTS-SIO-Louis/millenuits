@@ -9,13 +9,17 @@ services:
   # 1. Conteneur d'initialisation (Récupération du code)
   init-code:
     image: alpine:latest
+    # Changer le chemin du dépôt Git et les commandes d'initialisation selon vos besoins
     command: >
       sh -c "apk add --no-cache git 
-      && git clone https://github.com/AP-BTS-SIO-Louis/millenuits_test-site-internet.git /tmp/repo 
-      && rm -rf /app/* && cp -r /tmp/repo/src/* /app/ 
-      && chown -R 33:33 /app"
+      && git clone http://gitea.millenuits.lan/slam/projet.git /tmp/repo 
+      && rm -rf /app/web/* && rm -rf /app/sql/*
+      && cp -r /tmp/repo/src/* /app/web/ 
+      && cp /tmp/repo/sql/*.sql /app/sql/ 
+      && chown -R 33:33 /app/web"
     volumes:
-      - web_data:/app
+      - web_data:/app/web
+      - db_init:/app/sql
 
   # 2. Serveur Web (Éxecution du code PHP)
   web:
@@ -47,6 +51,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD:-mdp_etudiant}
     volumes:
       - db_data:/var/lib/mysql
+      - db_init:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 10s
@@ -56,3 +61,4 @@ services:
 volumes:
   web_data:
   db_data:
+  db_init:
