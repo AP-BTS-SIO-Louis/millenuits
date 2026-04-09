@@ -1,4 +1,4 @@
-# SP 4 - Mission 1 - Déploiement et Configuration Initiale de Gitea
+# SP 4 - Mission 1 - Déploiement et configuration Initiale de Gitea
 
 **SP 4 : Mise en place d’un espace de développement**
 
@@ -31,7 +31,7 @@ Avant l'instanciation des services, la gestion des secrets doit être rigoureuse
 
 2.  **Préparation du fichier de déploiement.** Utiliser le fichier de configuration ci-dessous pour configurer Gitea sur le serveur de pré-production (MN21).
 
-    👉 [Docker compose - Gitea](./docker-compose_gitea.yaml)
+    👉 [Docker compose - Gitea](./docker-compose_gitea.txt)
 
 3.  **Injection des variables d'environnement dans Portainer.** Pour des raisons de sécurité, les secrets ne sont pas stockés en clair dans le code. Ils doivent être transmis dynamiquement lors de la création de la *Stack* dans Portainer.
 
