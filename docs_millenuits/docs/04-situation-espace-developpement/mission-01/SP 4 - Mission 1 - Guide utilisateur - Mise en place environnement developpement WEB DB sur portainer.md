@@ -1,90 +1,72 @@
-# SP 4 - Mission 1 - Guide Utilisateur Portainer (Étudiants SLAM)
+# SP 4 - Mission 1 - Guide de Déploiement GitOps sur Portainer
 
 **SP 4 : Mise en place d’un espace de développement**
 
 **Mission 1 : Mise en place d’un environnement de test conteneurisé dans une DMZ interne avec Docker et préparation d’une formation développeurs.**
 
+![Bannière Millenuits](https://ap-bts-sio-louis.github.io/millenuits/assets/banniere_millenuits.png)
+
 ---
 
 ## Informations générales
 
-  - **Date de création** : 03/04/2026
-  - **Dernière modification** : 03/04/2026
+  - **Date de création** : 09/04/2026
+  - **Dernière modification** : 09/04/2026
   - **Mainteneur** : MEDO Louis
 
 ---
 
 ## Sommaire
 
-  - A. Connexion à l'interface Portainer
-  - B. Déploiement de l'environnement via le Template
-  - C. Importation du code source dans le volume
-  - D. Vérification et accès à l'application
+  - A. Connexion à l'interface d'administration Portainer
+  - B. Déploiement de l'application via un dépôt Git
+  - C. Vérification de l'accessibilité du service Web
 
 ---
 
-## A. Connexion à l'interface Portainer
+## A. Connexion à l'interface d'administration Portainer
 
-1.  **Accès au portail Web.** Ouvrez votre navigateur et rendez-vous sur l'URL de l'interface d'administration (acceptez l'avertissement de sécurité lié au certificat).
+1. **Accès au portail d'authentification.** Ouvrir un navigateur web et naviguer vers l'URL de gestion de l'infrastructure.
 
-    ```text
-    https://172.16.51.21:9443
-    ```
+    [http://portainer.millenuits.lan:9443](http://portainer.millenuits.lan:9443)
 
-2.  **Authentification et sélection de l'environnement.** Connectez-vous avec les identifiants (nom d'utilisateur et mot de passe) qui vous ont été fournis par l'équipe système. Une fois connecté, vous arrivez sur la page d'accueil (Home). Cliquez sur l'environnement nommé **local** pour accéder à vos ressources.
+2. **Authentification.** Saisir les identifiants de connexion (Nom d'utilisateur et Mot de passe) attribués, puis cliquer sur le bouton **Login**.
 
-    [Capture d'écran à faire : Page d'accueil Portainer montrant le clic sur l'environnement "local"]
+    ![Page d'authentification Portainer](./assets/portainer01_page_connexion.png)
 
----
+3. **Sélection de l'environnement.** Sur la page d'accueil (Home), cliquer sur l'environnement nommé **local** afin d'accéder aux ressources rattachées à ce nœud Docker.
 
-## B. Déploiement de l'environnement via le Template
-
-Afin de garantir un environnement stable et identique pour tous, l'équipe SRE a préparé un modèle (Template) contenant un serveur Web Apache/PHP et une base de données MariaDB.
-
-1. **Sélectionner l'environnement `local`**.
-
-    ![Environnement](./assets/portainer51_guide-utilisateur_environnement.png)
-
-1.  **Sélection du modèle SRE.** Dans le menu de gauche, cliquez sur **Templates**, puis accédez à l'onglet **Custom**. Cliquez sur le modèle nommé `Template - Dev - Environnement WEB DB`.
-
-    [Capture d'écran à faire : Interface Custom Templates avec le modèle sélectionné]
-
-2.  **Déploiement de la Stack.** Une interface de configuration s'ouvre. Remplissez les informations nécessaires pour instancier votre environnement.
-
-      * **Name** : Donnez un nom à votre projet (ex: `projet-appli-frais`, sans espaces ni majuscules).
-      * Cliquez sur le bouton **Deploy the stack** en bas de la page.
-      * *Note : La création peut prendre quelques secondes le temps que Portainer télécharge les images Docker.*
-
-    [Capture d'écran à faire : Bouton "Deploy the stack" dans l'interface de création]
+    ![Sélection de l'environnement local](./assets/portainer02_environnement.png)
 
 ---
 
-## C. Importation du code source dans le volume
+## B. Déploiement de l'application via un dépôt Git
 
-Puisque vous n'avez pas d'accès SSH direct au serveur (règle de sécurité), l'ajout de vos fichiers PHP et de vos assets se fait directement via l'interface Web de Portainer, qui va les injecter dans le volume persistant.
+*Note : L'approche GitOps consiste à utiliser un dépôt Git comme source unique de vérité. Portainer se charge de cloner le dépôt et d'exécuter les instructions du fichier `docker-compose.yml` situé à la racine.*
 
-1.  **Accès au gestionnaire de fichiers du volume.** Dans le menu de gauche, cliquez sur **Volumes**. Cherchez le volume correspondant au code de votre application (il sera généralement nommé `nomdevotrestack_app_code`). Cliquez sur son nom.
+1. **Accès au gestionnaire de piles (Stacks).** Dans le menu latéral de gauche, sélectionner **Stacks**, puis cliquer sur le bouton **+ Add stack** situé en haut à droite de l'interface.
 
-    [Capture d'écran à faire : Liste des volumes avec le volume "app\_code" mis en évidence]
+    ![Liste des Stacks](./assets/portainer04_add-stack.png)
 
-2.  **Upload des fichiers.** Sur la page de détails du volume, repérez la section **Browse**.
+2. **Définition de la méthode de déploiement.** Saisir un nom représentatif pour l'application dans le champ **Name** (ex: `app-millenuits`, sans espaces ni majuscules). Dans la section **Build method**, sélectionner l'option **Repository**.
 
-      * Cliquez sur le bouton **Browse** pour ouvrir l'explorateur de fichiers Web.
-      * Vous vous trouvez dans le dossier `/var/www/html` de votre serveur Web.
-      * Utilisez le bouton **Upload** pour transférer vos fichiers source (ex: `index.php`, dossiers `css`, `js`) depuis votre ordinateur vers le conteneur.
+    ![Méthode de construction Repository](./assets/portainer05_configuration-stack.png)
 
-    [Capture d'écran à faire : Interface "Browse" du volume montrant le bouton Upload]
+3. **Configuration du dépôt source.** Dans la section **Git repository**, renseigner l'URL complète du dépôt contenant le code source de l'application dans le champ **Repository URL**. La référence par défaut (`refs/heads/main`) cible la branche principale.
+
+4. **Gestion des accès et déploiement.** Descendre jusqu'à la section **Access control**. Il est recommandé de sélectionner **Restricted** et d'assigner l'équipe de développement autorisée (ex: **Developpeurs**). Enfin, cliquer sur le bouton **Deploy the stack**. 
+*Le déploiement peut prendre quelques instants, le temps d'instancier les conteneurs et de télécharger le code.*
+
+    ![Déploiement de la stack](./assets/portainer06_deploy-stack.png)
 
 ---
 
-## D. Vérification et accès à l'application
+## C. Vérification de l'accessibilité du service Web
 
-1.  **Vérification de l'état des conteneurs.** Dans le menu de gauche, cliquez sur **Containers**. Assurez-vous que vos deux conteneurs (le serveur Web et la base de données MariaDB) ont le statut `running`.
+1. **Validation de l'état des conteneurs.** Une fois le déploiement terminé, s'assurer depuis le menu **Containers** que les services liés à la nouvelle pile sont dans l'état `running`.
 
-    [Capture d'écran à faire : Liste des conteneurs montrant les statuts "running" et les ports exposés]
+2. **Accès à l'application.** Ouvrir un nouvel onglet dans le navigateur et accéder au port exposé par le service serveur Web (Apache) configuré dans la pile.
 
-2.  **Accès au site Web.** Le serveur Apache/PHP de votre template écoute sur le port `8080`. Ouvrez un nouvel onglet dans votre navigateur pour visualiser votre code en cours d'exécution :
+    - [http://portainer.millenuits.lan:8080](http://portainer.millenuits.lan:8080)
 
-    ```text
-    http://172.16.51.21:8080
-    ```
+    L'affichage de la page d'accueil de l'application confirme l'exécution correcte de l'environnement conteneurisé.
