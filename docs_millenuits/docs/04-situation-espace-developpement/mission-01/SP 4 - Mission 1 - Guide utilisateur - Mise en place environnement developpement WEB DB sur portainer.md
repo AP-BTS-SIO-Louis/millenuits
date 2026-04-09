@@ -50,6 +50,8 @@
 
 2. **Définition de la méthode de déploiement.** Saisir un nom représentatif pour l'application dans le champ **Name** (ex: `app-millenuits`, sans espaces ni majuscules). Dans la section **Build method**, sélectionner l'option **Repository**.
 
+    - Pour gérer les variables d'environnement de votre projet, vous pouvez les saisir individuellement de manière sécurisée via le bouton `Add an environment variable`, ou importer directement un fichier **.env** existant.
+
     ![Méthode de construction Repository](./assets/portainer05_configuration-stack.png)
 
 3. **Configuration du dépôt source.** Dans la section **Git repository**, renseigner l'URL complète du dépôt contenant le code source de l'application dans le champ **Repository URL**. La référence par défaut (`refs/heads/main`) cible la branche principale.
