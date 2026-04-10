@@ -13,6 +13,7 @@ boot-end-marker
 !
 !
 username louismedo privilege 15 secret 5 $1$l5kX$4TatD0FwQTAV7DYQyKgbJ.
+username louisbiseray privilege 15 secret 5 $1$c9If$QQzSg5LBOa5VMThcF86AP/
 no aaa new-model
 system mtu routing 1500
 ip subnet-zero
