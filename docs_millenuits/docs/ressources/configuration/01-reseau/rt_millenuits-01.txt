@@ -36,6 +36,7 @@ license udi pid CISCO1921/K9 sn FGL163021WM
 !
 !
 username louismedo privilege 15 secret 4 FJrsRLziFOoMfbebrXvGOcu8imlm42s6rp5u6P0gmsk
+username louisbiseray privilege 15 secret 4 9bx9M7YD2AtEllYVkuLgdcwEzx1fWZq7snnAPeLV8uI
 !
 ip ssh version 2
 crypto key generate rsa modulus 2048
@@ -186,6 +187,8 @@ control-plane
 !
 !
 line con 0
+ password 7 133712060A07016711212665780D050204020D5A
+ login
 line aux 0
 line 2
  no activation-character
