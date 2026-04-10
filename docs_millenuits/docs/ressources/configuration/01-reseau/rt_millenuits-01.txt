@@ -151,6 +151,9 @@ ip nat inside source list NAT interface GigabitEthernet0/0 overload
 ip route 0.0.0.0 0.0.0.0 172.16.31.254
 !
 ip access-list extended DMZ
+ remark Autorisation requetes DNS vers serveur interne
+ permit udp 10.10.10.0 0.0.0.255 host 172.16.51.1 eq 53
+ permit tcp 10.10.10.0 0.0.0.255 host 172.16.51.1 eq 53
  remark Autorisation des reponses
  permit tcp 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255 established
  permit tcp 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255 established

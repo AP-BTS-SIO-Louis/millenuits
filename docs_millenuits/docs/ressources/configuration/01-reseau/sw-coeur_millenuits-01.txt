@@ -137,9 +137,15 @@ interface FastEthernet0/14
  switchport mode access
 !
 interface FastEthernet0/15
+ description VLAN 53 DMZ
+ switchport access vlan 53
+ switchport mode access
 !
 interface FastEthernet0/16
-!         
+ description VLAN 53 DMZ
+ switchport access vlan 53
+ switchport mode access
+!
 interface FastEthernet0/17
 !
 interface FastEthernet0/18
@@ -163,14 +169,14 @@ interface FastEthernet0/24
  switchport mode access
 !
 interface GigabitEthernet0/1
- switchport mode trunk
  description TRUNK rt_millenuits01
- switchport trunk allowed vlan 10-15,51,99
+ switchport trunk allowed vlan 10-15,51,53,99
+ switchport mode trunk
 !
 interface GigabitEthernet0/2
- switchport mode trunk
  description TRUNK rt_millenuits01
- switchport trunk allowed vlan 10-15,51,99
+ switchport trunk allowed vlan 10-15,51,53,99
+ switchport mode trunk
 !
 interface Vlan1
  no ip address
