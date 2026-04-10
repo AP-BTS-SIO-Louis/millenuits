@@ -8,7 +8,7 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 service password-encryption
 !
-hostname rt_millenuits-01
+hostname rt_millenuits_coeur-01
 !
 boot-start-marker
 boot-end-marker
