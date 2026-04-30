@@ -31,9 +31,9 @@ ___
 
 ### 1. Le Réseau : Passer en "Pont" (Bridged)
 
-Par défaut, VirtualBox met les machines en mode **NAT**. Dans ce mode, le serveur FOG ne pourra jamais contacter le Windows 11.
+Par défaut, VirtualBox met les machines en mode **NAT**. Dans ce mode, le serveur FOG ne pourra jamais contacter le Windows 10.
 
-- Aller dans les **Paramètres** de la machine virtuelle Windows 11.
+- Aller dans les **Paramètres** de la machine virtuelle Windows 10.
 
 - Section **Réseau**.
 
@@ -48,7 +48,7 @@ FOG utilise un noyau Linux (FOS) pour capturer les images. Certaines cartes virt
 
 - Dans l'onglet **Réseau** -> **Avancé**.
 
-- Type de carte : Choisir **Intel PRO/1000 MT Desktop** (ou Server).
+- Type de carte : Choisir **Intel PRO/1000 MT Desktop**.
 
 ### 3. Activer le Boot Réseau (PXE)
 
@@ -57,12 +57,6 @@ Pour que FOG prenne la main au démarrage, la VM doit chercher le serveur sur le
 - Dans **Système** -> onglet **Carte mère**.
 
 - Dans **Ordre d'amorçage**, cocher **Réseau** et le placer tout en haut de la liste avec les flèches.
-
-### 4. Le défi de l'EFI et du Secure Boot
-
-Windows 11 exige l'EFI.
-
-- Dans **Système** -> **Carte mère**, s'assurer que **Activer l'EFI** est coché.
 
 ___
 
@@ -88,7 +82,7 @@ Avant de capturer, il faut créer le "contenant" sur le serveur FOG.
 
 1. Sur l'interface Web -> **Image** -> **Créée une nouvelle Image**.
 
-2. Nommer le (ex: `Win11_Master`).
+2. Nommer le (ex: `Win10_Master`).
 
 3. **Image Type :** Sélectionne **Single Disk - Resizable.**
 
@@ -107,7 +101,7 @@ Maintenant, on dit à FOG que _ce_ PC précis possède _cette_ image.
 
 2. Cliquer sur le PC Maitre.
 
-3. Dans le champ **Host Image**, sélectionne l'image créée `Win11_Master`.
+3. Dans le champ **Host Image**, sélectionne l'image créée `Win10_Master`.
 
 4. Cliquer sur **Update**.
 
@@ -119,7 +113,9 @@ Maintenant, on dit à FOG que _ce_ PC précis possède _cette_ image.
 
 3. **Rallumer le PC Master** et s'assurer qu'il boot en PXE (réseau).
 
-4. Le PC ne va pas lancer Windows, il va charger l'environnement FOS. il y aura une barre de progression bleue : FOG est en train "d'aspirer" le Windows 11 vers le serveur.
+>[!note] En cas d'erreur "Kernel Panic" vérifier l'horloge de FOG dans Configuration > Générale > Fuseau horaire
+
+4. Le PC ne va pas lancer Windows, il va charger l'environnement FOS. il y aura une barre de progression bleue : FOG est en train "d'aspirer" le Windows 10 vers le serveur.
 
 ___ 
 
