@@ -108,6 +108,7 @@ interface GigabitEthernet0/1.16
  ip address 172.40.2.174 255.255.255.240
  ip helper-address 172.16.51.11
  ip nat inside
+ ip access-group Filtrage_Dev in
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.51
