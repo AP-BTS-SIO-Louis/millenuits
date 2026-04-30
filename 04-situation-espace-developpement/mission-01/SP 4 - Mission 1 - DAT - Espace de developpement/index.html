@@ -1,0 +1,4247 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../SP%204%20-%20Mission%201%20-%20ADR%20-%20Interface%20de%20gestion%20Docker%20pour%20les%20d%C3%A9veloppeurs/">
+      
+      
+        <link rel="next" href="../deploiement/SP%204%20-%20Mission%201%20-%20Configuration%20Portainer%20sur%20MN21/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/icon_millenuits.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>SP 4 - Mission 1 - DAT - Espace de développement - Documentation - Millenuits</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sp-4-mission-1-dat-espace-de-developpement" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Documentation - Millenuits" class="md-header__button md-logo" aria-label="Documentation - Millenuits" data-md-component="logo">
+      
+  <img src="../../../assets/icon_millenuits.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation - Millenuits
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SP 4 - Mission 1 - DAT - Espace de développement
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation - Millenuits" class="md-nav__button md-logo" aria-label="Documentation - Millenuits" data-md-component="logo">
+      
+  <img src="../../../assets/icon_millenuits.png" alt="logo">
+
+    </a>
+    Documentation - Millenuits
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../problematique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ❓ Problématique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 situation gestion infrastructure reseau
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 situation gestion infrastructure reseau
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/01-mission/SP%201%20-%20Mission%201%20-%20Plan%20d%27adressage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 1 - Plan d'adressage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Mise%20en%20place%20du%20SSH%20sur%20les%20%C3%A9l%C3%A9ments%20d%27inter%20connexion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1   Mission 2   Mise en place du SSH sur les éléments d'inter connexion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Mise%20en%20place%20du%20protypage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 2 - Mise en place du protypage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Recette%20infrastructure%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 1 - Recette infrastructure réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/02-mission/SP%201%20-%20Mission%202%20-%20Sauvegarde%20via%20TFTP%20des%20%C3%A9quipements%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 2 - Sauvegarde via TFTP des équipements réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/03-mission/SP%201%20-%20Mission%203%20-%20Configuration%20de%20la%20borne%20WIFI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 3 - Configuration de la borne WIFI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-situation-gestion-infrastructure-reseau/03-mission/SP%201%20-%20Mission%203%20-%20Mise%20en%20place%20du%20r%C3%A9seau%20pour%20AP%20WIFI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 1 - Mission 3 - Mise en place du réseau pour AP WIFI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 situation gestion parc informatique
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 situation gestion parc informatique
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/01-mission/SP%202%20-%20Mission%201%20-%20Fiche%20recette%20-%20D%C3%A9ploiement%20de%20la%20Documentation%20sur%20GitHub%20Pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiche recette - Déploiement de la Documentation sur GitHub Pages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/01-mission/SP%202%20-%20Mission%201%20-%20Mise%20en%20place%20MkDocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 1 - Mise en place MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/02-mission/SP%202%20-%20Mission%202%20Documentation%20-%20Installations%20de%20nouveaux%20clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2   Mission 2 Documentation   Installations de nouveaux clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/02-mission/SP%202%20-%20Mission%202%20Installations%20de%20nouveaux%20clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2   Mission 2 Installations de nouveaux clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/03-mission/SP%202%20-%20Mission%203%20Comparatif%20des%20Outils%20de%20d%C3%A9ploiement%20de%20postes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2   Mission 3 Comparatif des Outils de déploiement de postes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/03-mission/SP%202%20-%20Mission%203%20Enregistrement%20et%20d%C3%A9ploiement%20d%27un%20postes%20maitre%20sur%20Fog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2   Mission 3 Enregistrement et déploiement d'un postes maitre sur Fog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/03-mission/SP%202%20-%20Mission%203%20Installation%20du%20serveurs%20sur%20Linux%20Debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2   Mission 3 Installation du serveurs sur Linux Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 mission
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 mission
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/04-mission/SP%202%20-%20Mission%204%20-%20Choix%20de%20l%27outil%20de%20ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Choix de l'outil de ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/04-mission/SP%202%20-%20Mission%204%20-%20Configuration%20post%20installation%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Configuration post installation GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/04-mission/SP%202%20-%20Mission%204%20-%20Fiche%20de%20recette%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Fiche de recette GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/04-mission/SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Administrateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Administrateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/04-mission/SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Helpdesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Helpdesk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/04-mission/SP%202%20-%20Mission%204%20-%20Guide%20d%27utilisation%20GLPI%20-%20Utilisateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Guide d'utilisation GLPI - Utilisateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-situation-gestion-parc-informatique/04-mission/SP%202%20-%20Mission%204%20-%20Installation%20de%20GLPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 2 - Mission 4 - Installation de GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 situation services principaux ad dhcp
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 situation services principaux ad dhcp
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mission 01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mission 01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-01/SP%203%20-%20Mission%201%20-%20Configuration%20post-installation%20AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 1 - Configuration post-installation AD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-01/SP%203%20-%20Mission%201%20-%20Configuration%20post-installation%20Windows%20Server%20MN01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 1 - Configuration post-installation Windows Server MN01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-01/SP%203%20-%20Mission%201%20-%20Cr%C3%A9ation%20de%20la%20VM%20MN01%20sur%20Nutanix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 1 - Création de la VM MN01 sur Nutanix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-01/SP%203%20-%20Mission%201%20-%20D%C3%A9ploiement%20des%20services%20DNS%20et%20Active%20Directory%20sur%20Windows%20Server%20MN01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 1 - Déploiement des services DNS et Active Directory sur Windows Server MN01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-01/SP%203%20-%20Mission%201%20-%20Recette%20du%20service%20Active%20Directory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 1 - Recette du service Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-01/SP%203%20-%20Mission%201%20-%20Recette%20infrastructure%20r%C3%A9seau%20et%20DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 1 - Recette infrastructure réseau et DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mission 02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mission 02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-02/SP%203%20-%20Mission%202%20-%20Configuration%20de%20l%27agent%20relais%20CISCO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 2 - Configuration de l'agent relais CISCO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-02/SP%203%20-%20Mission%202%20-%20Installation%20du%20service%20KEA%20DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 2 - Installation et configuration de KEA DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-02/SP%203%20-%20Mission%202%20-%20Recette%20-%20Service%20DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 2 - Recette - Service DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mission 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mission 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-03/SP%203%20-%20Mission%203%20-%20Configuration%20d%27un%20serveur%20NAS%20CORE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 3 - Configuration du NAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-03/SP%203%20-%20Mission%203%20-%20Documentation%20comparative%20des%20solutions%20de%20NAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 3 - Choix de la solution NAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-03/SP%203%20-%20Mission%203%20-%20Mise%20en%20place%20d%27un%20serveur%20NAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 3 - Installation de TrueNas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-situation-services-principaux-ad-dhcp/mission-03/SP%203%20-%20Mission%203%20-%20Relier%20TrueNas%20%C3%A0%20l%27AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 3 - Mission 3 - Synchronisation AD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 situation espace developpement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 situation espace developpement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mission 01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mission 01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SP%204%20-%20Mission%201%20-%20ADR%20-%20Interface%20de%20gestion%20Docker%20pour%20les%20d%C3%A9veloppeurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - ADR : Interface de gestion Docker pour les développeurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - DAT - Espace de développement
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - DAT - Espace de développement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sommaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sommaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-vue-densemble-et-contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Vue d'ensemble et contexte
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. Vue d&#39;ensemble et contexte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-de-linfrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schéma de l'infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-architecture-systeme-et-composants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Architecture système et composants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Architecture système et composants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-mise-en-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure mise en place
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socle-dhebergement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Socle d'hébergement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-reseau-et-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Réseau et sécurité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. Réseau et sécurité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reseau-acl-cisco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réseau (ACL Cisco)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securite-hardening-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sécurité (hardening Docker)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-gestion-des-identites-et-des-acces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Gestion des identités et des accès
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="D. Gestion des identités et des accès">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coffre-fort-de-mots-de-passe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coffre-fort de mots de passe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controle-dacces-sur-portainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contrôle d'accès sur Portainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-workflow-developpeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Workflow développeur
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="E. Workflow développeur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cycle-de-vie-applicatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cycle de vie applicatif
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsabilites-du-developpeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilités du développeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1_3" id="__nav_6_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploiement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deploiement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploiement/SP%204%20-%20Mission%201%20-%20Configuration%20Portainer%20sur%20MN21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Configuration de Portainer sur MN21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploiement/SP%204%20-%20Mission%201%20-%20Configuration%20de%20Docker%20sur%20MN21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Configuration Sécurisée de Docker (Dev)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploiement/SP%204%20-%20Mission%201%20-%20Installation%20Docker%20sur%20MN21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Installation de Docker sur MN21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploiement/SP%204%20-%20Mission%201%20-%20Installation%20de%20Portainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Installation de Portainer sur MN21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploiement/SP%204%20-%20Mission%201%20-%20Installation%20de%20gitea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Déploiement et configuration Initiale de Gitea
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploiement/SP%204%20-%20Mission%201%20-%20Recette%20-%20Espace%20developpement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Recette - Espace de développement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1_4" id="__nav_6_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Runbooks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbooks/SP%204%20-%20Mission%201%20-%20Formation%20-%20Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Formation - Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbooks/SP%204%20-%20Mission%201%20-%20Guide%20utilisateur%20-%20Ajout%20des%20images%20Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Guide utilisateur - Ajout des images Docker hors ligne sur Portainer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbooks/SP%204%20-%20Mission%201%20-%20Guide%20utilisateur%20-%20Mise%20en%20place%20environnement%20developpement%20WEB%20DB%20sur%20portainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Guide de Déploiement GitOps sur Portainer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbooks/SP%204%20-%20Mission%201%20-%20Guide%20utilisateur%20-%20Utiliser%20Portainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 1 - Guide utilisateur - Utiliser Portainer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mission 02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mission 02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mission-02/SP%204%20-%20Mission%202%20-%20Cr%C3%A9ation%20d%27un%20sous%20r%C3%A9seau%20d%C3%A9veloppeur%20avec%20WI-FI%20s%C3%A9curiser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 2 - Plan d'adressage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mission-02/SP%204%20-%20Mission%202%20-%20Documentation%20de%20la%20borne%20Wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 2 - Configuration du Wifi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mission-02/SP%204%20-%20Mission%202%20-%20Fiche%20Test%20du%20point%20d%27acc%C3%A8s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SP 4 - Mission 2 - Configuration du Wifi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ressources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/configuration/repertoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Répertoire - Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_2" id="__nav_7_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 procedures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    00 procedures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/configuration/00-procedures/R%C3%A9initialisation%20de%20la%20configuration%20du%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procédure - Réinitialisation d'un routeur Cisco 1921
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/configuration/00-procedures/R%C3%A9initialisation%20de%20la%20configuration%20du%20switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procédure - Réinitialisation d'un commutateur Cisco 2960
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schémas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schémas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/sch%C3%A9mas/R%C3%A9pertoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Répertoire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Situations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Situations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/situations/repertoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Répertoire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Socle technique
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Socle technique
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4_1" id="__nav_7_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/socle-technique/01-documentation/Guide%20utilisation%20-%20Nommage%20des%20commits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide utilisation - Nommage des commits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/socle-technique/01-documentation/Guide%20utilisation%20-%20ajout%20de%20documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide utilisation - Ajout de documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/socle-technique/01-documentation/Template%20-%20SP%20x%20-%20Mission%20x%20-%20Titre/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template   SP x   Mission x   Titre
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4_2" id="__nav_7_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 linux debian
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 linux debian
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/socle-technique/02-linux-debian/Configuration%20type%20machine%20virtuelle%20Debian%2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration type machine virtuelle Debian 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tableaux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tableaux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Matrice%20des%20flux%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrice des flux - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Plan%20d%27adressage%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan d'adressage - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/tableaux/Table%20de%20routage%20-%20Millenuits%20GP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table de routage - Millenuits GP1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sommaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sommaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-vue-densemble-et-contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Vue d'ensemble et contexte
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. Vue d&#39;ensemble et contexte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-de-linfrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schéma de l'infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-architecture-systeme-et-composants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Architecture système et composants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Architecture système et composants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-mise-en-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure mise en place
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socle-dhebergement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Socle d'hébergement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-reseau-et-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Réseau et sécurité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. Réseau et sécurité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reseau-acl-cisco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réseau (ACL Cisco)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securite-hardening-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sécurité (hardening Docker)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-gestion-des-identites-et-des-acces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Gestion des identités et des accès
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="D. Gestion des identités et des accès">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coffre-fort-de-mots-de-passe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coffre-fort de mots de passe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controle-dacces-sur-portainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contrôle d'accès sur Portainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-workflow-developpeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Workflow développeur
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="E. Workflow développeur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cycle-de-vie-applicatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cycle de vie applicatif
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsabilites-du-developpeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilités du développeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sp-4-mission-1-dat-espace-de-developpement">SP 4 - Mission 1 - DAT - Espace de développement</h1>
+<p><strong>SP 4 : Mise en place d'un espace de développement</strong></p>
+<p><strong>Mission 1 : Mise en place d'un environnement de test conteneurisé dans une DMZ interne avec Docker et préparation d'une formation développeurs.</strong></p>
+<p><img alt="Bannière Millenuits" src="https://ap-bts-sio-louis.github.io/millenuits/assets/banniere_millenuits.png" /></p>
+<hr />
+<h2 id="informations-generales">Informations générales</h2>
+<ul>
+<li><strong>Date de création</strong> : 09/04/2026</li>
+<li><strong>Dernière modification</strong> : 09/04/2026</li>
+<li><strong>Mainteneur</strong> : MEDO Louis</li>
+</ul>
+<hr />
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li>A. <a href="#a-vue-densemble-et-contexte">Vue d'ensemble et contexte</a></li>
+<li>B. <a href="#b-architecture-système-et-composants">Architecture système et composants</a></li>
+<li>C. <a href="#c-réseau-et-sécurité">Réseau et sécurité</a></li>
+<li>D. <a href="#d-gestion-des-identités-et-des-accès">Gestion des identités et des accès</a></li>
+<li>E. <a href="#e-workflow-développeur">Workflow développeur</a></li>
+</ul>
+<hr />
+<h2 id="a-vue-densemble-et-contexte">A. Vue d'ensemble et contexte</h2>
+<h3 id="presentation">Présentation</h3>
+<p>Ce document décrit l'architecture technique de l'espace de développement mis en place pour <strong>Millenuits</strong>, reposant sur une infrastructure conteneurisée avec Docker, hébergée dans une DMZ interne sur le serveur de pré-production <strong>MN21</strong>.</p>
+<p><strong>Objectifs de l'architecture :</strong></p>
+<ul>
+<li>Fournir aux développeurs un environnement de test isolé, reproductible et facilement déployable</li>
+<li>Éviter les conflits de versions et les problèmes de dépendances liés au développement sur des machines partagées</li>
+<li>Isoler strictement l'environnement de test du réseau de production via une DMZ interne</li>
+<li>Centraliser la gestion des conteneurs via une interface web sécurisée (Portainer)</li>
+<li>Versionner les configurations d'infrastructure via un dépôt Git interne auto-hébergé (Gitea)</li>
+<li>Appliquer le principe de moindre privilège sur l'ensemble de la chaîne d'accè</li>
+</ul>
+<h3 id="schema-de-linfrastructure">Schéma de l'infrastructure</h3>
+<p><img alt="Schéma réseau - Espace de développement" src="../runbooks/assets/sch%C3%A9ma_reseau_espace-developpement.png" /></p>
+<p><em>Schéma réseau - Espace de développement</em></p>
+<hr />
+<h2 id="b-architecture-systeme-et-composants">B. Architecture système et composants</h2>
+<h3 id="infrastructure-mise-en-place">Infrastructure mise en place</h3>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Serveur MN21</strong></td>
+<td>Serveur Linux (Debian) dédié, hébergé dans la DMZ interne. Constitue le socle physique unique de l'environnement de test.</td>
+</tr>
+<tr>
+<td><strong>Réseau DMZ interne</strong></td>
+<td>Sous-réseau isolé du réseau de production par des règles de filtrage (ACL Cisco). Accessible uniquement depuis le sous-réseau développeurs.</td>
+</tr>
+<tr>
+<td><strong>Poste développeur</strong></td>
+<td>Poste de travail standard du développeur, situé dans le sous-réseau développeurs. Accède aux services MN21 via HTTP/HTTPS sur les ports dédiés.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="socle-dhebergement">Socle d'hébergement</h3>
+<p>L'ensemble des services applicatifs est conteneurisé et tourne sur le moteur Docker installé sur MN21. Le déploiement est orchestré par Docker Compose.</p>
+<ul>
+<li>
+<p><strong>Docker Engine</strong> — Moteur de conteneurisation. Fournit l'isolation des processus, la gestion des ressources et le réseau virtuel entre conteneurs. Durci via <code>daemon.json</code> (voir section C).</p>
+</li>
+<li>
+<p><strong>Portainer CE <code>2.40.0-alpine</code></strong> — Interface graphique web d'administration Docker. Accessible sur <code>https://172.16.51.21:9443</code>. Permet aux développeurs de déployer et gérer leurs stacks de conteneurs sans accès SSH au serveur. Son accès au socket Docker (<code>/var/run/docker.sock</code>) est rendu possible par une exception de namespace (<code>--userns=host</code>).</p>
+</li>
+<li>
+<p><strong>Gitea <code>1.21</code></strong> — Forge Git auto-hébergée. Accessible sur <code>http://gitea.millenuits.lan:3000</code>. Sert de dépôt central pour le code source et les fichiers de configuration Docker Compose. Exposé également en SSH sur le port <code>222</code> de l'hôte pour éviter le conflit avec le port SSH système (<code>22</code>).</p>
+</li>
+<li>
+<p><strong>PostgreSQL <code>15-alpine</code></strong> — Base de données relationnelle dédiée à Gitea. N'est pas exposée sur le réseau hôte — elle communique avec Gitea uniquement via le réseau virtuel Docker interne <code>gitea_net</code>. Dispose d'un healthcheck natif (<code>pg_isready</code>) pour garantir que Gitea ne démarre que lorsque la base est prête.</p>
+</li>
+</ul>
+<hr />
+<h2 id="c-reseau-et-securite">C. Réseau et sécurité</h2>
+<h3 id="reseau-acl-cisco">Réseau (ACL Cisco)</h3>
+<p><img alt="Schéma logique - ACL CISCO" src="../runbooks/assets/schema_logique_acl-cisco.png" /></p>
+<p><em>Schéma logique - ACL CISCO</em></p>
+<p><strong>Configuration ACL Cisco appliquée (<code>DMZ</code> — sens sortant du sous-réseau développeurs) :</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip access-list extended DMZ
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> remark Autorisation requetes DNS vers serveur interne
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> permit udp 10.10.10.0 0.0.0.255 host 172.16.51.1 eq domain
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> permit tcp 10.10.10.0 0.0.0.255 host 172.16.51.1 eq domain
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> remark Autorisation des reponses
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> permit tcp 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255 established
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> permit tcp 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255 established
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> permit icmp 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255 echo-reply
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> permit icmp 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255 echo-reply
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> remark Interdiction acces autres vlan
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a> deny   ip 10.10.10.0 0.0.0.255 172.16.0.0 0.0.255.255
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a> deny   ip 10.10.10.0 0.0.0.255 172.40.0.0 0.0.255.255
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a> remark Interdiction globale
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> deny   ip any any
+</code></pre></div>
+<p><strong>Synthèse des règles :</strong></p>
+<ul>
+<li>✅ DNS autorisé — Les développeurs (<code>10.10.10.0/24</code>) peuvent résoudre des noms de domaine internes en interrogeant uniquement le serveur DNS désigné (<code>172.16.51.1</code>) en UDP et TCP sur le port <code>53</code>. Cela leur permet d'accéder aux services MN21 via leur nom DNS (ex : <code>gitea.millenuits.lan</code>) plutôt que par IP.</li>
+<li>✅ Réponses TCP établies autorisées — Le mot-clé <code>established</code> permet uniquement le retour de connexions TCP initiées par les développeurs (le flag ACK est présent). Aucune connexion ne peut être initiée depuis le SI vers le sous-réseau développeurs.</li>
+<li>✅ ICMP echo-reply autorisé — Seules les réponses <code>ping</code> (echo-reply) provenant du SI sont autorisées en retour. Les développeurs peuvent donc tester la connectivité vers MN21, mais le SI ne peut pas initier de ping vers leur poste.</li>
+<li>❌ Flux IP initiés bloqués — Toute tentative de connexion initiée par un développeur vers <code>172.16.0.0/16</code> ou <code>172.40.0.0/16</code> (hors DNS et réponses établies) est bloquée. Cela empêche tout accès direct aux serveurs de production ou aux autres VLANs.</li>
+<li>❌ Règle de fermeture globale (<code>deny ip any any</code>) — Tout flux non explicitement autorisé par les règles précédentes est rejeté. C'est la règle implicite de sécurité par défaut.</li>
+</ul>
+<h3 id="securite-hardening-docker">Sécurité (hardening Docker)</h3>
+<p>La configuration de sécurité est appliquée via le fichier <code>/etc/docker/daemon.json</code> sur MN21 :</p>
+<ul>
+<li>
+<p><strong>Rotation des logs</strong> (<code>log-driver: json-file</code>, <code>max-size: 10m</code>, <code>max-file: 3</code>) — Empêche les fichiers de journaux de saturer le disque. Chaque conteneur ne peut conserver que 3 fichiers de 10 Mo maximum, soit 30 Mo par conteneur au maximum.</p>
+</li>
+<li>
+<p><strong>Live-restore</strong> (<code>live-restore: true</code>) — Les conteneurs continuent de fonctionner en cas de redémarrage du démon Docker. Évite une coupure de service lors des mises à jour ou rechargements de configuration du moteur.</p>
+</li>
+<li>
+<p><strong>User Namespace Remapping</strong> (<code>userns-remap: default</code>) — L'utilisateur <code>root</code> (UID 0) à l'intérieur d'un conteneur est mappé vers un utilisateur non privilégié (<code>dockremap</code>) sur le système hôte. Ainsi, même si un attaquant s'échappe du conteneur, il ne dispose d'aucun privilège sur le serveur physique. <em>Exception justifiée :</em> Portainer désactive ce remapping pour lui seul (<code>--userns=host</code>) car il doit accéder au socket Docker en tant que root hôte pour administrer les autres conteneurs.</p>
+</li>
+<li>
+<p><strong>Blocage des élévations de privilèges</strong> (<code>no-new-privileges: true</code>) — Interdit aux processus s'exécutant dans un conteneur d'acquérir de nouveaux droits via <code>sudo</code> ou des binaires SUID. Limite la surface d'exploitation en cas de compromission d'un conteneur.</p>
+</li>
+</ul>
+<hr />
+<h2 id="d-gestion-des-identites-et-des-acces">D. Gestion des identités et des accès</h2>
+<h3 id="coffre-fort-de-mots-de-passe">Coffre-fort de mots de passe</h3>
+<p>L'ensemble des secrets de l'infrastructure (mots de passe des comptes d'administration, mots de passe des bases de données, tokens) sont gérés via <strong>Bitwarden</strong>, le coffre-fort d'équipe. Cette pratique répond à deux exigences fondamentales :</p>
+<ul>
+<li><strong>Aucun secret ne doit être stocké en clair dans le code</strong> — Les mots de passe sensibles (ex : <code>GITEA_DB_PASSWORD</code>) ne figurent pas dans les fichiers <code>docker-compose.yml</code> versionnés sur Git. Ils sont injectés dynamiquement au moment du déploiement via les variables d'environnement de Portainer.</li>
+<li><strong>Traçabilité et partage sécurisé</strong> — Chaque secret est consigné dans le coffre-fort de l'équipe système avec une nomenclature explicite (ex : <code>Gitea - Pré-production MN21 - DB Password</code>). Cela permet un transfert sécurisé des accès et facilite la rotation des mots de passe sans modifier le code source.</li>
+</ul>
+<h3 id="controle-dacces-sur-portainer">Contrôle d'accès sur Portainer</h3>
+<p>L'accès à Portainer est structuré selon le modèle <strong>RBAC</strong> (Role-Based Access Control) et le principe de moindre privilège :</p>
+<ul>
+<li>
+<p><strong>Compte d'urgence administrateur</strong> — Un seul compte administrateur à nom non standard (généré via Bitwarden) est créé lors de l'initialisation. Il est réservé exclusivement aux situations de perte d'accès aux comptes nominatifs et son mot de passe (30 caractères minimum) est conservé dans le coffre-fort système.</p>
+</li>
+<li>
+<p><strong>Équipe "Développeurs"</strong> — Les développeurs sont regroupés dans une équipe logique (<code>Developpeurs</code>) dans Portainer. L'attribution des droits se fait par équipe, ce qui simplifie l'intégration de nouveaux développeurs : il suffit de les ajouter à l'équipe existante.</p>
+</li>
+<li>
+<p><strong>Comptes nominatifs "Standard User"</strong> — Chaque développeur dispose d'un compte personnel (ex : <code>pierre.jean</code>) avec le rôle <em>Standard User</em> (non administrateur). Les droits d'administration globale (gestion des utilisateurs, paramètres du serveur) sont inaccessibles depuis ces comptes.</p>
+</li>
+<li>
+<p><strong>Délégation de l'environnement</strong> — L'équipe <code>Developpeurs</code> a uniquement accès à l'environnement Docker de MN21 (local). Les développeurs peuvent créer des stacks, des conteneurs et des volumes, mais uniquement dans cet environnement délégué. Ils ne peuvent pas interagir avec d'autres environnements ni modifier la configuration globale de Portainer.</p>
+</li>
+</ul>
+<hr />
+<h2 id="e-workflow-developpeur">E. Workflow développeur</h2>
+<h3 id="cycle-de-vie-applicatif">Cycle de vie applicatif</h3>
+<p>Le cycle de vie d'une application sur l'infrastructure suit un flux <strong>GitOps</strong> : la source de vérité est toujours le dépôt Git.</p>
+<p><img alt="Schéma - Workflow espace de développement" src="../runbooks/assets/sch%C3%A9ma_workflow_espace-developpement.png" /></p>
+<p><em>Schéma - Workflow espace de développement</em></p>
+<p>Le workflow se déroule en cinq étapes, entièrement au sein du serveur MN21 isolé en DMZ :</p>
+<ol>
+<li>
+<p><strong>Le développeur pousse son code</strong> depuis son poste vers le dépôt Git distant hébergé sur <strong>Gitea</strong> (conteneur Docker sur MN21). Gitea joue le rôle de source de vérité pour le code source et les fichiers de configuration d'infrastructure (<code>docker-compose.yml</code>).</p>
+</li>
+<li>
+<p><strong>Le développeur se connecte à Portainer</strong> via son navigateur web sur l'interface HTTPS (port 9443). Son accès est restreint à l'environnement de développement qui lui a été délégué — il ne peut pas accéder aux paramètres globaux du serveur.</p>
+</li>
+<li>
+<p><strong>Le développeur crée une Stack dans Portainer</strong> en pointant vers son dépôt Gitea. Portainer utilise la méthode "Repository" : il lit directement le <code>docker-compose.yml</code> stocké dans le dépôt Git, ce qui garantit que le déploiement est toujours synchronisé avec le code versionné.</p>
+</li>
+<li>
+<p><strong>Portainer récupère la configuration</strong> en allant lire le fichier <code>docker-compose.yml</code> depuis le dépôt Gitea. Cette étape constitue le cœur de l'approche <strong>GitOps</strong> : l'infrastructure est décrite sous forme de code, versionnable et auditable.</p>
+</li>
+<li>
+<p><strong>Portainer instancie les conteneurs</strong> de l'application à tester (service web, base de données, etc.) sur le moteur Docker de MN21. Le conteneur applicatif est alors accessible depuis le sous-réseau développeurs.</p>
+</li>
+</ol>
+<p><strong>Exemple concret — Déploiement d'une application PHP + MariaDB :</strong></p>
+<p>Un développeur souhaite tester une nouvelle version de son application. Il modifie son code PHP et met à jour son fichier <code>docker-compose.yml</code> pour pointer vers la nouvelle image. Il pousse ses changements sur Gitea (<code>git push</code>). Il se connecte ensuite sur Portainer, navigue vers sa Stack et clique sur <strong>Pull and redeploy</strong> : Portainer va chercher la dernière version du <code>docker-compose.yml</code> sur Gitea et redémarre les conteneurs avec les nouveaux paramètres. En moins d'une minute, le développeur peut accéder à <code>http://172.16.51.21:8080</code> pour valider son application.</p>
+<h3 id="responsabilites-du-developpeur">Responsabilités du développeur</h3>
+<p>Le développeur est responsable de la qualité et de la cohérence de son dépôt Git sur Gitea. Concrètement, cela implique :</p>
+<ul>
+<li>
+<p><strong>Code source</strong> — Versionner l'intégralité du code applicatif sur Gitea. Chaque modification significative doit faire l'objet d'un commit avec un message explicite. Le dépôt constitue la référence : si un conteneur est recréé, c'est le code présent sur Gitea qui sera utilisé.</p>
+</li>
+<li>
+<p><strong>Configuration Docker</strong> — Maintenir à jour le fichier <code>docker-compose.yml</code> dans le dépôt. Ce fichier décrit l'infrastructure de l'application (services, images, ports, volumes). Il ne doit <strong>jamais</strong> contenir de secrets en clair — les mots de passe doivent être passés via des variables d'environnement injectées dans Portainer.</p>
+</li>
+<li>
+<p><strong>Base de données</strong> — Les développeurs sont responsables de la persistance de leurs données de test. Les volumes Docker garantissent la survie des données entre les redémarrages de conteneurs, mais <strong>pas</strong> entre les suppressions de stacks. Le développeur doit versionner ses scripts d'initialisation SQL (ou équivalent) dans le dépôt Git afin de pouvoir recréer un jeu de données cohérent à tout moment.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      AP - Contexte Millenuits - 2025 - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
