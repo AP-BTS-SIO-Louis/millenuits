@@ -177,6 +177,10 @@ ip access-list extended DMZ-PING
  permit icmp 10.10.10.0 0.0.0.255 10.10.10.0 0.0.0.255
  remark Interdiction globale
  deny ip any any
+ip access-list extended Filtrage_Dev
+ permit ip 172.40.2.160 0.0.0.15 10.10.10.0 0.0.0.255
+ permit ip 10.10.10.0 0.0.0.255 172.40.2.160 0.0.0.15
+ deny ip 172.40.2.160 0.0.0.15 172.40.0.0 0.0.255.255
 ip access-list standard NAT
  remark Utilisateurs
  permit 172.40.0.0 0.0.255.255
